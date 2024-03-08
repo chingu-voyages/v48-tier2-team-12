@@ -8,6 +8,10 @@ An app about dinosaurs with data from London's National History Museum.
 * [Kickoff meeting slides](https://docs.google.com/presentation/d/1yhfkyGfMT0STWgfWvay058aGqRYTQDkwuISlpTkXaWQ/edit?usp=sharing)
 * [Backlog](https://github.com/orgs/chingu-voyages/projects/211/views/1)
 
+## Live site
+
+[Dinopedia](https://v48-dinopedia.netlify.app)
+
 # voyage-tasks
 
 Your project's `readme` is as important to success as your code. For 
