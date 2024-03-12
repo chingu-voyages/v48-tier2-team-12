@@ -1,12 +1,34 @@
-import React from 'react'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import Layout from './pages/Layout';
+import Home from './pages/Home';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Layout />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: '/searchresult',
+        element: <SearchResult />,
+      },
+      {
+        path: '/dino/:id',
+        element: <DinoInfo />,
+      },
+      {
+        path: '/charts',
+        element: <Charts />,
+      },
+    ],
+  },
+]);
 
 const App = () => {
-  return (
-    <div className="main">
-      <img className="logo" src="./src/assets/chingu-logo-alone.jpg" height="50px"></img>
-      <h1>Chingu - Voyage 48 - Team 12</h1>
-    </div>
-  )
-}
+  return <RouterProvider router={router} />;
+};
 
-export default App
+export default App;
