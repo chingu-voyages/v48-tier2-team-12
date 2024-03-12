@@ -1,30 +1,55 @@
-# React + TypeScript + Vite
+# Dinopedia
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An app about dinosaurs with data from London's National History Museum.
 
-Currently, two official plugins are available:
+# First few links of Sprint #1 documents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* [App Feature Planning](https://docs.google.com/document/d/16Uy-yfyojOXvyJAMm5w6eamrOAlZto7c-ODee086IJA/edit)
+* [Kickoff meeting slides](https://docs.google.com/presentation/d/1yhfkyGfMT0STWgfWvay058aGqRYTQDkwuISlpTkXaWQ/edit?usp=sharing)
+* [Backlog](https://github.com/orgs/chingu-voyages/projects/211/views/1)
 
-## Expanding the ESLint configuration
+## Live site
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+[Dinopedia](https://v48-dinopedia.netlify.app)
 
-- Configure the top-level `parserOptions` property like this:
+# voyage-tasks
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+Your project's `readme` is as important to success as your code. For 
+this reason you should put as much care into its creation and maintenance
+as you would any other component of the application.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+If you are unsure of what should go into the `readme` let this article,
+written by an experienced Chingu, be your starting point - 
+[Keys to a well written README](https://tinyurl.com/yk3wubft).
+
+And before we go there's "one more thing"! Once you decide what to include
+in your `readme` feel free to replace the text we've provided here.
+
+> Own it & Make it your Own!
+
+## Team Documents
+
+You may find these helpful as you work together to organize your project.
+
+- [Team Project Ideas](./docs/team_project_ideas.md)
+- [Team Decision Log](./docs/team_decision_log.md)
+
+Meeting Agenda templates (located in the `/docs` directory in this repo):
+
+- Meeting - Voyage Kickoff --> ./docs/meeting-voyage_kickoff.docx
+- Meeting - App Vision & Feature Planning --> ./docs/meeting-vision_and_feature_planning.docx
+- Meeting - Sprint Retrospective, Review, and Planning --> ./docs/meeting-sprint_retrospective_review_and_planning.docx
+- Meeting - Sprint Open Topic Session --> ./docs/meeting-sprint_open_topic_session.docx
+
+## Our Team
+
+Everyone on your team should add their name along with a link to their GitHub
+& optionally their LinkedIn profiles below. Do this in Sprint #1 to validate
+your repo access and to practice PR'ing with your team *before* you start
+coding!
+
+- Teammate name #1: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
+- Teammate name #2: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
+
+   ...
+- Teammate name #n: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
