@@ -10,34 +10,24 @@ body {
     align-items: center;
     justify-content: space-between;
     
-    font-family: Inter;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 29px;
-    letter-spacing: 0em;
-    text-align: left;
-
     height: 62px;
     max-width: 430px;
     margin: 0 auto;
     padding: 0 19px;
 }
 
-.logo {
-    display: inline;
-    margin: 0;
-}
-
-h1 {
-    display: inline;
-    font-size: 26px;
+.nav-logo {
     margin: 0 auto;
-    
+
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29px;
+    letter-spacing: 0em;
+    text-align: left;
 }
 
 .menu {
     width: 24px;
     height: 24px;
-
-    /* margin-left: auto; */
 }
