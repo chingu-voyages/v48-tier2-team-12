@@ -11,18 +11,18 @@ const router = createBrowserRouter([
         index: true,
         element: <Home />,
       },
-      {
-        path: '/searchresult',
-        element: <SearchResult />,
-      },
-      {
-        path: '/dino/:id',
-        element: <DinoInfo />,
-      },
-      {
-        path: '/charts',
-        element: <Charts />,
-      },
+      // {
+      //   path: '/searchresult',
+      //   element: <SearchResult />,
+      // },
+      // {
+      //   path: '/dino/:id',
+      //   element: <DinoInfo />,
+      // },
+      // {
+      //   path: '/charts',
+      //   element: <Charts />,
+      // },
     ],
   },
 ]);
