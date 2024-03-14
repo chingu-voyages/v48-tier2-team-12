@@ -1,7 +1,19 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     height: 9%;
     background: linear-gradient(130deg, rgba(67, 30, 91, 0.4) 0%, rgba(179, 0, 0, 0.4) 50%, rgba(149, 89, 5, 0.6) 100%);
+    font-family: Inter;
+}
+
+.container{
+    max-width: 430px;
+    height: 150vh;
+    margin: 0 auto;
+    background-color: white;
 }
 
 .nav {
@@ -19,7 +31,6 @@ body {
 .nav-logo {
     margin: 0 auto;
 
-    font-family: Inter;
     font-size: 24px;
     font-weight: 700;
     line-height: 29px;
@@ -30,4 +41,7 @@ body {
 .menu {
     width: 24px;
     height: 24px;
+}
+h2 {
+    margin: 0;
 }
