@@ -5,7 +5,7 @@ import { fetchDinos } from "../utils/api.ts";
 export function ShowDinos() {
   const [dinos, setDinos] = useState<Dino[]>([]);
   useEffect(() => {
-    fetchDinos().then((data) => setDinos(data));
+    fetchDinos().then((data) => setDinos(data[296]));
   }, []);
   
   return (
