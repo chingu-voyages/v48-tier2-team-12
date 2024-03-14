@@ -1,15 +1,11 @@
-import { ShowDinos } from "../components/Test-ShowDinos";
+import ShowDino  from "../components/Alternative-ShowDinos";
 
-const Home = () => {
+export default function Home() {
   return (
-  <div>
-    {/* Home page<br />
-    <a href="/About">About</a> */}
-    <div className="container">
-      <h2>Which dino do you want to learn about?</h2>
-      {/* <ShowDinos></ShowDinos> */}
-    </div>
-  </div>
-  );
-};
-export default Home;
+      <div className="container">
+        <h2>Which dino do you want to learn about?</h2>
+        <h1>Home</h1>
+        <ShowDino />
+      </div>
+  )
+}
