@@ -7,7 +7,7 @@ const Home = () => {
     <a href="/About">About</a> */}
     <div className="container">
       <h2>Which dino do you want to learn about?</h2>
-      <ShowDinos></ShowDinos>
+      {/* <ShowDinos></ShowDinos> */}
     </div>
   </div>
   );
