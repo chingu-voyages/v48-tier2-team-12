@@ -4,25 +4,32 @@
 
 body {
     margin: 0;
-    height: 9%;
+    height: 100vh;
     background: linear-gradient(130deg, rgba(67, 30, 91, 0.4) 0%, rgba(179, 0, 0, 0.4) 50%, rgba(149, 89, 5, 0.6) 100%);
     font-family: Inter;
 }
 
+button {
+    cursor: pointer;
+}
+
 .container{
+    font-family: Montserrat, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     max-width: 430px;
-    height: 100vh;
+    min-height: calc( 100vh - 62px );
+    height: auto;
     margin: 0 auto;
-    background-color: white;
-    padding: 16px;
+    background-color: #F5F5F5;
+    padding:  53px 16px;
+    
 }
 
 .nav {
-    background: #D9D9D9;
+    background: #FFFFFF;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
+    width: 100vw;
     height: 62px;
     max-width: 430px;
     margin: 0 auto;
@@ -30,7 +37,7 @@ body {
 }
 
 .nav-logo {
-    margin: 0 auto;
+    margin: 0;
 
     font-size: 24px;
     font-weight: 700;
@@ -39,13 +46,53 @@ body {
     text-align: left;
 }
 
-.menu {
-    width: 24px;
+.menu-btn, .filter-btn {
+    background-color: transparent;
+    border: none;
     height: 24px;
+    width: 24px;
 }
 
-h2 {
-    margin: 52px 0 0 0;
+.home-title {
+    margin: 0;
+}
+
+.card-title {
+    margin: 24px 0 8px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0em;
+
+}
+
+.dino-card--img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.dino-card--name {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+
+}
+
+.dino-card--desc {
+    font-size: 14px;
+    line-height: 17px;
+    
+}
+
+.learn-more-btn {
+    font-family: Montserrat;
+    font-size: 12px;
+    line-height: 15px;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    margin-left: auto;
+
 }
 
 .categories {
@@ -56,31 +103,30 @@ h2 {
     gap: 20px;
 }
 
+.square:first-of-type {
+    background-color: transparent;
+}
+
 .square {
     background-color: #D9D9D9;
     height: 50px;
     width: 50px;  
 }
+.home-icon {
+    width: 100%;
+}
 
-.search-bar {
+.search-div {
     margin-top: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-input {
+.search-bar {
     background-color: #D9D9D9;
     border: none;
     width: 300px;
     height: 36px;
     padding-left: 37px ;
-}
-
-button {
-    background-color: transparent;
-    border: none;
-    height: 24px;
-    width: 24px;
-    cursor: pointer;  
 }
