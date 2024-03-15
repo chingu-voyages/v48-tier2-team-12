@@ -12,6 +12,9 @@ An app about dinosaurs with data from London's National History Museum.
 
 [Dinopedia](https://v48-dinopedia.netlify.app)
 
+## Team Decision Log and consultable useful resources
+[Team Decision Log and consultable useful resources](https://docs.google.com/document/d/1Qnf9Mo8NQ3MMUM1FSeZui6EVUXTToI0EJEflwzLXNG8/edit?usp=sharing)
+
 # voyage-tasks
 
 Your project's `readme` is as important to success as your code. For 
@@ -48,7 +51,7 @@ Everyone on your team should add their name along with a link to their GitHub
 your repo access and to practice PR'ing with your team *before* you start
 coding!
 
-- Teammate name #1: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
+- Huda Mabkhoot: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
 - Teammate name #2: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
 
    ...
