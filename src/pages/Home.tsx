@@ -1,4 +1,5 @@
 import ShowDino  from "../components/Alternative-ShowDinos";
+import {DinoCard} from "../components/DinoCard";
 
 export default function Home() {
   return (
@@ -23,6 +24,8 @@ export default function Home() {
           <div className="square"></div>
         </div>
         <ShowDino />
+        <DinoCard/>
+        <DinoCard/>
       </div>
   )
 }
