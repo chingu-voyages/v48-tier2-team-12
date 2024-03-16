@@ -1,28 +1,18 @@
-import ShowDino  from "../components/Alternative-ShowDinos";
+import ShowDino from '../components/Alternative-ShowDinos';
+import CategoryTiles from '../components/CategoryTiles';
 
 export default function Home() {
   return (
-      <div className="container">
-        <h2 className="home-title" >Which dino do you want to learn about?</h2>
-        <div className="search-div">
-          <input className="search-bar" placeholder="T-Rex" />
-          <button className="filter-btn" >
-            <img src="src\assets\filter.png" />
-          </button>
-        </div>
-        <div className="categories">
-          <div className="square">
-            <img 
-            className="home-icon"
-            src="src\assets\carnivore-icon.png" 
-            alt="carnivore icon"/>
-          </div>
-          <div className="square"></div>
-          <div className="square"></div>
-          <div className="square"></div>
-          <div className="square"></div>
-        </div>
-        <ShowDino />
+    <main className="container">
+      <h2 className="home-title">Which dino do you want to learn about?</h2>
+      <div className="search-div">
+        <input className="search-bar" placeholder="T-Rex" />
+        <button className="filter-btn">
+          <img src="src\assets\filter.png" />
+        </button>
       </div>
-  )
+      <CategoryTiles />
+      <ShowDino />
+    </main>
+  );
 }
