@@ -1,0 +1,23 @@
+.categories {
+  width: 100%;
+  margin: 39px 0 57px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 20px;
+}
+
+.square:first-of-type {
+  background-color: transparent;
+}
+
+.square {
+  background-color: #d9d9d9;
+  height: 50px;
+  width: 50px;
+}
+
+.icon {
+  height: 100%;
+  width: 100%;
+}
