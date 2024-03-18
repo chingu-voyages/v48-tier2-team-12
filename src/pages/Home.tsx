@@ -1,6 +1,8 @@
-import ShowDino from "../components/Alternative-ShowDinos";
-import CategoryTiles from "../components/CategoryTiles";
-import { DinoCardGrid } from "../components/DinoCardGrid";
+import ShowDino from '../components/Alternative-ShowDinos';
+import CategoryTiles from '../components/CategoryTiles';
+import { DinoCardGrid } from '../components/DinoCardGrid';
+
+import filterButton from '../assets/filter.png';
 
 export default function Home() {
   return (
@@ -9,7 +11,7 @@ export default function Home() {
       <div className="search-div">
         <input className="search-bar" placeholder="T-Rex" />
         <button className="filter-btn">
-          <img alt="Filter Button" src="src\assets\filter.png" />
+          <img alt="Filter Button" src={filterButton} />
         </button>
       </div>
       <CategoryTiles />
