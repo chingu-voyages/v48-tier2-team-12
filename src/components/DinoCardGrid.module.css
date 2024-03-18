@@ -1,0 +1,16 @@
+.smallCardGrid {
+  display: flex;
+  flex-direction: row;
+  box-sizing: content-box;
+  width: 100%;
+}
+
+/* .smallCardGridRow {
+    margin: 0 -5px;
+  } */
+
+.smallCardGridRow {
+  /* float: left; */
+  width: 50%;
+  padding: 0 10px;
+}

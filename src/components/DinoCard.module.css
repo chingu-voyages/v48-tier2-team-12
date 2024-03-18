@@ -1,0 +1,71 @@
+.smallCard {
+  /* Small Card */
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+
+  position: relative;
+  width: 191px;
+  height: 228px;
+}
+
+.smallCardImage {
+  /* Rectangle 17 */
+
+  width: 191px;
+  height: 191px;
+
+  border-radius: 10px 10px 0px 0px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.smallCardDetails {
+  /* Card Details */
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 10px;
+  gap: 5px;
+
+  width: 191px;
+  height: 37px;
+
+  background: #ffffff;
+  border-radius: 0px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.smallCardText {
+  /* Title */
+
+  width: 30px;
+  height: 17px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+
+  color: #000000;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}

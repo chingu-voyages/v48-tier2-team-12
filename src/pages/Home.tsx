@@ -1,5 +1,6 @@
 import ShowDino from '../components/Alternative-ShowDinos';
 import CategoryTiles from '../components/CategoryTiles';
+import { DinoCardGrid } from '../components/DinoCardGrid';
 
 export default function Home() {
   return (
@@ -13,6 +14,8 @@ export default function Home() {
       </div>
       <CategoryTiles />
       <ShowDino />
+      <DinoCardGrid/>
+      
     </main>
   );
 }
