@@ -3,13 +3,14 @@ import classes from "./DinoCardGrid.module.css";
 
 export function DinoCardGrid() {
   return (
-    <div className={classes.smallCardGrid}>
-      <div className={classes.smallCardGridRow}>
-        <DinoCard/>
-        <DinoCard/>
-        <DinoCard/>
-
+    <>
+      <h2 className="smallCardGridTitle">Discover</h2>
+      <div className={classes.smallCardGrid}>
+        <DinoCard />
+        <DinoCard />
+        <DinoCard />
+        <DinoCard />
       </div>
-    </div>
+    </>
   );
 }
