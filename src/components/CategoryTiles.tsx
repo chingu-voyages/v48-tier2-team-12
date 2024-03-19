@@ -1,24 +1,25 @@
 import styles from '../css-modules/CategoryTiles.module.css';
+import img1 from '../assets/carnivore-icon.png';
 
 const tileInfo = [
   {
-    src: 'src/assets/carnivore-icon.png',
+    src: img1,
     alt: 'Carnivore',
   },
   {
-    src: 'src/assets/carnivore-icon.png',
+    src: img1,
     alt: 'Carnivore',
   },
   {
-    src: 'src/assets/carnivore-icon.png',
+    src: img1,
     alt: 'Carnivore',
   },
   {
-    src: 'src/assets/carnivore-icon.png',
+    src: img1,
     alt: 'Carnivore',
   },
   {
-    src: 'src/assets/carnivore-icon.png',
+    src: img1,
     alt: 'Carnivore',
   },
 ];
