@@ -1,8 +1,9 @@
 import ShowDino from '../components/Alternative-ShowDinos';
 import CategoryTiles from '../components/CategoryTiles';
 import { DinoCardGrid } from '../components/DinoCardGrid';
-
+import DinosaurOfTheDay from "../components/DinosaurOfTheDay.tsx";
 import filterButton from '../assets/filter.png';
+
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         </button>
       </div>
       <CategoryTiles />
+      <DinosaurOfTheDay/>
       <ShowDino />
       <DinoCardGrid />
     </main>

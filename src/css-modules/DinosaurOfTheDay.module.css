@@ -1,0 +1,52 @@
+.dino-of-the-day__heading {
+    font-size: 20px;
+}
+
+.dino-of-the-day__card {
+    display: flex;
+    flex-direction: column;
+}
+
+.dino-of-the-day__image {
+    display: block;
+    border-radius: 10px 10px 0 0;
+}
+
+.dino-of-the-day__text {
+    background-color: white;
+    padding: 20px 10px 10px;
+}
+
+.dino-of-the-day__title {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.dino-of-the-day__description {
+    margin: 0;
+    font-size: 16px;
+}
+
+.collapsed {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* Adjust the number of lines */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.expanded {
+    white-space: normal;
+}
+
+.learn-more__btn {
+    display: block;
+    font-weight: 400;
+    font-size: 12px;
+    color: #A0AE90;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    margin: 5px 0 0 auto;
+}
