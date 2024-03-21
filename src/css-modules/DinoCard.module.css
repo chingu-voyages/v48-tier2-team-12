@@ -1,11 +1,17 @@
 .smallCard {
+  width: Hug (191px);
+  height: Hug (228px);
   background-color: #ffffff;
   border-radius: 10px 10px 0 0;
 }
 
 .smallCardImage {
-  width: 100%;
+  width: 191px;
+  height: 191px;
+
   border-radius: 10px 10px 0 0;
+  opacity: 0px;
+
 }
 
 .smallCardTitle {
