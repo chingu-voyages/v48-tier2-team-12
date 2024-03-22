@@ -1,0 +1,26 @@
+.DinoPageContainer {
+    gap: 10em
+  }
+  
+  
+  .DinoPageTitle {
+    text-align: center;
+  }
+  
+  .loading { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+  .DinoMainImgContainer {
+    border-radius: 4px;
+    background-color: #C3C3C3;
+    padding: 1em;
+  }
+  
+  .DinoMainImg {
+    width: 100%;
+    border-radius: 5px;
+  }
