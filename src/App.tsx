@@ -1,6 +1,7 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Layout from './pages/Layout';
 import Home from './pages/Home';
+import DinoPage from './pages/DinoPage';
 
 const router = createBrowserRouter([
   {
