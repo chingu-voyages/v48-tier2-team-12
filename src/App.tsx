@@ -25,6 +25,10 @@ const router = createBrowserRouter([
       // },
     ],
   },
+  {
+    path: '/DinoPage',
+    element: <DinoPage />
+},
 ]);
 
 const App = () => {
