@@ -1,0 +1,49 @@
+.container {
+  margin-top: 22px;
+
+  display: flex;
+  gap: 0.5rem;
+}
+
+.search-input-container {
+  position: relative;
+  display: flex;
+}
+
+.search-input-container svg {
+  position: absolute;
+  top: 50%;
+  left: 28px;
+  transform: translate(-50%, -50%);
+}
+
+.search-input-container input {
+  border: none;
+  border-radius: 10px;
+
+  padding-left: 56px;
+  padding-right: 1rem;
+
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.5px;
+  text-align: left;
+}
+
+.search-input-container input:focus {
+  outline: none;
+}
+
+.container span {
+  border-radius: 10px;
+
+  display: flex;
+  justify-items: center;
+  align-items: center;
+
+  background-color: white;
+  padding: 8px;
+
+  cursor: pointer;
+}

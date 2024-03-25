@@ -3,7 +3,6 @@
   padding: 22px 0;
 
   display: flex;
-  justify-content: flex-start;
   gap: 12px;
 
   overflow-x: auto;
@@ -15,14 +14,14 @@
   min-width: 96px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 
   background-color: white;
   box-shadow: 0px 2px 2px 0px #0000001a;
 
   border-radius: 10px;
-  padding: 0.5rem 0;
+  padding: 0.25rem 0;
   cursor: pointer;
 
   transition: all 150ms ease;
@@ -33,16 +32,16 @@
   color: white;
 }
 
-span {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .icon {
   margin: 0.5rem;
+
+  height: 44px;
+  width: 44px;
 }
 
 .title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 10px;
 }
