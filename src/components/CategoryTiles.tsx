@@ -7,10 +7,10 @@ const CategoryTiles = () => {
     <div className={styles.container}>
       {categories.map((tile) => {
         return (
-          <div key={tile.title} className={styles.tile}>
+          <button key={tile.title} className={styles.tile}>
             <img className={styles.icon} src={tile.icon} alt={tile.title} />
             <span className={styles.title}>{tile.title}</span>
-          </div>
+          </button>
         );
       })}
     </div>
