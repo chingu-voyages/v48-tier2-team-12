@@ -11,9 +11,8 @@ export function DinoCardGrid({ dinos }: { dinos: Dino[] }) {
           <DinoCard
             key={index}
             id={dino.id}
-            imageSrc={dino.imageSrc} //"https://stories.cnnbrasil.com.br/wp-content/uploads/sites/9/2022/06/fausto-garcia-menendez-hYKG311mff8-unsplash.jpg.png"
-            name={dino.name} // "Dino Name"
-            type=""
+            imageSrc={dino.imageSrc}
+            name={dino.name} 
             description=""
             foundIn=""
           />
