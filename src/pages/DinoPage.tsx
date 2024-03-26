@@ -42,6 +42,10 @@ export default function DinoPage() {
   }, [dino]);
 
   const dinoMap: string = `https://maps.geoapify.com/v1/staticmap?style=klokantech-basic&&width=400&height=300&center=lonlat:${longitude},${latitude}&zoom=3&marker=lonlat:${longitude},${latitude};type:material;color:red;icontype:awesome&apiKey=bd4b266f35c6485b9871b1e4d7ce670d`;
+
+  // DELETE LATER
+  console.log(dino);
+
   return (
     <main>
       <NavBar />

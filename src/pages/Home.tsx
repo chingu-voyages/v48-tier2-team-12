@@ -9,15 +9,21 @@ import { Dino } from '../interfaces/dino.interface.ts';
 export default function Home() {
   const [dinos, setDinos] = useState<Dino[]>([]);
 
+  const filterDinos = (filterFunction: (dino: Dino) => boolean) => {
+    setDinos(dinos.filter((dino) => filterFunction(dino)));
+  };
+
   useEffect(() => {
-    fetchDinos().then((data) => setDinos(data));
+    fetchDinos().then((data) => {
+      setDinos(data);
+    });
   }, []);
 
   return (
     <main className="container">
       <h2 className="home-title">Which dino do you want to learn about?</h2>
       <Search />
-      <CategoryTiles />
+      <CategoryTiles filterDinos={filterDinos} />
       <DinosaurOfTheDay />
       <DinoCardGrid dinos={dinos} />
     </main>
