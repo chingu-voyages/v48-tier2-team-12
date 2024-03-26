@@ -23,7 +23,7 @@ export const categories = [
     title: 'Mongolia',
     icon: img10,
     filterFunction: (dino: Dino) => {
-      return dino.foundIn.includes('Mongolia');
+      return dino.foundIn?.includes('Mongolia');
     },
   },
   {
@@ -37,7 +37,7 @@ export const categories = [
     title: 'Late Jurassic',
     icon: img8,
     filterFunction: (dino: Dino) => {
-      return dino.whenLived.includes('Late Jurassic');
+      return dino.whenLived?.includes('Late Jurassic');
     },
   },
   {
@@ -45,7 +45,7 @@ export const categories = [
     icon: img7,
     filterFunction: (dino: Dino) => {
       if (dino.length === 'N/A') return false;
-      return dino.length > 15;
+      return dino.length ? dino.length >= 15 : false;
     },
   },
   {

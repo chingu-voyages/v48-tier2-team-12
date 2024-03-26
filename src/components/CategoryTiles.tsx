@@ -1,11 +1,9 @@
 import styles from '../css-modules/CategoryTiles.module.css';
 import { categories } from '../utils/categories';
 
-const CategoryTiles = ({
-  filterDinos,
-}: {
-  filterDinos: (filterFunction: any) => void;
-}) => {
+//Need to find type for this function later
+const CategoryTiles = ({filterDinos, }: any) => {
+
   return (
     <div className={styles.container}>
       {categories.map((tile) => {
@@ -15,6 +13,7 @@ const CategoryTiles = ({
             className={styles.tile}
             onClick={() => {
               filterDinos(tile.filterFunction);
+              console.log(filterDinos(tile.filterFunction))
             }}
           >
             <img className={styles.icon} src={tile.icon} alt={tile.title} />
