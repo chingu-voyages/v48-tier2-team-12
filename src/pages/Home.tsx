@@ -8,13 +8,15 @@ import { Dino } from '../interfaces/dino.interface.ts';
 
 export default function Home() {
   const [dinos, setDinos] = useState<Dino[]>([]);
+  const [originalDinos, setOriginalDinos] = useState<Dino[]>([]);
 
   const filterDinos = (filterFunction: (dino: Dino) => boolean) => {
-    setDinos(dinos.filter((dino) => filterFunction(dino)));
+    setDinos(originalDinos.filter((dino) => filterFunction(dino)));
   };
 
   useEffect(() => {
     fetchDinos().then((data) => {
+      setOriginalDinos(data);
       setDinos(data);
     });
   }, []);
