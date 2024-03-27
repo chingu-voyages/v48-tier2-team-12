@@ -10,7 +10,13 @@ import emptyStateImg from '../assets/no-image.svg'
 export default function DinoPage() {
   const { id } = useParams();
   const [dino, setDino] = useState<Dino>(Object);
-  const uglyImgUrl:string = "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/aardonyx.jpg"
+  
+  // this img doesn't contain photo just text
+  const uglyImgUrl:string = 
+  `https://www.nhm.ac.uk/
+  resources/nature-online/life/dinosaurs/
+  dinosaur-directory/images/reconstruction/
+  small/aardonyx.jpg`
 
   useEffect(() => {
     const fetchDinoPage = async () => {
@@ -24,17 +30,18 @@ export default function DinoPage() {
     <main>
       <NavBar />
       <div className="container">
-        
+          {/* TITLE */}
           <h2 className={styles.DinoPageTitle}>{dino.name}</h2>
-          
+          {/* IMAGE */}
           <img src={ dino.imageSrc === "N/A" || 
           dino.imageSrc === uglyImgUrl ? 
           emptyStateImg : dino.imageSrc } className={styles.DinoMainImg} />
-
+          {/* INFO */}
           <div className={styles.info}>
             <p>
               <span className={styles.boldCatTitle}
-              >Type of Dinosaur: </span>
+              >Type of Dinosaur: 
+              </span>
               <span className={styles.capitalize}>
                 {dino.typeOfDinosaur}
               </span>
@@ -42,12 +49,12 @@ export default function DinoPage() {
             <p>
               <span className={styles.boldCatTitle}
               >Length: </span>
-              {dino.length}{dino.length === "N/A" ? "" : " Meters"}
+              {dino.length}{dino.length !== "N/A" && " Meters"}
             </p>
             <p>
               <span className={styles.boldCatTitle}
               >Weight: </span>
-              {dino.weight}{dino.weight === "N/A" ? "" : " Meters"}
+              {dino.weight}{dino.weight !== "N/A" && "  Kilograms"}
             </p>
             <p>
               <span className={styles.boldCatTitle}
@@ -99,7 +106,7 @@ export default function DinoPage() {
             </div>
           </div>
         
-        {/* Sending only the first country */}
+        {/* MAP: Sending only the first country */}
         <Map country={dino.foundIn?.split(', ')[0]}/> 
       </div>
       
