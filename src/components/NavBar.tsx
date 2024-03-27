@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function NavBar() {
   return (
-    <div className='nav-bar-container'>
+    <div className='nav-container'>
       <div className="nav"> 
         <Link to="/" className="backArrow">
           <button>
