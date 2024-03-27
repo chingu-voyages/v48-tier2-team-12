@@ -1,7 +1,7 @@
 import { RotatingLines } from "react-loader-spinner";
-import classes from "../css-modules/DinoPage.module.css";
+import styles from "../css-modules/DinoPage.module.css";
 import { useEffect, useState } from "react";
-//change type later
+
 export default function Map(props: {country: string}): JSX.Element {
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -10,7 +10,7 @@ export default function Map(props: {country: string}): JSX.Element {
   console.log(props)
   useEffect(() => {
     const getDinoCoordinate = async () => {
-      if (props?.country != undefined) {
+      if (props.country != undefined) {
         const res = await fetch(
           `https://api.geoapify.com/v1/geocode/search?text=${props.country}&apiKey=bd4b266f35c6485b9871b1e4d7ce670d`
         );
@@ -25,15 +25,19 @@ export default function Map(props: {country: string}): JSX.Element {
       }
     };
     getDinoCoordinate();
-  }, [props?.country]);
+  }, [props.country]);
   
-  //klokantech-basic
-  const dinoMap: string = `https://maps.geoapify.com/v1/staticmap?style=toner-grey&&width=400&height300&center=lonlat:${longitude},${latitude}&zoom=3&marker=lonlat:${longitude},${latitude};type:material;color:red;icontype:awesome&apiKey=bd4b266f35c6485b9871b1e4d7ce670d`;
-  // const dinoMap = `https://api.geoapify.com/v1/geocode/search?text=${props.country}&apiKey=bd4b266f35c6485b9871b1e4d7ce670d`
+  //klokantech-basic , width=400&height300& &zoom=3
+  //toner-grey
+  //&area=rect:12.024,42.226,13.001,41.542
+  const dinoMap: string = 
+  `https://maps.geoapify.com/v1/staticmap?style=osm-bright-grey&center=lonlat:
+${longitude},${latitude}&zoom=4&marker=lonlat:
+${longitude},${latitude};type:material;color:red;icontype:awesome&apiKey=bd4b266f35c6485b9871b1e4d7ce670d`;
   return (
-    <div className={classes.DinoPageContainer}>
+    <div className={styles.DinoPageContainer}>
       {loading ? (
-        <div className={classes.loading}>
+        <div className={styles.loading}>
           <RotatingLines
             strokeColor="grey"
             strokeWidth="4"
@@ -43,11 +47,15 @@ export default function Map(props: {country: string}): JSX.Element {
           />{" "}
         </div>
       ) : (
-        <div className="map-frame" >
+        <div className={styles.mapFrame} >
           <iframe width="400"
-                  height="300" 
+                  height="300"
                   src={dinoMap}>
           </iframe>
+          <img
+            className={styles.mapImg}
+            src={dinoMap}
+            alt="location map" />
         </div>
       )}
     </div>

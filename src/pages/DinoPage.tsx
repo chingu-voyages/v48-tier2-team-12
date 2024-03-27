@@ -33,7 +33,8 @@ export default function DinoPage() {
           </div>
           <p>{dino.description}</p>
         </div>
-        <Map country={dino.foundIn}/> 
+        {/* Sending only the first country */}
+        <Map country={dino.foundIn?.split(', ')[0]}/> 
       </div>
       
     </main>
