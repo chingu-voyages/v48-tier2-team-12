@@ -6,11 +6,12 @@ import NavBar from "../components/NavBar";
 import Map from "../components/Map";
 import styles from "../css-modules/DinoPage.module.css";
 import emptyStateImg from '../assets/no-image.svg'
+import { altPics } from "../utils/pretty-pics.tsx";
 
 export default function DinoPage() {
   const { id } = useParams();
   const [dino, setDino] = useState<Dino>(Object);
-  
+
   // this img doesn't contain photo just text
   const uglyImgUrl:string = 
   `https://www.nhm.ac.uk/
@@ -21,6 +22,11 @@ export default function DinoPage() {
   useEffect(() => {
     const fetchDinoPage = async () => {
       const singleDino = await fetchSingleDino(id);
+      
+        altPics.forEach(element => {
+          Number(id) === element.id ? singleDino.imageSrc = element.img : ""
+        });
+      
       setDino(singleDino);
     };
     fetchDinoPage();

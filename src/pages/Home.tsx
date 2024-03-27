@@ -5,6 +5,7 @@ import DinosaurOfTheDay from '../components/DinosaurOfTheDay.tsx';
 import Search from '../components/Search.tsx';
 import { fetchDinos } from '../utils/api.ts';
 import { Dino } from '../interfaces/dino.interface.ts';
+import { altPics } from '../utils/pretty-pics.tsx';
 
 export default function Home() {
   const [dinos, setDinos] = useState<Dino[]>([]);
@@ -17,6 +18,13 @@ export default function Home() {
 
   useEffect(() => {
     fetchDinos().then((data) => {
+      
+      data.map(item => {
+        altPics.forEach(element => {
+          item.id === element.id ? item.imageSrc = element.img : ""
+        });
+        
+      }) 
       setOriginalDinos(data);
       setDinos(data);
     });

@@ -3,6 +3,7 @@ import {fetchDinos} from "../utils/api.ts";
 import {Dino} from "../interfaces/dino.interface.ts";
 import styles from '../css-modules/DinosaurOfTheDay.module.css'
 import { Link } from "react-router-dom";
+import { altPics } from "../utils/pretty-pics.tsx";
 
 function DinosaurOfTheDay() {
     const [dinoOfTheDay, setDinoOfTheDay] = useState<Dino>(Object);
@@ -11,6 +12,12 @@ function DinosaurOfTheDay() {
     useEffect(() => {
         const fetchDinoOfTheDay = async () => {
             const allDinos = await fetchDinos();
+            allDinos.map(item => {
+                altPics.forEach(element => {
+                  item.id === element.id ? item.imageSrc = element.img : ""
+                });
+                
+              }) 
             let dinoOfTheDay: Dino|null = null;
             while (!dinoOfTheDay) {
                 const randomIndex = Math.floor(Math.random() * allDinos.length)
