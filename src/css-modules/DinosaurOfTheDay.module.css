@@ -1,5 +1,11 @@
+.dino-of-the-day{
+    margin-top: 22px;
+}
+
+
 .dino-of-the-day__heading {
     font-size: 20px;
+    margin-bottom: 10px;
 }
 
 .dino-of-the-day__card {
