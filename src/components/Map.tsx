@@ -7,7 +7,11 @@ export default function Map(props: {country: string}): JSX.Element {
 
   const [latitude, setLatitude] = useState<number>();
   const [longitude, setLongitude] = useState<number>();
-  console.log(props)
+  const [boxOne, setBoxOne] = useState<number>();
+  const [boxTwo, setBoxTwo] = useState<number>();
+  const [boxThree, setBoxThree] = useState<number>();
+  const [boxFour, setBoxFour] = useState<number>();
+
   useEffect(() => {
     const getDinoCoordinate = async () => {
       if (props.country != undefined) {
@@ -15,24 +19,25 @@ export default function Map(props: {country: string}): JSX.Element {
           `https://api.geoapify.com/v1/geocode/search?text=${props.country}&apiKey=bd4b266f35c6485b9871b1e4d7ce670d`
         );
         const data = await res.json();
-        console.log(data.features[0].properties.lat, data.features[0].properties.lon)
-        let lat = data.features[0].properties.lat;
-        let lon = data.features[0].properties.lon;
-        console.log(data.features)
-        setLatitude(lat);
-        setLongitude(lon);
+        setLatitude(data.features[0].properties.lat);
+        setLongitude(data.features[0].properties.lon);
+        const [boxOne, boxTwo, boxThree, boxFour] = data.features[0].bbox;
         setLoading(false);
+        setBoxOne(boxOne)
+        setBoxTwo(boxTwo)
+        setBoxThree(boxThree)
+        setBoxFour(boxFour)
       }
     };
     getDinoCoordinate();
   }, [props.country]);
   
-  //klokantech-basic , width=400&height300& &zoom=3
+  //klokantech-basic, width=400&height300& &zoom=3
   //toner-grey
-  //&area=rect:12.024,42.226,13.001,41.542
+  //&center=lonlat:${longitude},${latitude}&zoom=4
+
   const dinoMap: string = 
-  `https://maps.geoapify.com/v1/staticmap?style=osm-bright-grey&center=lonlat:
-${longitude},${latitude}&zoom=4&marker=lonlat:
+  `https://maps.geoapify.com/v1/staticmap?style=osm-bright-grey&area=rect:${boxOne},${boxTwo},${boxThree},${boxFour}&marker=lonlat:
 ${longitude},${latitude};type:material;color:red;icontype:awesome&apiKey=bd4b266f35c6485b9871b1e4d7ce670d`;
   return (
     <div className={styles.DinoPageContainer}>
@@ -48,10 +53,10 @@ ${longitude},${latitude};type:material;color:red;icontype:awesome&apiKey=bd4b266
         </div>
       ) : (
         <div className={styles.mapFrame} >
-          <iframe width="400"
+          {/* <iframe width="400"
                   height="300"
                   src={dinoMap}>
-          </iframe>
+          </iframe> */}
           <img
             className={styles.mapImg}
             src={dinoMap}
