@@ -5,11 +5,12 @@ import { fetchSingleDino } from "../utils/api.ts";
 import NavBar from "../components/NavBar";
 import Map from "../components/Map";
 import styles from "../css-modules/DinoPage.module.css";
+import emptyStateImg from '../assets/no-image.svg'
 
 export default function DinoPage() {
   const { id } = useParams();
-
   const [dino, setDino] = useState<Dino>(Object);
+  const uglyImgUrl:string = "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/aardonyx.jpg"
 
   useEffect(() => {
     const fetchDinoPage = async () => {
@@ -18,14 +19,18 @@ export default function DinoPage() {
     };
     fetchDinoPage();
   }, [id]);
-
+ 
   return (
     <main>
       <NavBar />
       <div className="container">
         
           <h2 className={styles.DinoPageTitle}>{dino.name}</h2>
-          <img src={dino.imageSrc} className={styles.DinoMainImg} />
+          
+          <img src={ dino.imageSrc === "N/A" || 
+          dino.imageSrc === uglyImgUrl ? 
+          emptyStateImg : dino.imageSrc } className={styles.DinoMainImg} />
+
           <div className={styles.info}>
             <p>
               <span className={styles.boldCatTitle}
