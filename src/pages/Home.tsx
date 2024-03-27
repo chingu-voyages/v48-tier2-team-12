@@ -10,7 +10,8 @@ export default function Home() {
   const [dinos, setDinos] = useState<Dino[]>([]);
   const [originalDinos, setOriginalDinos] = useState<Dino[]>([]);
 
-  const filterDinos = (filterFunction: (dino: Dino) => boolean) => {
+  const filterDinos = (filterFunction: (dino: Dino) => boolean) => 
+  {
     setDinos(originalDinos.filter((dino) => filterFunction(dino)));
   };
 
@@ -24,9 +25,9 @@ export default function Home() {
   return (
     <main className="container">
       <h2 className="home-title">Which dino do you want to learn about?</h2>
-      <Search />
+      {originalDinos === dinos ? <Search /> : ""}
       <CategoryTiles filterDinos={filterDinos} />
-      <DinosaurOfTheDay />
+      {originalDinos === dinos ? <DinosaurOfTheDay /> : ""}
       <DinoCardGrid dinos={dinos} />
     </main>
   );

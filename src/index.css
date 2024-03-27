@@ -8,7 +8,7 @@
 
 body {
   font-family: Inter;
-  height: 100vh;
+  height: auto;
   background: linear-gradient(
     130deg,
     rgba(67, 30, 91, 0.4) 0%,
@@ -19,6 +19,8 @@ body {
 
 button {
   cursor: pointer;
+  background-color: transparent;
+  border: none;
 }
 
 a {
@@ -35,23 +37,27 @@ a {
   margin: 0 auto;
   background-color: #f5f5f5;
   padding: 53px 16px;
+  z-index: 1;
 }
 
 .nav {
   background: #ffffff;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 100vw;
   height: 62px;
   max-width: 430px;
   margin: 0 auto;
   padding: 0 19px;
+  border-bottom: 2px solid black;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  z-index: 2;
 }
 
 .nav-logo {
-  margin: 0;
-
+  position: absolute;
   font-size: 24px;
   font-weight: 700;
   line-height: 29px;
@@ -59,11 +65,10 @@ a {
   text-align: left;
 }
 
-.menu-btn {
-  background-color: transparent;
-  border: none;
-  height: 24px;
-  width: 24px;
+.backArrow {
+  margin-right: auto;
+  color: transparent;
+  margin: none;
 }
 
 .home-title {

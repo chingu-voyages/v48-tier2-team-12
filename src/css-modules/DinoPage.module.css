@@ -1,36 +1,54 @@
-.DinoPageContainer {
-    gap: 10em
-  }
-  
-  
-  .DinoPageTitle {
-    text-align: center;
-  }
-  
-  .loading { 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  
-  .DinoMainImgContainer {
-    border-radius: 4px;
-    background-color: #C3C3C3;
-    padding: 1em;
-  }
-  
-  .DinoMainImg {
-    width: 100%;
-    border-radius: 5px;
-  }
+.DinoPageTitle {
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.DinoMainImg {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
 
+p {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
 
-  .map-frame{
-    width: 100%;
-    overflow: hidden;
-  }
-  
-  .mapImg {
-    max-width: 400px
-  }
+p:last-of-type {
+  margin-bottom: 10px;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.descriptionBox {
+  display: flex;
+  column-gap: 4px;
+}
+
+.boldCatTitle {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 22px;
+
+}
+
+.description {
+  line-height: 22px;
+}
+
+.loading { 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-frame{
+  width: 100%;
+  overflow: hidden;
+}
+
+.mapImg {
+  max-width: 400px
+}
