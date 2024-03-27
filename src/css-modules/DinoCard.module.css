@@ -23,3 +23,8 @@
   text-align: left;
   padding: 10px;
 }
+
+.map-frame{
+  width: 100%;
+  overflow: hidden;
+}

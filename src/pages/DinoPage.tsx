@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import type { Dino } from "../interfaces/dino.interface.ts";
 import { fetchSingleDino } from "../utils/api.ts";
 import NavBar from "../components/NavBar";
-import {Map} from "../components/Map";
+import Map from "../components/Map";
 import classes from "../css-modules/DinoPage.module.css";
 
 export default function DinoPage() {
@@ -20,7 +20,7 @@ export default function DinoPage() {
   }, [id]);
 
   // DELETE LATER
-  console.log(dino);
+  console.log(typeof dino.foundIn);
 
   return (
     <main>
@@ -33,7 +33,7 @@ export default function DinoPage() {
           </div>
           <p>{dino.description}</p>
         </div>
-        <Map foundIn={dino.foundIn}/> 
+        <Map country={dino.foundIn}/> 
       </div>
       
     </main>
