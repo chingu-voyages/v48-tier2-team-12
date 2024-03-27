@@ -7,7 +7,7 @@ export interface Dino {
   weight?: number | 'N/A';
   diet?: string;
   whenLived?: string;
-  foundIn?: string;
+  foundIn: string;
   taxonomy?: string;
   namedBy?: string;
   typeSpecies?: string;
