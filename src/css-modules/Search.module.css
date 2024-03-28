@@ -10,7 +10,7 @@
   display: flex;
 }
 
-.search-input-container svg {
+.search-input-container img {
   position: absolute;
   top: 50%;
   left: 28px;

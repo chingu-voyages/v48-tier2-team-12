@@ -1,17 +1,18 @@
-import backArrow from '../assets/back-arrow.svg'
 import { Link } from 'react-router-dom';
+import backArrow from '../assets/back-arrow.svg';
+import styles from '../css-modules/Navbar.module.css';
 
-export default function NavBar() {
+export default function Navbar() {
   return (
-    <div className='nav-container'>
-      <div className="nav"> 
-        <Link to="/" className="backArrow">
+    <div className={styles['nav-container']}>
+      <div className={styles['nav']}>
+        <Link to="/" className={`${styles['backArrow']}`}>
           <button>
-              <img alt="Go back button" src={backArrow} />
+            <img alt="Go back button" src={backArrow} />
           </button>
         </Link>
-        
-        <h2 className="nav-logo">LOGO</h2>
+
+        <h2 className={styles['nav-logo']}>LOGO</h2>
       </div>
     </div>
   );
