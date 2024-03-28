@@ -6,10 +6,11 @@ import filter from '../assets/filter.svg';
 
 const Search = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const handleModal = () => setIsModalOpen(!isModalOpen);
 
   return (
     <>
-      {isModalOpen && <FilterModal setIsModalOpen={setIsModalOpen} />}
+      {isModalOpen && <FilterModal handleModal={handleModal} />}
       <div className={styles.container}>
         <div className={styles['search-input-container']}>
           <input placeholder="Search" />
