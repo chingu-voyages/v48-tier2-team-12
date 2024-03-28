@@ -1,6 +1,6 @@
 .smallCardGrid {
   display: grid;
-  grid-template-columns: 48% 48%;
+  grid-template-columns: repeat(auto-fit, minmax(191px, 1fr));;
   gap: 16px;
 }
 
