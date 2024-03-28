@@ -21,7 +21,14 @@ export default function Home() {
       
       data.map(item => {
         altPics.forEach(element => {
-          item.id === element.id ? item.imageSrc = element.img : ""
+          //for rendering small imgs on the grid when available:
+          element.smallImg && item.id === element.id ? 
+          item.imageSrc = element.smallImg : 
+          //if not, replace for normal sized imgs:
+          element.img && item.id === element.id ?
+          item.imageSrc = element.img : 
+          // if no pretty imgs are available, do nothing
+          ""
         });
         
       }) 

@@ -1,14 +1,22 @@
-import albertosaurus from '../assets/haghani/albertosaurus.jpg'
-import pachycephalosaurus from '../assets/haghani/pachycephalosaurus.jpg'
-import tarbosaurus from '../assets/haghani/tarbosaurus.jpg'
-import tyrannosaurus from '../assets/haghani/tyrannosaurus.jpg'
-import velociraptor from '../assets/haghani/velociraptor.jpg'
-import parasaurolophus from '../assets/haghani/parasaurolophus.jpg'
+import albertosaurus from '../assets/haghani/albertosaurus.jpg';
+import pachycephalosaurus from '../assets/haghani/pachycephalosaurus.jpg';
+import tarbosaurus from '../assets/haghani/tarbosaurus.jpg';
+import tyrannosaurus from '../assets/haghani/tyrannosaurus.jpg';
+import velociraptor from '../assets/haghani/velociraptor.jpg';
+import parasaurolophus from '../assets/haghani/parasaurolophus.jpg';
 import styracosaurus from '../assets/haghani/styracosaurus.jpg';
 import ceratosaurus from '../assets/haghani/ceratosaurus.jpg';
+import aardonyx from '../assets/haghani/aardonyx.jpg';
+import aardonyxSmall from '../assets/haghani/aardonyx-small.jpg';
 
+type Pretty = {
+    title: string;
+    id: number;
+    img: string;
+    smallImg?: string; // Optional property
+};
 
-export const altPics = [
+export const altPics :Pretty[] = [
     {
     title: 'albertosaurus',
     id: 11,
@@ -48,5 +56,11 @@ export const altPics = [
     title: 'styracosaurus',
     id: 277,
     img: styracosaurus,
+    },
+    {
+    title: 'aardonyx',
+    id: 1,
+    img: aardonyx,
+    smallImg: aardonyxSmall,
     },
 ]
