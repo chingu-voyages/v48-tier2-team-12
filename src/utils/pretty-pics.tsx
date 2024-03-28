@@ -1,13 +1,13 @@
-import albertosaurus from '../assets/haghani/albertosaurus.jpg'
-import pachycephalosaurus from '../assets/haghani/pachycephalosaurus.jpg'
-import tarbosaurus from '../assets/haghani/tarbosaurus.jpg'
-import tyrannosaurus from '../assets/haghani/tyrannosaurus.jpg'
-import velociraptor from '../assets/haghani/velociraptor.jpg'
-import parasaurolophus from '../assets/haghani/parasaurolophus.jpg'
+import albertosaurus from '../assets/haghani/albertosaurus.jpg';
+import pachycephalosaurus from '../assets/haghani/pachycephalosaurus.jpg';
+import tarbosaurus from '../assets/haghani/tarbosaurus.jpg';
+import tyrannosaurus from '../assets/haghani/tyrannosaurus.jpg';
+import velociraptor from '../assets/haghani/velociraptor.jpg';
+import parasaurolophus from '../assets/haghani/parasaurolophus.jpg';
 import styracosaurus from '../assets/haghani/styracosaurus.jpg';
 import ceratosaurus from '../assets/haghani/ceratosaurus.jpg';
 import aardonyx from '../assets/haghani/aardonyx.jpg';
-import aardonyxSmall from '../assets/haghani/aardonyx-small.jpg'
+import aardonyxSmall from '../assets/haghani/aardonyx-small.jpg';
 
 type Pretty = {
     title: string;
