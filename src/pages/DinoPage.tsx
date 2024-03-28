@@ -22,9 +22,11 @@ export default function DinoPage() {
   useEffect(() => {
     const fetchDinoPage = async () => {
       const singleDino = await fetchSingleDino(id);
-      
+        // Replacing new pretty images
         altPics.forEach(element => {
-          Number(id) === element.id ? singleDino.imageSrc = element.img : ""
+          Number(id) === element.id ? 
+          singleDino.imageSrc = element.img :
+          ""
         });
       
       setDino(singleDino);
@@ -39,9 +41,11 @@ export default function DinoPage() {
           {/* TITLE */}
           <h2 className={styles.DinoPageTitle}>{dino.name}</h2>
           {/* IMAGE */}
-          <img src={ dino.imageSrc === "N/A" || 
-          dino.imageSrc === uglyImgUrl ? 
-          emptyStateImg : dino.imageSrc } className={styles.DinoMainImg} />
+          <img src={dino.imageSrc === "N/A" || 
+                    dino.imageSrc === uglyImgUrl ? 
+                    emptyStateImg : dino.imageSrc} 
+                    className={styles.DinoMainImg} 
+          />
           {/* INFO */}
           <div className={styles.info}>
             <p>
@@ -112,7 +116,7 @@ export default function DinoPage() {
             </div>
           </div>
         
-        {/* MAP: Sending only the first country */}
+        {/* MAP: Now sending both countries */}
         <Map 
         firstCountry={dino.foundIn?.split(', ')[0]}
         secondCountry={dino.foundIn?.split(', ')[1]}
