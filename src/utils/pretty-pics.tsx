@@ -6,7 +6,8 @@ import velociraptor from '../assets/haghani/velociraptor.jpg'
 import parasaurolophus from '../assets/haghani/parasaurolophus.jpg'
 import styracosaurus from '../assets/haghani/styracosaurus.jpg';
 import ceratosaurus from '../assets/haghani/ceratosaurus.jpg';
-
+import aardonyx from '../assets/haghani/aardonyx.jpg';
+import aardonyxSmall from '../assets/haghani/aardonyx-small.jpg'
 
 export const altPics = [
     {
@@ -48,5 +49,11 @@ export const altPics = [
     title: 'styracosaurus',
     id: 277,
     img: styracosaurus,
+    },
+    {
+    title: 'aardonyx',
+    id: 1,
+    img: aardonyx,
+    smallImg: aardonyxSmall,
     },
 ]

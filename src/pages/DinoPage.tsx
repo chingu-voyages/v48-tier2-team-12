@@ -12,12 +12,6 @@ export default function DinoPage() {
   const { id } = useParams();
   const [dino, setDino] = useState<Dino>(Object);
 
-  // this img doesn't contain photo just text
-  const uglyImgUrl:string = 
-  `https://www.nhm.ac.uk/
-  resources/nature-online/life/dinosaurs/
-  dinosaur-directory/images/reconstruction/
-  small/aardonyx.jpg`
 
   useEffect(() => {
     const fetchDinoPage = async () => {
@@ -41,8 +35,7 @@ export default function DinoPage() {
           {/* TITLE */}
           <h2 className={styles.DinoPageTitle}>{dino.name}</h2>
           {/* IMAGE */}
-          <img src={dino.imageSrc === "N/A" || 
-                    dino.imageSrc === uglyImgUrl ? 
+          <img src={dino.imageSrc === "N/A" ? 
                     emptyStateImg : dino.imageSrc} 
                     className={styles.DinoMainImg} 
           />
