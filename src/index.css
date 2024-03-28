@@ -29,7 +29,8 @@ a {
   text-decoration: none;
 }
 
-.main-container {
+.main-container,
+.container {
   margin: 0 auto;
   background-color: #f5f5f5;
   max-width: 430px;
