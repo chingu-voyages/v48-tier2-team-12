@@ -35,7 +35,7 @@ const FilterModal = ({
       <div className={`${styles['filter-content']} ${styles['cards']}`}>
         <span className={styles['filter-small-title']}>Type of Dinosaur</span>
         <div className={styles['chips-container']}>
-          {filterDinoType.map(({ title, icon, typeOfDinosaur }) => {
+          {filterDinoType.map(({ title, icon }) => {
             return (
               <div key={title} className={styles['single-chip']}>
                 <img src={icon} alt={title} />
@@ -59,7 +59,7 @@ const FilterModal = ({
       <div className={`${styles['filter-content']} ${styles['cards']}`}>
         <span className={styles['filter-small-title']}>Diet</span>
         <div className={styles['chips-container']}>
-          {filterDinoDiet.map(({ title, icon, diet }) => {
+          {filterDinoDiet.map(({ title, icon }) => {
             return (
               <div key={title} className={styles['single-chip']}>
                 <img src={icon} alt={title} />
