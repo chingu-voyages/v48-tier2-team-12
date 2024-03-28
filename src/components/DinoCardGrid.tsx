@@ -4,7 +4,6 @@ import { Dino } from '../interfaces/dino.interface';
 import emptyStateImg from '../assets/no-image.svg'
 
 export function DinoCardGrid({ dinos }: { dinos: Dino[] }) {
-  const uglyImgUrl:string = "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/aardonyx.jpg"
   return (
     <>
       <h2 className={classes.smallCardGridTitle}>Discover</h2>
@@ -14,8 +13,7 @@ export function DinoCardGrid({ dinos }: { dinos: Dino[] }) {
             key={index}
             id={dino.id}
             imageSrc={
-              dino.imageSrc === "N/A" || 
-              dino.imageSrc ===  uglyImgUrl ? 
+              dino.imageSrc === "N/A" ?
               emptyStateImg : 
               dino.imageSrc 
             }
