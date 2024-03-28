@@ -9,7 +9,14 @@ import ceratosaurus from '../assets/haghani/ceratosaurus.jpg';
 import aardonyx from '../assets/haghani/aardonyx.jpg';
 import aardonyxSmall from '../assets/haghani/aardonyx-small.jpg'
 
-export const altPics = [
+type Pretty = {
+    title: string;
+    id: number;
+    img: string;
+    smallImg?: string; // Optional property
+};
+
+export const altPics :Pretty[] = [
     {
     title: 'albertosaurus',
     id: 11,
