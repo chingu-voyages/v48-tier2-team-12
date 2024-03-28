@@ -91,3 +91,58 @@ export const categories = [
     },
   },
 ];
+
+export const filterDinoType = [
+  {
+    title: 'Large Theropod',
+    icon: img9,
+    typeOfDinosaur: 'large theropod',
+  },
+  {
+    title: 'Sauropod',
+    icon: img6,
+    typeOfDinosaur: 'sauropod',
+  },
+  {
+    title: 'Small Theropod',
+    icon: img5,
+    typeOfDinosaur: 'small theropod',
+  },
+  {
+    title: 'Large Ornithopod',
+    icon: img4,
+    typeOfDinosaur: 'large ornithopod',
+  },
+  {
+    title: 'Armoured',
+    icon: img3,
+    typeOfDinosaur: 'armoured dinosaur',
+  },
+];
+
+export const filterDinoDiet = [
+  {
+    title: 'Carnivorous',
+    icon: img11,
+    diet: 'carnivorous',
+  },
+  {
+    title: 'Herbivorous',
+    icon: img2,
+    diet: 'herbivorous',
+  },
+  {
+    title: 'Omnivorous',
+    icon: img1,
+    diet: 'omnivorous',
+  },
+];
+
+export const filterDinoEra = [
+  'Late Cretaceous',
+  'Early Cretaceous',
+  'Late Jurassic',
+  'Mid Jurassic',
+  'Early Jurassic',
+  'Late Triassic',
+];
