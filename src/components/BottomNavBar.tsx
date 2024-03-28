@@ -13,19 +13,19 @@ export default function BottomNavBar() {
       <div className="bottom-nav">
 
             {/* We should think about Discover/SearchResults here */}
-            <NavLink to="" className={""}>
-                <img alt="Go to Discover" src={discover} />
-                <p>Discover</p>
+            <NavLink to="" className={"nav-link"}>
+                <img className="nav-img" alt="Go to Discover" src={discover} />
+                <p >Discover</p>
             </NavLink>
     
-            <NavLink to="/" className={""}>
-                <img alt="Go to Home" src={home} />
-                <p>Home</p>
+            <NavLink to="/" className={"nav-link"}>
+                <img className="nav-img" alt="Go to Home" src={home} />
+                <p >Home</p>
             </NavLink>
     
-            <NavLink to="/charts" className={""}>
-                <img alt="Go to Charts" src={chart} />
-                <p>Charts</p>
+            <NavLink to="/charts" className={"nav-link"}>
+                <img className="nav-img" alt="Go to Charts" src={chart} />
+                <p >Charts</p>
             </NavLink>
       </div>
     </div>
