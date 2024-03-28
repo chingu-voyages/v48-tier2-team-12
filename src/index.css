@@ -7,8 +7,9 @@
 }
 
 body {
-  font-family: Inter;
-  height: 100vh;
+  font-family: Montserrat, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+  'Helvetica Neue', sans-serif;
+  height: auto;
   background: linear-gradient(
     130deg,
     rgba(67, 30, 91, 0.4) 0%,
@@ -19,6 +20,8 @@ body {
 
 button {
   cursor: pointer;
+  background-color: transparent;
+  border: none;
 }
 
 a {
@@ -27,31 +30,34 @@ a {
 }
 
 .container {
-  font-family: Montserrat, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
-    'Helvetica Neue', sans-serif;
-  max-width: 430px;
   min-height: calc(100vh - 62px);
   height: auto;
+  padding: 53px 16px;
+}
+
+.container, .nav-container {
   margin: 0 auto;
   background-color: #f5f5f5;
-  padding: 53px 16px;
+  max-width: 430px;
 }
 
 .nav {
   background: #ffffff;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 100vw;
   height: 62px;
   max-width: 430px;
   margin: 0 auto;
   padding: 0 19px;
+  border-bottom: 2px solid black;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .nav-logo {
-  margin: 0;
-
+  position: absolute;
   font-size: 24px;
   font-weight: 700;
   line-height: 29px;
@@ -59,11 +65,10 @@ a {
   text-align: left;
 }
 
-.menu-btn {
-  background-color: transparent;
-  border: none;
-  height: 24px;
-  width: 24px;
+.backArrow {
+  margin-right: auto;
+  color: transparent;
+  margin: none;
 }
 
 .home-title {

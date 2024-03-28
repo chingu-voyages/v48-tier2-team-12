@@ -1,12 +1,18 @@
-import menuButton from '../assets/menu-rounded.png';
+import backArrow from '../assets/back-arrow.svg'
+import { Link } from 'react-router-dom';
 
 export default function NavBar() {
   return (
-    <div className="nav">
-      <h2 className="nav-logo">LOGO</h2>
-      <button className="menu-btn">
-        <img alt="Menu Button" src={menuButton} />
-      </button>
+    <div className='nav-container'>
+      <div className="nav"> 
+        <Link to="/" className="backArrow">
+          <button>
+              <img alt="Go back button" src={backArrow} />
+          </button>
+        </Link>
+        
+        <h2 className="nav-logo">LOGO</h2>
+      </div>
     </div>
   );
 }

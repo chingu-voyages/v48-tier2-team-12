@@ -11,10 +11,12 @@ const CategoryTiles = ({filterDinos, }: any) => {
           <button
             key={tile.title}
             className={styles.tile}
-            onClick={() => {
+            onClick={
+              () => {
               filterDinos(tile.filterFunction);
               console.log(filterDinos(tile.filterFunction))
-            }}
+              }
+            }
           >
             <img className={styles.icon} src={tile.icon} alt={tile.title} />
             <span className={styles.title}>{tile.title}</span>

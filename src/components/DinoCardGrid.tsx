@@ -1,8 +1,10 @@
 import { DinoCard } from './DinoCard';
 import classes from '../css-modules/DinoCardGrid.module.css';
 import { Dino } from '../interfaces/dino.interface';
+import emptyStateImg from '../assets/no-image.svg'
 
 export function DinoCardGrid({ dinos }: { dinos: Dino[] }) {
+  const uglyImgUrl:string = "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction/small/aardonyx.jpg"
   return (
     <>
       <h2 className={classes.smallCardGridTitle}>Discover</h2>
@@ -11,7 +13,12 @@ export function DinoCardGrid({ dinos }: { dinos: Dino[] }) {
           <DinoCard
             key={index}
             id={dino.id}
-            imageSrc={dino.imageSrc}
+            imageSrc={
+              dino.imageSrc === "N/A" || 
+              dino.imageSrc ===  uglyImgUrl ? 
+              emptyStateImg : 
+              dino.imageSrc 
+            }
             name={dino.name} 
             description=""
             foundIn=""

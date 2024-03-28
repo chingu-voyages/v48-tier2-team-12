@@ -5,17 +5,26 @@ import DinosaurOfTheDay from '../components/DinosaurOfTheDay.tsx';
 import Search from '../components/Search.tsx';
 import { fetchDinos } from '../utils/api.ts';
 import { Dino } from '../interfaces/dino.interface.ts';
+import { altPics } from '../utils/pretty-pics.tsx';
 
 export default function Home() {
   const [dinos, setDinos] = useState<Dino[]>([]);
   const [originalDinos, setOriginalDinos] = useState<Dino[]>([]);
 
-  const filterDinos = (filterFunction: (dino: Dino) => boolean) => {
+  const filterDinos = (filterFunction: (dino: Dino) => boolean) => 
+  {
     setDinos(originalDinos.filter((dino) => filterFunction(dino)));
   };
 
   useEffect(() => {
     fetchDinos().then((data) => {
+      
+      data.map(item => {
+        altPics.forEach(element => {
+          item.id === element.id ? item.imageSrc = element.img : ""
+        });
+        
+      }) 
       setOriginalDinos(data);
       setDinos(data);
     });
@@ -24,9 +33,9 @@ export default function Home() {
   return (
     <main className="container">
       <h2 className="home-title">Which dino do you want to learn about?</h2>
-      <Search />
+      { originalDinos === dinos && <Search /> }
       <CategoryTiles filterDinos={filterDinos} />
-      <DinosaurOfTheDay />
+      {originalDinos === dinos && <DinosaurOfTheDay /> }
       <DinoCardGrid dinos={dinos} />
     </main>
   );
