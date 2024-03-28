@@ -6,16 +6,12 @@
 }
 
 .smallCardImage {
-  width: 191px;
+  width: 100%;
   height: 191px;
-
   border-radius: 10px 10px 0 0;
-  opacity: 0px;
-
 }
 
 .smallCardTitle {
-  font-family: Inter;
   font-size: 14px;
   font-weight: 500;
   line-height: 17px;
