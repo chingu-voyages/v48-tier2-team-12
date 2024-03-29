@@ -3,6 +3,7 @@ import Layout from './pages/Layout';
 import Home from './pages/Home';
 import DinoPage from './pages/DinoPage';
 import SearchResults from './pages/SearchResults';
+import { FilterProvider } from './components/FilterContext';
 
 const router = createBrowserRouter([
   {
@@ -30,7 +31,11 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <FilterProvider>
+      <RouterProvider router={router} />;
+    </FilterProvider>
+  );
 };
 
 export default App;
