@@ -2,6 +2,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Layout from './pages/Layout';
 import Home from './pages/Home';
 import DinoPage from './pages/DinoPage';
+import SearchResults from './pages/SearchResults';
 
 const router = createBrowserRouter([
   {
@@ -12,14 +13,10 @@ const router = createBrowserRouter([
         index: true,
         element: <Home />,
       },
-      // {
-      //   path: '/searchresult',
-      //   element: <SearchResult />,
-      // },
-      // {
-      //   path: '/dino/:id',
-      //   element: <DinoInfo />,
-      // },
+      {
+        path: '/searchresults',
+        element: <SearchResults />,
+      },
       // {
       //   path: '/charts',
       //   element: <Charts />,
