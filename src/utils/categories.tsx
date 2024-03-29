@@ -1,10 +1,10 @@
 import { Dino } from '../interfaces/dino.interface';
-import img1 from '../assets/dino-type-images/dino-type-1.png';
-import img2 from '../assets/dino-type-images/dino-type-2.png';
-import img3 from '../assets/dino-type-images/dino-type-3.png';
-import img4 from '../assets/dino-type-images/dino-type-4.png';
-import img5 from '../assets/dino-type-images/dino-type-5.png';
-import img6 from '../assets/dino-type-images/dino-type-6.png';
+import img1 from '../assets/dino-type-images/dino-type-1.svg';
+import img2 from '../assets/dino-type-images/dino-type-2.svg';
+import img3 from '../assets/dino-type-images/dino-type-3.svg';
+import img4 from '../assets/dino-type-images/dino-type-4.svg';
+import img5 from '../assets/dino-type-images/dino-type-5.svg';
+import img6 from '../assets/dino-type-images/dino-type-6.svg';
 import img7 from '../assets/dino-type-images/dino-type-7.svg';
 import img8 from '../assets/dino-type-images/dino-type-8.svg';
 import img9 from '../assets/dino-type-images/dino-type-9.svg';
@@ -96,27 +96,27 @@ export const filterDinoType = [
   {
     title: 'Large Theropod',
     icon: img9,
-    typeOfDinosaur: 'large theropod',
+    cardData: 'large theropod',
   },
   {
     title: 'Sauropod',
     icon: img6,
-    typeOfDinosaur: 'sauropod',
+    cardData: 'sauropod',
   },
   {
     title: 'Small Theropod',
     icon: img5,
-    typeOfDinosaur: 'small theropod',
+    cardData: 'small theropod',
   },
   {
     title: 'Large Ornithopod',
     icon: img4,
-    typeOfDinosaur: 'large ornithopod',
+    cardData: 'large ornithopod',
   },
   {
     title: 'Armoured',
     icon: img3,
-    typeOfDinosaur: 'armoured dinosaur',
+    cardData: 'armoured dinosaur',
   },
 ];
 
@@ -124,17 +124,17 @@ export const filterDinoDiet = [
   {
     title: 'Carnivorous',
     icon: img11,
-    diet: 'carnivorous',
+    cardData: 'carnivorous',
   },
   {
     title: 'Herbivorous',
     icon: img2,
-    diet: 'herbivorous',
+    cardData: 'herbivorous',
   },
   {
     title: 'Omnivorous',
     icon: img1,
-    diet: 'omnivorous',
+    cardData: 'omnivorous',
   },
 ];
 

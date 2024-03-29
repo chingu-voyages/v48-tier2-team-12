@@ -1,7 +1,7 @@
 export interface Dino {
-  id: number;
-  name: string;
-  imageSrc: string;
+  id?: number;
+  name?: string;
+  imageSrc?: string;
   typeOfDinosaur?: string;
   length?: number | 'N/A';
   weight?: number | 'N/A';
