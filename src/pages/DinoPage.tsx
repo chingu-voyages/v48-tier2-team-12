@@ -30,9 +30,15 @@ export default function DinoPage() {
         <h2 className={styles.DinoPageTitle}>{dino.name}</h2>
         {/* IMAGE */}
         <img
-          src={dino.imageSrc === 'N/A' ? emptyStateImg : dino.imageSrc}
+          src={dino.imageSrc === 'N/A' ? 
+          emptyStateImg : 
+          dino.imageSrc}
+          alt={dino.imageSrc === 'N/A' ? 
+          "No Image Discovered Yet" : 
+          `image of ${dino.name}`}
           className={styles.DinoMainImg}
         />
+        {dino.imageSrc === 'N/A' && <p className='noImageDesc'>No Image Discovered Yet</p>}
         {/* INFO */}
         <div className={styles.info}>
           <p>
