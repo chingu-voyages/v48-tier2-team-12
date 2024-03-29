@@ -21,7 +21,7 @@ const FilterModal = ({ handleModal }: { handleModal: () => void }) => {
   } = useContext(FilterContext);
 
   return (
-    <div className={`${styles['filter-modal']} container`}>
+    <div className={`${styles['filter-modal']}`}>
       <FilterContent title="Filter" contentType="close" onClick={handleModal} />
 
       <FilterContent
