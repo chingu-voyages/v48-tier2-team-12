@@ -51,7 +51,7 @@ const SearchResults = () => {
   }, [searchParams]);
 
   return (
-    <>
+    <div className="container">
       <Search />
       {/* TODO: Don't forget to delete this button */}
       <button
@@ -78,7 +78,7 @@ const SearchResults = () => {
       ) : (
         <DinoCardGrid dinos={dinos} title="Search results" />
       )}
-    </>
+    </div>
   );
 };
 
