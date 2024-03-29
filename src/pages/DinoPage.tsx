@@ -6,7 +6,8 @@ import NavBar from '../components/NavBar.tsx';
 import Map from '../components/Map';
 import styles from '../css-modules/DinoPage.module.css';
 import emptyStateImg from '../assets/no-image.svg';
-import { altPics } from '../utils/pretty-pics.tsx';
+import BottomNavBar from '../components/BottomNavBar.tsx';
+
 
 export default function DinoPage() {
   const { id } = useParams();
@@ -15,10 +16,6 @@ export default function DinoPage() {
   useEffect(() => {
     const fetchDinoPage = async () => {
       const singleDino = await fetchSingleDino(id);
-      // Replacing new pretty images
-      altPics.forEach((element) => {
-        Number(id) === element.id ? (singleDino.imageSrc = element.img) : '';
-      });
 
       setDino(singleDino);
     };
@@ -91,6 +88,7 @@ export default function DinoPage() {
           secondCountry={dino.foundIn?.split(', ')[1]}
         />
       </div>
+      <BottomNavBar />
     </main>
   );
 }
