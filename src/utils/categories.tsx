@@ -96,27 +96,27 @@ export const filterDinoType = [
   {
     title: 'Large Theropod',
     icon: img9,
-    typeOfDinosaur: 'large theropod',
+    cardData: 'large theropod',
   },
   {
     title: 'Sauropod',
     icon: img6,
-    typeOfDinosaur: 'sauropod',
+    cardData: 'sauropod',
   },
   {
     title: 'Small Theropod',
     icon: img5,
-    typeOfDinosaur: 'small theropod',
+    cardData: 'small theropod',
   },
   {
     title: 'Large Ornithopod',
     icon: img4,
-    typeOfDinosaur: 'large ornithopod',
+    cardData: 'large ornithopod',
   },
   {
     title: 'Armoured',
     icon: img3,
-    typeOfDinosaur: 'armoured dinosaur',
+    cardData: 'armoured dinosaur',
   },
 ];
 
@@ -124,17 +124,17 @@ export const filterDinoDiet = [
   {
     title: 'Carnivorous',
     icon: img11,
-    diet: 'carnivorous',
+    cardData: 'carnivorous',
   },
   {
     title: 'Herbivorous',
     icon: img2,
-    diet: 'herbivorous',
+    cardData: 'herbivorous',
   },
   {
     title: 'Omnivorous',
     icon: img1,
-    diet: 'omnivorous',
+    cardData: 'omnivorous',
   },
 ];
 

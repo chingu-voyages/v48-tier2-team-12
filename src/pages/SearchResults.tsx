@@ -54,7 +54,7 @@ const SearchResults = () => {
     <>
       <Search />
       {/* TODO: Don't forget to delete this button */}
-      {/* <button
+      <button
         style={{
           backgroundColor: 'gray',
           padding: '1rem',
@@ -69,7 +69,7 @@ const SearchResults = () => {
         }}
       >
         TEST
-      </button> */}
+      </button>
 
       {isLoading ? (
         <div>Loading...</div>

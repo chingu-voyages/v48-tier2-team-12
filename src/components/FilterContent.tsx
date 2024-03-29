@@ -1,22 +1,18 @@
 import styles from '../css-modules/FilterContent.module.css';
 
-type DinoType = {
+type DinoCardData = {
   title: string;
   icon: string;
-  typeOfDinosaur: string;
+  cardData: string;
 };
 
-type DinoDiet = {
-  title: string;
-  icon: string;
-  diet: string;
-};
+type HandleCardData = (cardData: string) => void;
 
 type FilterContentType = {
-  data?: number | string[] | DinoDiet[] | DinoType[] | null;
+  data?: number | string[] | DinoCardData[] | null;
   title: string;
   contentType: string;
-  onClick: () => void;
+  onClick: HandleCardData;
 };
 
 const FilterContent = ({
@@ -30,9 +26,13 @@ const FilterContent = ({
       <div className={`${styles['filter-content']} ${styles['cards']}`}>
         <span className={styles['filter-small-title']}>{title}</span>
         <div className={styles['chips-container']}>
-          {(data as (DinoDiet | DinoType)[]).map(({ title, icon }) => {
+          {(data as DinoCardData[]).map(({ title, icon, cardData }) => {
             return (
-              <div key={title} className={styles['single-chip']}>
+              <div
+                key={title}
+                className={styles['single-chip']}
+                onClick={() => onClick(cardData)}
+              >
                 <img src={icon} alt={title} />
                 <span className={styles['type-text']}>{title}</span>
               </div>
@@ -63,7 +63,11 @@ const FilterContent = ({
         <div className={styles['chips-container']}>
           {(data as string[]).map((title) => {
             return (
-              <div key={title} className={styles['single-chip']}>
+              <div
+                key={title}
+                className={styles['single-chip']}
+                onClick={() => onClick(title)}
+              >
                 <span className={styles['bold-text']}>{title}</span>
               </div>
             );
@@ -76,7 +80,7 @@ const FilterContent = ({
     return (
       <div className={`${styles['filter-content']} ${styles['filter-close']}`}>
         <svg
-          onClick={onClick}
+          onClick={onClick as () => void}
           className={styles['filter-close-icon']}
           width="16"
           height="16"

@@ -6,23 +6,49 @@ import {
   filterDinoType,
 } from '../utils/categories';
 import FilterContent from './FilterContent';
+import { useNavigate } from 'react-router-dom';
 
 const FilterModal = ({ handleModal }: { handleModal: () => void }) => {
-  const [typeOfDinosaur, setTypeOfDinosaur] = useState();
-  const [length, setLength] = useState();
-  const [weight, setWeight] = useState();
-  const [diet, setDiet] = useState();
-  const [whenLived, setWhenLived] = useState();
+  const navigate = useNavigate();
+  const [typeOfDinosaur, setTypeOfDinosaur] = useState<string | undefined>(
+    undefined
+  );
+  // const [length, setLength] = useState();
+  // const [weight, setWeight] = useState();
+  const [diet, setDiet] = useState<string | undefined>(undefined);
+  const [whenLived, setWhenLived] = useState<string | undefined>(undefined);
 
-  const handleDinoType = () => {};
+  const handleTypeOfDinosaur = (cardData: string) => {
+    setTypeOfDinosaur((prev) => {
+      if (prev === cardData) return undefined;
+      return cardData;
+    });
+  };
 
   const handleDinoLength = () => {};
 
   const handleDinoWeight = () => {};
 
-  const handleDinoDiet = () => {};
+  const handleDinoDiet = (cardData: string) => {
+    setDiet((prev) => {
+      if (prev === cardData) return undefined;
+      return cardData;
+    });
+  };
 
-  const handleWhenLived = () => {};
+  const handleWhenLived = (cardData: string) => {
+    setWhenLived((prev) => {
+      if (prev === cardData) return undefined;
+      return cardData;
+    });
+  };
+
+  // TODO: fix dinoSearchParams type
+  let dinoSearchParams: any = {};
+  if (typeOfDinosaur !== undefined)
+    dinoSearchParams.typeOfDinosaur = typeOfDinosaur;
+  if (diet !== undefined) dinoSearchParams.diet = diet;
+  if (whenLived !== undefined) dinoSearchParams.whenLived = whenLived;
 
   return (
     <div className={`${styles['filter-modal']}`}>
@@ -32,7 +58,7 @@ const FilterModal = ({ handleModal }: { handleModal: () => void }) => {
         data={filterDinoType}
         title="Type of Dinosaur"
         contentType="cards"
-        onClick={handleDinoType}
+        onClick={handleTypeOfDinosaur}
       />
 
       <FilterContent
@@ -65,7 +91,14 @@ const FilterModal = ({ handleModal }: { handleModal: () => void }) => {
 
       <div className={`${styles['filter-buttons']}`}>
         <button>Clear</button>
-        <button>Show Results</button>
+        <button
+          onClick={() => {
+            const urlParams = new URLSearchParams(dinoSearchParams);
+            navigate(`/searchresults?${urlParams}`);
+          }}
+        >
+          Show Results
+        </button>
       </div>
     </div>
   );
