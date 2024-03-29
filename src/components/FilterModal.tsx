@@ -51,7 +51,7 @@ const FilterModal = ({ handleModal }: { handleModal: () => void }) => {
   if (whenLived !== undefined) dinoSearchParams.whenLived = whenLived;
 
   return (
-    <div className={`${styles['filter-modal']}`}>
+    <div className={`${styles['filter-modal']} container`}>
       <FilterContent title="Filter" contentType="close" onClick={handleModal} />
 
       <FilterContent
