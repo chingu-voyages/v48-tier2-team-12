@@ -38,7 +38,7 @@ export default function DinoPage() {
           `image of ${dino.name}`}
           className={styles.DinoMainImg}
         />
-        {dino.imageSrc === 'N/A' && <p className='noImageDesc'>No Image Discovered Yet</p>}
+        {dino.imageSrc === 'N/A' && <p className={styles.noImageDesc}>No Image Discovered Yet</p>}
         {/* INFO */}
         <div className={styles.info}>
           <p>
