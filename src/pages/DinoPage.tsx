@@ -6,6 +6,7 @@ import NavBar from '../components/NavBar.tsx';
 import Map from '../components/Map';
 import styles from '../css-modules/DinoPage.module.css';
 import emptyStateImg from '../assets/no-image.svg';
+import BottomNavBar from '../components/BottomNavBar.tsx';
 
 
 export default function DinoPage() {
@@ -87,6 +88,7 @@ export default function DinoPage() {
           secondCountry={dino.foundIn?.split(', ')[1]}
         />
       </div>
+      <BottomNavBar />
     </main>
   );
 }
