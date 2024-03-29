@@ -29,9 +29,12 @@ a {
   text-decoration: none;
 }
 
+.main-container {
+  margin: 0 auto 80px;
+}
+
 .main-container,
 .container {
-  margin: 0 auto 80px;
   background-color: #f5f5f5;
   max-width: 430px;
 }
@@ -63,6 +66,7 @@ a {
 }
 
 .bottom-nav {
+  z-index: 2;
   position: fixed;
   height: 80px;
   bottom: 0;
@@ -148,12 +152,4 @@ a {
   border: none;
   display: flex;
   margin-left: auto;
-}
-
-.noImageDesc {
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 22px;
-  text-align: center;
-  margin: -40px;
 }

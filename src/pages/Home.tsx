@@ -31,12 +31,14 @@ export default function Home() {
   }, []);
 
   return (
+    <>
+    { originalDinos === dinos && <Search /> }
     <main className="container">
       <h2 className="home-title">Which dino do you want to learn about?</h2>
-      {originalDinos === dinos && <Search />}
       <CategoryTiles filterDinos={filterDinos} />
       {originalDinos === dinos && <DinosaurOfTheDay />}
       <DinoCardGrid dinos={dinos} title="Discover" />
     </main>
+    </>
   );
 }
