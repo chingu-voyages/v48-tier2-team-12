@@ -4,7 +4,7 @@ import BottomNavBar from '../components/BottomNavBar';
 
 const Layout = () => {
   return (
-    <div className='main-container'>
+    <div className="main-container">
       <NavBar />
       <Outlet />
       <BottomNavBar />

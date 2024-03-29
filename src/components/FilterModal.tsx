@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 import styles from '../css-modules/FilterModal.module.css';
 import {
   filterDinoDiet,
@@ -7,48 +7,18 @@ import {
 } from '../utils/categories';
 import FilterContent from './FilterContent';
 import { useNavigate } from 'react-router-dom';
+import { FilterContext } from './FilterContext';
 
 const FilterModal = ({ handleModal }: { handleModal: () => void }) => {
   const navigate = useNavigate();
-  const [typeOfDinosaur, setTypeOfDinosaur] = useState<string | undefined>(
-    undefined
-  );
-  // const [length, setLength] = useState();
-  // const [weight, setWeight] = useState();
-  const [diet, setDiet] = useState<string | undefined>(undefined);
-  const [whenLived, setWhenLived] = useState<string | undefined>(undefined);
-
-  const handleTypeOfDinosaur = (cardData: string) => {
-    setTypeOfDinosaur((prev) => {
-      if (prev === cardData) return undefined;
-      return cardData;
-    });
-  };
-
-  const handleDinoLength = () => {};
-
-  const handleDinoWeight = () => {};
-
-  const handleDinoDiet = (cardData: string) => {
-    setDiet((prev) => {
-      if (prev === cardData) return undefined;
-      return cardData;
-    });
-  };
-
-  const handleWhenLived = (cardData: string) => {
-    setWhenLived((prev) => {
-      if (prev === cardData) return undefined;
-      return cardData;
-    });
-  };
-
-  // TODO: fix dinoSearchParams type
-  let dinoSearchParams: any = {};
-  if (typeOfDinosaur !== undefined)
-    dinoSearchParams.typeOfDinosaur = typeOfDinosaur;
-  if (diet !== undefined) dinoSearchParams.diet = diet;
-  if (whenLived !== undefined) dinoSearchParams.whenLived = whenLived;
+  const {
+    handleTypeOfDinosaur,
+    handleDinoDiet,
+    handleWhenLived,
+    handleDinoLength,
+    handleDinoWeight,
+    dinoSearchParams,
+  } = useContext(FilterContext);
 
   return (
     <div className={`${styles['filter-modal']} container`}>
