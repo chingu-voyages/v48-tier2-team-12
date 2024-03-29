@@ -3,9 +3,11 @@ import CategoryTiles from '../components/CategoryTiles';
 import { DinoCardGrid } from '../components/DinoCardGrid';
 import DinosaurOfTheDay from '../components/DinosaurOfTheDay.tsx';
 import Search from '../components/Search.tsx';
+import { NewsCardGrid } from '../components/NewsCardGrid.tsx';
 import { fetchDinos } from '../utils/api.ts';
 import { Dino } from '../interfaces/dino.interface.ts';
 import { altPics } from '../utils/pretty-pics.tsx';
+
 
 export default function Home() {
   const [dinos, setDinos] = useState<Dino[]>([]);
@@ -36,6 +38,7 @@ export default function Home() {
       {originalDinos === dinos && <Search />}
       <CategoryTiles filterDinos={filterDinos} />
       {originalDinos === dinos && <DinosaurOfTheDay />}
+      <NewsCardGrid/>
       <DinoCardGrid dinos={dinos} title="Discover" />
     </main>
   );
