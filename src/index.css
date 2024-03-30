@@ -43,6 +43,7 @@ a {
   min-height: calc(100vh - 62px);
   height: auto;
   padding: 53px 16px;
+  margin: 0 auto
 }
 
 .nav,
