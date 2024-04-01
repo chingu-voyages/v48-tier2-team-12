@@ -14,7 +14,7 @@ export function NewsCardGrid() {
   }, []);
 
   return (
-    <>
+    <div className={classes.newsContainer}>
       <div className={classes.newsCardGridLabel}>News</div>
       <div className={classes.newsCardGrid}>
         {
@@ -25,6 +25,6 @@ export function NewsCardGrid() {
         <NewsErrorHandling  />
         }
       </div>
-    </>
+    </div>
   );
 }

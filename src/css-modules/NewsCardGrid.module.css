@@ -1,3 +1,6 @@
+.newsContainer {
+  padding: 30px 0 0;
+}
 .newsCardGrid {
   display: flex;
   flex-direction: column;
@@ -7,9 +10,9 @@
   height: Hug (288px) px;
   left: 16px;
   top: 10px ;
-  padding: 10px 0px 10px 0px;
+  padding: 10px 0px;
   gap: 12px;
-  border-radius: 12px 12px 0px 0px;
+  border-radius: 12px;
   opacity: 0px;
 
   background: #ffffff;
@@ -20,14 +23,9 @@
   height: 24px;
   top: 684px;
   left: 16px;
-  gap: 0px;
   opacity: 0px;
-
-  font-family: Montserrat;
   font-size: 20px;
   font-weight: 700;
   line-height: 24.38px;
-  text-align: left;
-
-  color: #000000;
+  margin-bottom: 10px;
 }

@@ -1,38 +1,19 @@
 .newsCard {
-  padding: 0px 10px 0px 10px;
+  padding:0px 10px;
 }
 
 .newsCardHeadline {
   width: 378px;
 
-  font-family: Montserrat;
   font-size: 16px;
   font-weight: 700;
   line-height: 19.5px;
-  text-align: left;
-
   padding-top: 12px;
-  color: #000000;
 }
 
 .newsCardSummary {
   width: 378px;
-
-  font-family: Montserrat;
   font-size: 14px;
-  font-weight: 400;
   line-height: 17.07px;
-  text-align: left;
-
   padding-top: 4px;
-
-  color: #000000;
-}
-
-.newsCardReadMore {
-  font-family: Montserrat;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 17.07px;
-  text-align: left;
 }
