@@ -1,7 +1,10 @@
 .smallCardGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(191px, 1fr));;
+  /* prior: auto fit 2 x 191px or 1fr */
+  grid-template-columns: repeat(2, calc(calc(100vw - 48px)/2));
   gap: 16px;
+  /* margin: 0 auto; */
+  max-width: calc(calc(430px - 48px)/2);
 }
 
 .smallCardGridTitle {

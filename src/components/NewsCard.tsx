@@ -9,3 +9,11 @@ export function NewsCard(article: Article) {
     </div>
   );
 }
+
+export function NewsErrorHandling () {
+  return (
+  <div className={classes.newsCard}>
+    <p>Oops, something went wrong here...</p>
+  </div>
+  );
+}
