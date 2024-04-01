@@ -14,11 +14,10 @@ export function DinoCard(props: Dino) {
           "No Image Discovered Yet" : 
           `image of ${props.name}`}
         />
-        {props.imageSrc === emptyStateImg ? 
+        {props.imageSrc === emptyStateImg && 
         <p className={styles.noImageDesc}>
           No Image Discovered Yet
-        </p> :
-        ""}
+        </p>}
         <div className={styles.smallCardTitle}
         >{props.name}
         </div>

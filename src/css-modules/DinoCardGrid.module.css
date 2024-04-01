@@ -1,7 +1,8 @@
 .smallCardGrid {
   display: grid;
   /* prior: auto fit 2 x 191px or 1fr */
-  grid-template-columns: calc(calc(100vw - 48px)/2) calc(calc(100vw - 48px)/2);
+  /* calc(calc(100vw - 48px)/2) calc(calc(100vw - 48px)/2); */
+  grid-template-columns: repeat(auto-fit, minmax(191px, 1fr) );
   gap: 16px;
   /* margin: 0 auto; */
   max-width: 191px;
