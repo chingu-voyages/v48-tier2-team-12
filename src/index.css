@@ -73,7 +73,7 @@ a {
   bottom: 0;
   left: 50%;
   right: 50%;
-  margin: 0 -215px;
+  margin: 0 -50vw;
 
   justify-content: space-between;
   border-top: 1px solid black;
