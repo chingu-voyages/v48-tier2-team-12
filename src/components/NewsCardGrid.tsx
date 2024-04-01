@@ -13,7 +13,7 @@ export function NewsCardGrid() {
 
   // nextTimeToFetchNews is equal to 'the timestamp sent to LS' + 24 hours
   const nextTimeToFetchNews = Number(timestamp)  + (1 * 24 * 60 * 60 * 1000)
-  console.log(now)
+  console.log(localStorage.getItem('dinopedia-news'))
 
   const timeComparison = () => {
     if (!timestamp || now >= 1712008800000) {
@@ -27,6 +27,7 @@ export function NewsCardGrid() {
       if ( isTimeToFetchNews ){
         fetchNews().then((response) => {
           setArticles(response.articles);
+          localStorage.setItem('dinopedia-news', JSON.stringify(response.articles));
         });
         
         setisTimeToFetchNews(false)
@@ -41,14 +42,18 @@ export function NewsCardGrid() {
     <div className={classes.newsContainer}>
       <div className={classes.newsCardGridLabel}>News</div>
       <div className={classes.newsCardGrid}>
-        {
-        articles ? 
-        articles.map((article, index) => (
-          <NewsCard key={index} {...article} />
-        )) : 
-        <NewsErrorHandling  />
-       
-        } { isTimeToFetchNews ? "Fetching..." :  "More news tomorrow" }
+        <div>
+          {
+          articles ? 
+            articles.map((article, index) => (
+              <NewsCard key={index} {...article} />
+            )) : 
+            <NewsErrorHandling  />
+          }
+        </div>
+        <div>
+          { isTimeToFetchNews ? "Fetching..." :  "More news tomorrow" }
+        </div>
       </div>
     </div>
   );
