@@ -6,7 +6,7 @@ import { FilterContext } from './Filter/FilterContext';
 import { useContext } from 'react';
 
 const Search = () => {
-  const { isModalOpen, handleModal, dinoName, setDinoName } =
+  const { isModalOpen, handleModal, dinoName, handleSearch } =
     useContext(FilterContext);
 
   return (
@@ -17,7 +17,7 @@ const Search = () => {
             placeholder="Search"
             name="name"
             value={dinoName}
-            onChange={(e) => setDinoName(e.target.value)}
+            onChange={(e) => handleSearch(e)}
           />
           <img src={magnifyingGlass} alt="Search" />
         </div>

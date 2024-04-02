@@ -17,24 +17,33 @@ export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
   const handleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
+
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setDinoName(value);
+  };
+
   const handleCountry = (cardData: string) => {
     setCountry((prev) => {
       if (prev === cardData) return undefined;
       return cardData;
     });
   };
+
   const handleTypeOfDinosaur = (cardData: string) => {
     setTypeOfDinosaur((prev) => {
       if (prev === cardData) return undefined;
       return cardData;
     });
   };
+
   const handleDinoDiet = (cardData: string) => {
     setDiet((prev) => {
       if (prev === cardData) return undefined;
       return cardData;
     });
   };
+
   const handleWhenLived = (cardData: string) => {
     setWhenLived((prev) => {
       if (prev === cardData) return undefined;
@@ -59,6 +68,8 @@ export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
   if (diet !== undefined) dinoSearchParams.diet = diet;
   if (whenLived !== undefined) dinoSearchParams.whenLived = whenLived;
   if (country !== undefined) dinoSearchParams.country = country;
+  if (dinoName !== undefined && dinoName.trim() !== '')
+    dinoSearchParams.dinoName = dinoName.trim();
 
   return (
     <FilterContext.Provider
@@ -75,7 +86,7 @@ export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
         handleCountry,
         handleDinoLength,
         handleDinoWeight,
-        setDinoName,
+        handleSearch,
         dinoSearchParams,
         clearFilters,
         dinoName,
