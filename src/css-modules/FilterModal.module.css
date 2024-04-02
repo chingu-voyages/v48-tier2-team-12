@@ -1,21 +1,18 @@
 .filter-modal {
-  z-index: 100;
-  position: fixed;
-
   max-width: 430px;
+  width: 100%;
+  min-height: calc(100vh - 62px);
 
-  bottom: 0;
+  position: absolute;
+  z-index: 100;
   left: 50%;
   transform: translateX(-50%);
-
-  width: 100%;
   padding: 0.5rem 0;
 
-  min-height: calc(100vh - 62px);
-  background: #d3d3d3 !important;
-
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
+  background: white !important;
+  border-radius: 12px 12px 0px 0px;
+  border: 1px 0px 0px 0px;
+  border: 1px solid #eaeaea;
 
   display: flex;
   flex-direction: column;

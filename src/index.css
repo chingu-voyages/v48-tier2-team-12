@@ -1,3 +1,8 @@
+:root {
+  --dino-green: #4a765c;
+  --orange: #f16e00ee;
+}
+
 *,
 *::after,
 *::before {
@@ -43,7 +48,7 @@ a {
   min-height: calc(100vh - 62px);
   height: auto;
   padding: 53px 16px;
-  margin: 0 auto
+  margin: 0 auto;
 }
 
 .nav,

@@ -1,8 +1,8 @@
 import styles from '../css-modules/Search.module.css';
-import FilterModal from './FilterModal';
+import FilterModal from './Filter/FilterModal';
 import magnifyingGlass from '../assets/magnifying-glass.svg';
 import filter from '../assets/filter.svg';
-import { FilterContext } from './FilterContext';
+import { FilterContext } from './Filter/FilterContext';
 import { useContext } from 'react';
 
 const Search = () => {

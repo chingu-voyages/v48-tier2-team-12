@@ -9,13 +9,15 @@ import { useSearchParams } from 'react-router-dom';
 //     name: string;
 //     typeOfDinosaur: string;
 //     length: number;
+//     length: number;
+//     weight: number;
 //     weight: number;
 //     diet: string;
 //     whenLived: string;
 //   };
 
 const SearchResults = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams, _] = useSearchParams();
   const [dinos, setDinos] = useState<Dino[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -37,7 +39,8 @@ const SearchResults = () => {
             (!params.length || dino.length === params.length) &&
             (!params.weight || dino.weight === params.weight) &&
             (!params.diet || dino.diet === params.diet) &&
-            (!params.whenLived || dino.whenLived?.includes(params.whenLived))
+            (!params.whenLived || dino.whenLived?.includes(params.whenLived)) &&
+            (!params.country || dino.foundIn?.includes(params.country))
           );
         });
         setIsLoading(false);
@@ -53,24 +56,6 @@ const SearchResults = () => {
   return (
     <div className="container">
       <Search />
-      {/* TODO: Don't forget to delete this button */}
-      <button
-        style={{
-          backgroundColor: 'gray',
-          padding: '1rem',
-          marginLeft: '1rem',
-        }}
-        onClick={() => {
-          setSearchParams({
-            typeOfDinosaur: 'sauropod',
-            diet: 'herbivorous',
-            whenLived: 'Late Cretaceous',
-          });
-        }}
-      >
-        TEST
-      </button>
-
       {isLoading ? (
         <div>Loading...</div>
       ) : dinos.length === 0 ? (

@@ -3,7 +3,7 @@ import Layout from './pages/Layout';
 import Home from './pages/Home';
 import DinoPage from './pages/DinoPage';
 import SearchResults from './pages/SearchResults';
-import { FilterProvider } from './components/FilterContext';
+import { FilterProvider } from './components/Filter/FilterContext';
 
 const router = createBrowserRouter([
   {

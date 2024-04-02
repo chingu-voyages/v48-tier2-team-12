@@ -8,6 +8,7 @@ export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
   // const [length, setLength] = useState();
   // const [weight, setWeight] = useState();
   const [diet, setDiet] = useState<string | undefined>(undefined);
+  const [country, setCountry] = useState<string | undefined>(undefined);
   const [whenLived, setWhenLived] = useState<string | undefined>(undefined);
   const [typeOfDinosaur, setTypeOfDinosaur] = useState<string | undefined>(
     undefined
@@ -16,7 +17,12 @@ export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
   const handleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
-
+  const handleCountry = (cardData: string) => {
+    setCountry((prev) => {
+      if (prev === cardData) return undefined;
+      return cardData;
+    });
+  };
   const handleTypeOfDinosaur = (cardData: string) => {
     setTypeOfDinosaur((prev) => {
       if (prev === cardData) return undefined;
@@ -29,7 +35,6 @@ export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
       return cardData;
     });
   };
-
   const handleWhenLived = (cardData: string) => {
     setWhenLived((prev) => {
       if (prev === cardData) return undefined;
@@ -45,6 +50,7 @@ export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
     setDiet(undefined);
     setWhenLived(undefined);
     setTypeOfDinosaur(undefined);
+    setCountry(undefined);
   };
 
   let dinoSearchParams: any = {};
@@ -52,15 +58,21 @@ export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
     dinoSearchParams.typeOfDinosaur = typeOfDinosaur;
   if (diet !== undefined) dinoSearchParams.diet = diet;
   if (whenLived !== undefined) dinoSearchParams.whenLived = whenLived;
+  if (country !== undefined) dinoSearchParams.country = country;
 
   return (
     <FilterContext.Provider
       value={{
         isModalOpen,
         handleModal,
+        typeOfDinosaur,
         handleTypeOfDinosaur,
+        diet,
         handleDinoDiet,
+        whenLived,
         handleWhenLived,
+        country,
+        handleCountry,
         handleDinoLength,
         handleDinoWeight,
         setDinoName,
