@@ -11,7 +11,6 @@ const Search = () => {
 
   return (
     <>
-      {isModalOpen && <FilterModal />}
       <div className={styles.container}>
         <div className={styles['search-input-container']}>
           <input
@@ -26,6 +25,7 @@ const Search = () => {
           <img src={filter} alt="filter" />
         </span>
       </div>
+      {isModalOpen && <FilterModal />}
     </>
   );
 };
