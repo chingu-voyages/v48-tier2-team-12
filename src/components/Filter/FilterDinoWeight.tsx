@@ -1,4 +1,4 @@
-import styles from '../css-modules/FilterContent.module.css';
+import styles from '../../css-modules/FilterContent.module.css';
 
 const FilterDinoWeight = () => {
   return (

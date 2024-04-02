@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import styles from '../css-modules/FilterContent.module.css';
+import styles from '../../css-modules/FilterContent.module.css';
 import { useContext } from 'react';
 import { FilterContext } from './FilterContext';
 
