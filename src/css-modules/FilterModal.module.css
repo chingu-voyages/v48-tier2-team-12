@@ -1,13 +1,9 @@
 .filter-modal {
-  max-width: 430px;
   width: 100%;
   min-height: calc(100vh - 62px);
-
-  position: absolute;
-  z-index: 100;
-  left: 50%;
-  transform: translateX(-50%);
   padding: 0.5rem 0;
+
+  z-index: 100;
 
   background: white !important;
   border-radius: 12px 12px 0px 0px;

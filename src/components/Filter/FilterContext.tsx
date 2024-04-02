@@ -5,8 +5,10 @@ export const FilterContext = createContext<any>(undefined);
 export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
   const [dinoName, setDinoName] = useState<undefined | string>(undefined);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  // const [length, setLength] = useState();
-  // const [weight, setWeight] = useState();
+  const [minLength, setMinLength] = useState<number | undefined>(undefined);
+  const [maxLength, setMaxLength] = useState<number | undefined>(undefined);
+  const [minWeight, setMinWeight] = useState<number | undefined>(undefined);
+  const [maxWeight, setMaxWeight] = useState<number | undefined>(undefined);
   const [diet, setDiet] = useState<string | undefined>(undefined);
   const [country, setCountry] = useState<string | undefined>(undefined);
   const [whenLived, setWhenLived] = useState<string | undefined>(undefined);
@@ -17,24 +19,43 @@ export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
   const handleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
+
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setDinoName(value);
+  };
+
+  const handleLength = (value: number[]) => {
+    setMinLength(value[0]);
+    setMaxLength(value[1]);
+  };
+
+  const handleWeight = (value: number[]) => {
+    setMinWeight(value[0]);
+    setMaxWeight(value[1]);
+  };
+
   const handleCountry = (cardData: string) => {
     setCountry((prev) => {
       if (prev === cardData) return undefined;
       return cardData;
     });
   };
+
   const handleTypeOfDinosaur = (cardData: string) => {
     setTypeOfDinosaur((prev) => {
       if (prev === cardData) return undefined;
       return cardData;
     });
   };
+
   const handleDinoDiet = (cardData: string) => {
     setDiet((prev) => {
       if (prev === cardData) return undefined;
       return cardData;
     });
   };
+
   const handleWhenLived = (cardData: string) => {
     setWhenLived((prev) => {
       if (prev === cardData) return undefined;
@@ -42,23 +63,33 @@ export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
     });
   };
 
-  const handleDinoLength = () => {};
-
-  const handleDinoWeight = () => {};
-
   const clearFilters = () => {
+    setDinoName(undefined);
+    setMinLength(undefined);
+    setMaxLength(undefined);
+    setMinWeight(undefined);
+    setMaxWeight(undefined);
+    setTypeOfDinosaur(undefined);
     setDiet(undefined);
     setWhenLived(undefined);
-    setTypeOfDinosaur(undefined);
     setCountry(undefined);
   };
 
   let dinoSearchParams: any = {};
   if (typeOfDinosaur !== undefined)
     dinoSearchParams.typeOfDinosaur = typeOfDinosaur;
+  //
+  if (minLength !== undefined) dinoSearchParams.minLength = minLength;
+  if (maxLength !== undefined) dinoSearchParams.maxLength = maxLength;
+  //
+  if (minWeight !== undefined) dinoSearchParams.minWeight = minWeight;
+  if (maxWeight !== undefined) dinoSearchParams.maxWeight = maxWeight;
+  //
   if (diet !== undefined) dinoSearchParams.diet = diet;
   if (whenLived !== undefined) dinoSearchParams.whenLived = whenLived;
   if (country !== undefined) dinoSearchParams.country = country;
+  if (dinoName !== undefined && dinoName.trim() !== '')
+    dinoSearchParams.dinoName = dinoName.trim();
 
   return (
     <FilterContext.Provider
@@ -67,15 +98,19 @@ export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
         handleModal,
         typeOfDinosaur,
         handleTypeOfDinosaur,
+        minLength,
+        maxLength,
+        handleLength,
+        minWeight,
+        maxWeight,
+        handleWeight,
         diet,
         handleDinoDiet,
         whenLived,
         handleWhenLived,
         country,
         handleCountry,
-        handleDinoLength,
-        handleDinoWeight,
-        setDinoName,
+        handleSearch,
         dinoSearchParams,
         clearFilters,
         dinoName,

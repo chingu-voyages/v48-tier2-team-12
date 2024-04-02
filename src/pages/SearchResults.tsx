@@ -31,19 +31,34 @@ const SearchResults = () => {
       setIsLoading(true);
       try {
         const dinosData = await fetchDinos();
+
         const searchResults = dinosData.filter((dino: Dino) => {
           return (
-            (!params.name || dino.name === params.name) &&
+            // Name
+            (!params.dinoName ||
+              dino.name
+                ?.toLowerCase()
+                .includes(params.dinoName.toLowerCase())) &&
+            // Length
+            (!params.minLength || dino.length >= params.minLength) &&
+            (!params.maxLength || dino.length <= params.maxLength) &&
+            // Weight
+            (!params.minWeight || dino.weight >= params.minWeight) &&
+            (!params.maxWeight || dino.weight <= params.maxWeight) &&
+            // Type
             (!params.typeOfDinosaur ||
               dino.typeOfDinosaur === params.typeOfDinosaur) &&
-            (!params.length || dino.length === params.length) &&
-            (!params.weight || dino.weight === params.weight) &&
+            // Diet
             (!params.diet || dino.diet === params.diet) &&
+            // Era
             (!params.whenLived || dino.whenLived?.includes(params.whenLived)) &&
+            // Country
             (!params.country || dino.foundIn?.includes(params.country))
           );
         });
+
         setIsLoading(false);
+
         setDinos(searchResults);
       } catch (error) {
         setIsLoading(false);
