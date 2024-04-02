@@ -5,7 +5,10 @@ export function NewsCard(article: Article) {
   return (
     <div className={classes.newsCard}>
       <div className={classes.newsCardHeadline}>{article.title}</div>
-      <div className={classes.newsCardSummary}>{article.description}</div>
+      <div className={classes.newsCardSummary}>
+        {article.description}
+        <a href={article.url} target="_blank">Read More</a>
+      </div>
     </div>
   );
 }
