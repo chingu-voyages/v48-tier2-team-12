@@ -24,8 +24,9 @@ export default function DinoPage() {
 
   return (
     <main>
-      <NavBar />
+      
       <div className="container">
+      <NavBar />
         {/* TITLE */}
         <h2 className={styles.DinoPageTitle}>{dino.name}</h2>
         {/* IMAGE */}
