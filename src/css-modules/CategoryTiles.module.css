@@ -11,7 +11,7 @@
 
 .tile {
   width: 100%;
-  min-width: 107px;
+  max-width: 107px;
 
   background-color: white;
   box-shadow: -5px 5px 10px 0px #4a765c40;
@@ -37,7 +37,6 @@
 
 .icon {
   margin: 10px;
-
   height: 24px;
   width: 24px;
   filter: invert(42%) sepia(8%) saturate(1531%) hue-rotate(92deg)
@@ -48,7 +47,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 10px;
-  font-weight: 600;
+
   font-family: Montserrat;
+  font-size: 10px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 12.19px;
 }

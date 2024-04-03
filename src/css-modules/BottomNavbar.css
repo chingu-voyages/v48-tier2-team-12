@@ -31,14 +31,14 @@
   color: var(--dino-green);
 }
 
-.bottomNav-navLink svg {
+.bottomNav-navLink img {
   width: 24px;
   height: 24px;
-  fill: black;
 }
 
-.bottomNav-navLink.active svg {
-  fill: var(--dino-green);
+.bottomNav-navLink.active img {
+  filter: invert(44%) sepia(10%) saturate(1315%) hue-rotate(92deg)
+    brightness(90%) contrast(86%);
 }
 
 .bottomNav-navLink p {
