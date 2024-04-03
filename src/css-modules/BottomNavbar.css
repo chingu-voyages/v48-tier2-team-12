@@ -25,11 +25,15 @@
   width: 100%;
   max-width: 100px;
   height: 100%;
+}
 
-  background-color: lightpink;
+.bottomNav-navLink.active {
+  color: var(--dino-green);
 }
 
 .bottomNav-navLink svg {
+  width: 24px;
+  height: 24px;
   fill: black;
 }
 
@@ -40,4 +44,16 @@
 .bottomNav-navLink p {
   font-size: 10px;
   font-weight: 600;
+}
+
+.bottomNav-topBorder {
+  position: absolute;
+  top: 0;
+  height: 2px;
+  width: 100%;
+  max-width: 100px;
+}
+
+.bottomNav-navLink.active .bottomNav-topBorder {
+  background-color: var(--dino-green);
 }

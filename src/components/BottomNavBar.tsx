@@ -8,7 +8,8 @@ export default function BottomNavBar() {
 
   return (
     <div className="bottomNav">
-      <NavLink to="/" className="bottomNav-navLink">
+      <NavLink to="/discover" className="bottomNav-navLink">
+        <div className="bottomNav-topBorder"></div>
         <svg
           width="24"
           height="23"
@@ -35,6 +36,7 @@ export default function BottomNavBar() {
       </NavLink>
 
       <NavLink to="/" className="bottomNav-navLink">
+        <div className="bottomNav-topBorder"></div>
         <svg
           width="24"
           height="24"
@@ -48,6 +50,7 @@ export default function BottomNavBar() {
       </NavLink>
 
       <NavLink to="/charts" className="bottomNav-navLink">
+        <div className="bottomNav-topBorder"></div>
         <svg
           width="22"
           height="22"
