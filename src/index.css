@@ -1,6 +1,7 @@
 :root {
   --dino-green: #4a765c;
   --orange: #f16e00ee;
+  --container-color: #f5f5f5;
 }
 
 *,
@@ -40,7 +41,7 @@ a {
 
 .main-container,
 .container {
-  background-color: #f5f5f5;
+  background-color: var(--container-color);
   /* max-width: 430px; */
 }
 

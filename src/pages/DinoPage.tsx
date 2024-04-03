@@ -23,10 +23,10 @@ export default function DinoPage() {
   }, [id]);
 
   return (
-    <main>
-      
-      <div className="container">
+    <main className={styles.dinoContainer}>
       <NavBar />
+      <div className="container">
+      
         {/* TITLE */}
         <h2 className={styles.DinoPageTitle}>{dino.name}</h2>
         {/* IMAGE */}
