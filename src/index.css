@@ -47,7 +47,7 @@ a {
 .container {
   min-height: calc(100vh - 62px);
   height: auto;
-  padding: 53px 16px;
+  padding: 16px 16px 53px;
   margin: 0 auto;
 }
 
@@ -126,6 +126,13 @@ a {
   margin: none;
 }
 
+.home-title--flexbox {
+  margin-left: -16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .home-title {
   margin: 0;
 }
@@ -154,12 +161,14 @@ a {
   line-height: 17px;
 }
 
-.learn-more-btn {
+/* .learn-more-btn {
   font-family: Montserrat;
+  color: #F16E00;
+  font-weight: 700;
   font-size: 12px;
   line-height: 15px;
   background-color: transparent;
   border: none;
   display: flex;
   margin-left: auto;
-}
+} */

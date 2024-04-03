@@ -7,6 +7,7 @@ import { NewsCardGrid } from '../components/NewsCardGrid.tsx';
 import { fetchDinos } from '../utils/api.ts';
 import { Dino } from '../interfaces/dino.interface.ts';
 import { altPics } from '../utils/pretty-pics.tsx';
+import tRexSkull from '../assets/t-rex-skull.svg'
 
 
 export default function Home() {
@@ -36,7 +37,10 @@ export default function Home() {
     <>
     
     <main className="container">
-      <h2 className="home-title">Which dino do you want to learn about?</h2>
+      <div className='home-title--flexbox'>
+        <img src={tRexSkull} className='home-title--image' />
+        <h2 className="home-title">Which dino do you want to learn about?</h2>
+      </div>
       { originalDinos === dinos && <Search /> }
       <CategoryTiles filterDinos={filterDinos} />
       {originalDinos === dinos && <DinosaurOfTheDay />}

@@ -22,7 +22,7 @@ const Search = () => {
           <img src={magnifyingGlass} alt="Search" />
         </div>
         <span onClick={handleModal}>
-          <img src={filter} alt="filter" />
+          <img className={styles.filterImg} src={filter} alt="filter" />
         </span>
       </div>
       {isModalOpen && <FilterModal />}
