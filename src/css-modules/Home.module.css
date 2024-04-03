@@ -1,0 +1,10 @@
+.homeTitleFlexbox {
+  margin-left: -16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.homeTitle {
+  margin: 0;
+}

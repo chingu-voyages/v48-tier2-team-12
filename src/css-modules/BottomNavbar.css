@@ -1,0 +1,43 @@
+.bottomNav {
+  background: #ffffff;
+  box-shadow: -5px 5px 10px 0px #52826540;
+
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 2;
+  height: 80px;
+}
+
+.bottomNav-navLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 100px;
+  height: 100%;
+
+  background-color: lightpink;
+}
+
+.bottomNav-navLink svg {
+  fill: black;
+}
+
+.bottomNav-navLink.active svg {
+  fill: var(--dino-green);
+}
+
+.bottomNav-navLink p {
+  font-size: 10px;
+  font-weight: 600;
+}

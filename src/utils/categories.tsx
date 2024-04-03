@@ -201,48 +201,48 @@ export const categories = [
       return dino.length ? dino.length >= 15 : false;
     },
   },
-  {
-    title: 'Sauropod',
-    icon: img6,
-    filterFunction: (dino: Dino) => {
-      return dino.typeOfDinosaur === 'sauropod';
-    },
-  },
-  {
-    title: 'Small Theropod',
-    icon: img5,
-    filterFunction: (dino: Dino) => {
-      return dino.typeOfDinosaur === 'small theropod';
-    },
-  },
-  {
-    title: 'Large Ornithopod',
-    icon: img4,
-    filterFunction: (dino: Dino) => {
-      return dino.typeOfDinosaur === 'large ornithopod';
-    },
-  },
-  {
-    title: 'Armoured',
-    icon: img3,
-    filterFunction: (dino: Dino) => {
-      return dino.typeOfDinosaur === 'armoured dinosaur';
-    },
-  },
-  {
-    title: 'Herbivorous',
-    icon: img2,
-    filterFunction: (dino: Dino) => {
-      return dino.diet === 'herbivorous';
-    },
-  },
-  {
-    title: 'Omnivorous',
-    icon: img1,
-    filterFunction: (dino: Dino) => {
-      return dino.diet === 'omnivorous';
-    },
-  },
+  // {
+  //   title: 'Sauropod',
+  //   icon: img6,
+  //   filterFunction: (dino: Dino) => {
+  //     return dino.typeOfDinosaur === 'sauropod';
+  //   },
+  // },
+  // {
+  //   title: 'Small Theropod',
+  //   icon: img5,
+  //   filterFunction: (dino: Dino) => {
+  //     return dino.typeOfDinosaur === 'small theropod';
+  //   },
+  // },
+  // {
+  //   title: 'Large Ornithopod',
+  //   icon: img4,
+  //   filterFunction: (dino: Dino) => {
+  //     return dino.typeOfDinosaur === 'large ornithopod';
+  //   },
+  // },
+  // {
+  //   title: 'Armoured',
+  //   icon: img3,
+  //   filterFunction: (dino: Dino) => {
+  //     return dino.typeOfDinosaur === 'armoured dinosaur';
+  //   },
+  // },
+  // {
+  //   title: 'Herbivorous',
+  //   icon: img2,
+  //   filterFunction: (dino: Dino) => {
+  //     return dino.diet === 'herbivorous';
+  //   },
+  // },
+  // {
+  //   title: 'Omnivorous',
+  //   icon: img1,
+  //   filterFunction: (dino: Dino) => {
+  //     return dino.diet === 'omnivorous';
+  //   },
+  // },
 ];
 
 export const filterDinoType = [

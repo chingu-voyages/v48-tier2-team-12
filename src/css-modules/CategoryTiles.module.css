@@ -11,16 +11,15 @@
 
 .tile {
   width: 100%;
-  
   min-width: 107px;
-  min-height: 72px;
 
   background-color: white;
-  box-shadow: -5px 5px 10px 0px #4A765C40;
+  box-shadow: -5px 5px 10px 0px #4a765c40;
 
   border: 1px solid var(--dino-green);
   border-radius: 10px;
-  padding: 0.25rem 0;
+
+  padding: 8px;
   cursor: pointer;
 
   transition: all 150ms ease;
@@ -32,7 +31,8 @@
 }
 
 .tile:focus .icon {
-  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(109deg) brightness(102%) contrast(102%);
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(109deg)
+    brightness(102%) contrast(102%);
 }
 
 .icon {
@@ -40,7 +40,8 @@
 
   height: 24px;
   width: 24px;
-  filter: invert(42%) sepia(8%) saturate(1531%) hue-rotate(92deg) brightness(97%) contrast(92%);
+  filter: invert(42%) sepia(8%) saturate(1531%) hue-rotate(92deg)
+    brightness(97%) contrast(92%);
 }
 
 .title {
@@ -48,7 +49,6 @@
   align-items: center;
   justify-content: center;
   font-size: 10px;
-  margin-bottom: 8px;
   font-weight: 600;
-  letter-spacing: 1.3px;
+  font-family: Montserrat;
 }
