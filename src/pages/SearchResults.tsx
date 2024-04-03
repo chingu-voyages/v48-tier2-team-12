@@ -39,12 +39,12 @@ const SearchResults = () => {
               dino.name
                 ?.toLowerCase()
                 .includes(params.dinoName.toLowerCase())) &&
-            // Length
-            (!params.minLength || dino.length >= params.minLength) &&
-            (!params.maxLength || dino.length <= params.maxLength) &&
+            // Length          |Solving type error|
+            (!params.minLength || dino.length && dino.length >= params.minLength ) &&
+            (!params.maxLength || dino.length && dino.length <= params.maxLength) &&
             // Weight
-            (!params.minWeight || dino.weight >= params.minWeight) &&
-            (!params.maxWeight || dino.weight <= params.maxWeight) &&
+            (!params.minWeight || dino.weight && dino.weight >= params.minWeight) &&
+            (!params.maxWeight || dino.weight && dino.weight <= params.maxWeight) &&
             // Type
             (!params.typeOfDinosaur ||
               dino.typeOfDinosaur === params.typeOfDinosaur) &&
