@@ -3,7 +3,7 @@ import { createContext, useState } from 'react';
 export const FilterContext = createContext<any>(undefined);
 
 export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
-  const [dinoName, setDinoName] = useState<undefined | string>(undefined);
+  const [dinoName, setDinoName] = useState<string>('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [minLength, setMinLength] = useState<number | undefined>(undefined);
   const [maxLength, setMaxLength] = useState<number | undefined>(undefined);
