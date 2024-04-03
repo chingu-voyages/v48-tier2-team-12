@@ -51,7 +51,7 @@
     font-family: Montserrat;
     font-size: 12px;
     font-weight: 700;
-    color: #F16E00;
+    color: var(--orange);
     background: transparent;
     border: 0;
     padding: 0;
