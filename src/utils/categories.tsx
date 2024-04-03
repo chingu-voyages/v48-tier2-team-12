@@ -1,10 +1,4 @@
 import { Dino } from '../interfaces/dino.interface';
-import img1 from '../assets/dino-type-images/dino-type-1.svg';
-import img2 from '../assets/dino-type-images/dino-type-2.svg';
-import img3 from '../assets/dino-type-images/dino-type-3.svg';
-import img4 from '../assets/dino-type-images/dino-type-4.svg';
-import img5 from '../assets/dino-type-images/dino-type-5.svg';
-import img6 from '../assets/dino-type-images/dino-type-6.svg';
 import img7 from '../assets/dino-type-images/dino-type-7.svg';
 import img8 from '../assets/dino-type-images/dino-type-8.svg';
 import img9 from '../assets/dino-type-images/dino-type-9.svg';
