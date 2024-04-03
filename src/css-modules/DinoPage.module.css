@@ -1,14 +1,19 @@
+.dinoContainer {
+  margin: 0;
+  background-color: var(--container-color);
+}
+
 .DinoPageTitle {
   font-weight: 700;
   font-size: 20px;
   margin-bottom: 20px;
 }
+
 .DinoMainImg {
   width: 100%;
   border-radius: 10px;
   margin-bottom: 30px;
 }
-
 
 .noImageDesc {
   font-size: 20px;

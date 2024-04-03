@@ -3,7 +3,8 @@ import styles from "../css-modules/DinoPage.module.css";
 import { useEffect, useState } from "react";
 
 export default function Map(props: {
-  firstCountry: string; secondCountry: string
+  firstCountry: string | undefined; 
+  secondCountry: string | undefined
 }): JSX.Element {
   const [loading, setLoading] = useState<boolean>(true);
   //coordinates

@@ -9,6 +9,12 @@
   display: flex;
 }
 
+.search-input-container ::placeholder {
+  font-family: Montserrat;
+  font-weight: 500;
+  color: #080808;
+}
+
 .search-input-container img {
   position: absolute;
   top: 50%;
@@ -17,6 +23,7 @@
 }
 
 .search-input-container input {
+  width: 300px;
   border: none;
   border-radius: 10px;
 
@@ -25,14 +32,13 @@
 
   font-family: Montserrat;
   font-size: 16px;
-  font-weight: 400;
-  line-height: 19.5px;
-  text-align: left;
-}
 
+  box-shadow: -5px 5px 10px 0px #4A765C33;
+}
+/* 
 .search-input-container input:focus {
   outline: none;
-}
+} */
 
 .container span {
   border-radius: 10px;
@@ -45,4 +51,16 @@
   padding: 8px;
 
   cursor: pointer;
+  box-shadow: -5px 5px 10px 0px #4A765C33;
+}
+.filterImg {
+  /* Hex Color To CSS Filter Converter :
+  https://isotropic.co/tool/hex-color-to-css-filter/ */
+  filter: 
+  invert(59%) 
+  sepia(98%) 
+  saturate(3668%)
+  hue-rotate(1deg) 
+  brightness(94%) 
+  contrast(103%);
 }

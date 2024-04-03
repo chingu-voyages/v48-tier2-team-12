@@ -3,8 +3,8 @@ export interface Dino {
   name?: string;
   imageSrc?: string;
   typeOfDinosaur?: string;
-  length: number | 'N/A';
-  weight: number | 'N/A';
+  length?: number | 'N/A';
+  weight?: number | 'N/A';
   diet?: string;
   whenLived?: string;
   foundIn: string;

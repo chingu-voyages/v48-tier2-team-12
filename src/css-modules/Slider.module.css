@@ -8,11 +8,11 @@
 }
 
 .slider-track {
-  background: #f16e00;
+  background: var(--orange);
 }
 
 .slider-thumb {
-  background: #f16e00;
+  background: var(--orange);
 
   top: calc(50% - 10px);
 
