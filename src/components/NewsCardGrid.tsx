@@ -9,11 +9,19 @@ export function NewsCardGrid() {
   const [isTimeToFetchNews, setisTimeToFetchNews] = useState<Boolean>(false);
   const now = new Date().getTime();
   const timestamp = localStorage.getItem('dinopedia-news-timestamp');
-  
+  // type NewsFromLS =  {dinopediaNews : Article[]}
+  //how-to-arrange-local-storage-in-typescript :
+  //https://marketsplash.com/tutorials/typescript/how-to-arrange-local-storage-in-typescript/
   useEffect(() => {  
-      const newsFromLS = localStorage.getItem('dinopedia-news')
-      const parsedNewsFromLS = JSON.parse(newsFromLS ? newsFromLS : "")
-      setArticles(parsedNewsFromLS);
+      const retrieveNews = ():  Article[] | null => {
+      const newsData = localStorage.getItem('dinopediaNews');
+      return newsData ? JSON.parse(newsData) as Article[] : null;
+      };
+      const results = retrieveNews()
+      
+      // const newsFromLS:string|null = localStorage.getItem('dinopedia-news')
+      // const parsedNewsFromLS  = JSON.parse(newsFromLS)
+      results && setArticles(results);
   } , []); 
 
     // nextTimeToFetchNews is equal to 'the timestamp sent to LS' + 24 hours
@@ -30,11 +38,13 @@ export function NewsCardGrid() {
   useEffect(() => {
     if (isTimeToFetchNews) {
       fetchNews().then((response) => {
+        const news = response.articles
         setArticles(response.articles);
-        localStorage.setItem(
-          'dinopedia-news',
-          JSON.stringify(response.articles)
-        );
+        const storeNews = (news: Article[]) => {
+          localStorage.setItem("dinopediaNews", JSON.stringify(news));
+      };
+      storeNews(news)
+        
       });
 
       setisTimeToFetchNews(false);
