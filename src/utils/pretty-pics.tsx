@@ -13,7 +13,6 @@ import apatosaurus from '../assets/haghani/apatosaurus.jpg';
 import camarasaurus from '../assets/haghani/camarasaurus.jpg';
 import carcharodontosaurus from '../assets/haghani/carcharodontosaurus.jpg';
 import confuciusornis from '../assets/haghani/confuciusornis.jpg';
-import daspletosaurusVsEuoplocephalus from '../assets/haghani/DaspletosaurusVsEuoplocephalus.jpg';
 import deinocheirus from '../assets/haghani/deinocheirus.jpg';
 import einiosaurus from '../assets/haghani/einiosaurus.jpg';
 import euoplocephalus from '../assets/haghani/euoplocephalus.jpg';
