@@ -6,30 +6,47 @@ import classes from '../css-modules/NewsCardGrid.module.css';
 
 export function NewsCardGrid() {
   const [articles, setArticles] = useState<Article[]>([]);
+  const [timestamp, setTimestamp] = useState<String | Number | null>(1712162756);
   const [isTimeToFetchNews, setisTimeToFetchNews] = useState<Boolean>(false);
   const now = new Date().getTime();
-  const timestamp = localStorage.getItem('dinopedia-news-timestamp');
-  // nextTimeToFetchNews is equal to 'the timestamp sent to LS' + 24 hours
-  const nextTimeToFetchNews = Number(timestamp) + 1 * 24 * 60 * 60 * 1000;
 
-  useEffect(() => {  
-    const retrieveNews = ():  Article[] | null => {
-      const newsData = localStorage.getItem('dinopediaNews');
-      return newsData ? JSON.parse(newsData) as Article[] : null;
+  //retrieving timestamp from LS
+  useEffect(() => {
+    const retrieveTimestamp = ():  String | null => {
+      const timestampFromLS = localStorage.getItem('dinopedia-news-timestamp');
+      return timestampFromLS ? JSON.parse(timestampFromLS) as String : null;
     };
-    const retrievedNewsFromLocalStorage = retrieveNews()
+    const retrievedTimestamp = retrieveTimestamp();
+    retrievedTimestamp && setTimestamp(retrievedTimestamp);
+  }, [])
 
-    retrievedNewsFromLocalStorage && setArticles(retrievedNewsFromLocalStorage);
-  } , []); 
-
+  // nextTimeToFetchNews is equal to 'the timestamp sent to LS' + 24 hours
+  
+  // console.log(timestamp)
+  //Will fetch only for the first time the user visits the page or every 24 hours
   const timeComparison = () => {
-    if (!timestamp || now >= nextTimeToFetchNews) {
-      setisTimeToFetchNews(true);
-      console.log('fetching', nextTimeToFetchNews.toLocaleString())
+    const nextTimeToFetchNews = Number(timestamp) + 1 * 24 * 60 * 60 * 1000;
+    
+    if (timestamp === null) {
+      const setTimestampInLS = (now: Number) => {
+        localStorage.setItem('dinopedia-news-timestamp', now.toString());
+      };
+      setTimestampInLS(now)
+      setisTimeToFetchNews(true)
+    }
+    if (timestamp !== null && now >= nextTimeToFetchNews) {
+      setisTimeToFetchNews(true)
+      console.log('nextTimeToFetchNews')
+    }
+    else {
+      console.log('fetched already, next time:', nextTimeToFetchNews)
     }
   };
 
+  //When timestamp changes compares time and fetch news
   useEffect(() => {
+
+    timeComparison();
     if (isTimeToFetchNews) {
 
       fetchNews().then((response) => {
@@ -38,17 +55,27 @@ export function NewsCardGrid() {
           localStorage.setItem("dinopediaNews", JSON.stringify(news));
         };
       storeNews(news)
-      });
-
+      setTimestamp(now)
       setisTimeToFetchNews(false);
-      localStorage.setItem('dinopedia-news-timestamp', now.toString());
+      });
     }
-    timeComparison();
-  }, []);
+  }, [isTimeToFetchNews]);
 
+  //Retrieving news from LS
+  useEffect(() => {  
+    const retrieveNews = ():  Article[] | null => {
+      const newsData = localStorage.getItem('dinopediaNews');
+      return newsData ? JSON.parse(newsData) as Article[] : null;
+    };
+    const retrievedNewsFromLocalStorage = retrieveNews()
+
+    retrievedNewsFromLocalStorage && setArticles(retrievedNewsFromLocalStorage);
+  } , [isTimeToFetchNews]); 
+
+  //picking only 4 out of 10 news randomly now (i < 4)
   const pickOnlyFewNews = (articlesArray: Article[]) => {
     const randomFewNews = []
-    //picking only 4 out of 10 news randomly now (i < 4)
+    
     for (let i = 0; i < 4; i++) {
       randomFewNews.push(articlesArray[Math.floor(Math.random() * articlesArray.length)])
     }
