@@ -3,6 +3,8 @@
   height: 228px;
   background-color: #ffffff;
   border-radius: 10px 10px 0 0;
+  box-shadow: -5px 5px 10px 0px #4A765C40;
+
 }
 
 .smallCardImage {

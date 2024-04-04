@@ -8,19 +8,24 @@ export function NewsCardGrid() {
   const [articles, setArticles] = useState<Article[]>([]);
   const [isTimeToFetchNews, setisTimeToFetchNews] = useState<Boolean>(false);
   const now = new Date().getTime();
-
   const timestamp = localStorage.getItem('dinopedia-news-timestamp');
+  
+  useEffect(() => {  
+      const newsFromLS = localStorage.getItem('dinopedia-news')
+      const parsedNewsFromLS = JSON.parse(newsFromLS ? newsFromLS : "")
+      setArticles(parsedNewsFromLS);
+  } , []); 
 
-  // nextTimeToFetchNews is equal to 'the timestamp sent to LS' + 24 hours
-  // const nextTimeToFetchNews = Number(timestamp) + 1 * 24 * 60 * 60 * 1000;
-  // console.log(localStorage.getItem('dinopedia-news'));
+    // nextTimeToFetchNews is equal to 'the timestamp sent to LS' + 24 hours
+    const nextTimeToFetchNews = Number(timestamp) + 1 * 24 * 60 * 60 * 1000;
 
-  const timeComparison = () => {
-    if (!timestamp || now >= 1712008800000) {
-      setisTimeToFetchNews(true);
-      // console.log('fetching', nextTimeToFetchNews)
-    }
-  };
+
+    const timeComparison = () => {
+      if (!timestamp || now >= nextTimeToFetchNews) {
+        setisTimeToFetchNews(true);
+        console.log('fetching', nextTimeToFetchNews.toLocaleString())
+      }
+    };
 
   useEffect(() => {
     if (isTimeToFetchNews) {
@@ -38,20 +43,34 @@ export function NewsCardGrid() {
     timeComparison();
   }, []);
 
+  const pickOnlyFewNews = (articlesArray: Article[]) => {
+    const randomFewNews = []
+    //picking only 4 out of 10 news randomly now (i < 4)
+    for (let i = 0; i < 4; i++) {
+      randomFewNews.push(articlesArray[Math.floor(Math.random() * articlesArray.length)])
+    }
+    return randomFewNews
+  }
+  const test = () => isTimeToFetchNews ? ' Fetching...' : '  More news tomorrow'
+  console.log("Should show 'Fetching...' only on the first time rendering or after 24h of last time the browser fetched news", test())
+
   return (
     <div className={classes.newsContainer}>
       <div className={classes.newsCardGridLabel}>News</div>
       <div className={classes.newsCardGrid}>
+        {/* <div>
+          <p>Should show 'Fetching...' only on the first time rendering or after 24h of last time the browser fetched news</p>
+          <p>{isTimeToFetchNews ? ' Fetching...' : '  More news tomorrow'}</p>
+        </div> */}
         <div>
           {articles ? (
-            articles.map((article, index) => (
+            pickOnlyFewNews(articles).map((article, index) => (
               <NewsCard key={index} {...article} />
             ))
           ) : (
             <NewsErrorHandling />
           )}
         </div>
-        <div>{isTimeToFetchNews ? 'Fetching...' : 'More news tomorrow'}</div>
       </div>
     </div>
   );
