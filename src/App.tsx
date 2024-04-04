@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import DinoPage from './pages/DinoPage';
 import SearchResults from './pages/SearchResults';
 import { FilterProvider } from './components/Filter/FilterContext';
+import NotFound from './pages/NotFound';
 
 const router = createBrowserRouter([
   {
@@ -28,12 +29,16 @@ const router = createBrowserRouter([
       // },
     ],
   },
+  {
+    path: '*',
+    element: <NotFound />,
+  },
 ]);
 
 const App = () => {
   return (
     <FilterProvider>
-      <RouterProvider router={router} />;
+      <RouterProvider router={router} />
     </FilterProvider>
   );
 };
