@@ -2,12 +2,9 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import type { Dino } from '../interfaces/dino.interface.ts';
 import { fetchSingleDino } from '../utils/api.ts';
-import NavBar from '../components/NavBar.tsx';
 import Map from '../components/Map';
 import styles from '../css-modules/DinoPage.module.css';
 import emptyStateImg from '../assets/no-image.svg';
-import BottomNavBar from '../components/BottomNavBar.tsx';
-
 
 export default function DinoPage() {
   const { id } = useParams();
@@ -24,24 +21,22 @@ export default function DinoPage() {
 
   return (
     <main className={styles.dinoContainer}>
-      <NavBar />
       <div className="container">
-      
         {/* TITLE */}
         <h2 className={styles.DinoPageTitle}>{dino.name}</h2>
         {/* IMAGE */}
         <img
-          src={dino.imageSrc === 'N/A' ? 
-          emptyStateImg : 
-          dino.imageSrc}
-          alt={dino.imageSrc === 'N/A' ? 
-          "No Image Discovered Yet" : 
-          `image of ${dino.name}`}
+          src={dino.imageSrc === 'N/A' ? emptyStateImg : dino.imageSrc}
+          alt={
+            dino.imageSrc === 'N/A'
+              ? 'No Image Discovered Yet'
+              : `image of ${dino.name}`
+          }
           className={styles.DinoMainImg}
         />
-        {dino.imageSrc === 'N/A' && 
-        <p className={styles.noImageDesc}>No Image Discovered Yet</p>
-        }
+        {dino.imageSrc === 'N/A' && (
+          <p className={styles.noImageDesc}>No Image Discovered Yet</p>
+        )}
         {/* INFO */}
         <div className={styles.info}>
           <p>
@@ -97,7 +92,6 @@ export default function DinoPage() {
           secondCountry={dino.foundIn?.split(', ')[1]}
         />
       </div>
-      <BottomNavBar />
     </main>
   );
 }
