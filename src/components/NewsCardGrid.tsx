@@ -12,6 +12,7 @@ export function NewsCardGrid() {
   // type NewsFromLS =  {dinopediaNews : Article[]}
   //how-to-arrange-local-storage-in-typescript :
   //https://marketsplash.com/tutorials/typescript/how-to-arrange-local-storage-in-typescript/
+
   useEffect(() => {  
       const retrieveNews = ():  Article[] | null => {
       const newsData = localStorage.getItem('dinopediaNews');
@@ -24,27 +25,31 @@ export function NewsCardGrid() {
       results && setArticles(results);
   } , []); 
 
-    // nextTimeToFetchNews is equal to 'the timestamp sent to LS' + 24 hours
-    const nextTimeToFetchNews = Number(timestamp) + 1 * 24 * 60 * 60 * 1000;
+    // const newsFromLS:string|null = localStorage.getItem('dinopedia-news')
+    // const parsedNewsFromLS  = JSON.parse(newsFromLS)
+    results && setArticles(results);
+  }, []);
 
+  // nextTimeToFetchNews is equal to 'the timestamp sent to LS' + 24 hours
+  const nextTimeToFetchNews = Number(timestamp) + 1 * 24 * 60 * 60 * 1000;
 
-    const timeComparison = () => {
-      if (!timestamp || now >= nextTimeToFetchNews) {
-        setisTimeToFetchNews(true);
-        console.log('fetching', nextTimeToFetchNews.toLocaleString())
-      }
-    };
+  const timeComparison = () => {
+    if (!timestamp || now >= nextTimeToFetchNews) {
+      setisTimeToFetchNews(true);
+      console.log('fetching', nextTimeToFetchNews.toLocaleString());
+    }
+  };
 
   useEffect(() => {
     if (isTimeToFetchNews) {
       fetchNews().then((response) => {
+
         const news = response.articles
         setArticles(response.articles);
         const storeNews = (news: Article[]) => {
           localStorage.setItem("dinopediaNews", JSON.stringify(news));
       };
       storeNews(news)
-        
       });
 
       setisTimeToFetchNews(false);
@@ -54,15 +59,21 @@ export function NewsCardGrid() {
   }, []);
 
   const pickOnlyFewNews = (articlesArray: Article[]) => {
-    const randomFewNews = []
+    const randomFewNews = [];
     //picking only 4 out of 10 news randomly now (i < 4)
     for (let i = 0; i < 4; i++) {
-      randomFewNews.push(articlesArray[Math.floor(Math.random() * articlesArray.length)])
+      randomFewNews.push(
+        articlesArray[Math.floor(Math.random() * articlesArray.length)]
+      );
     }
-    return randomFewNews
-  }
-  const test = () => isTimeToFetchNews ? ' Fetching...' : '  More news tomorrow'
-  console.log("Should show 'Fetching...' only on the first time rendering or after 24h of last time the browser fetched news", test())
+    return randomFewNews;
+  };
+  const test = () =>
+    isTimeToFetchNews ? ' Fetching...' : '  More news tomorrow';
+  console.log(
+    "Should show 'Fetching...' only on the first time rendering or after 24h of last time the browser fetched news",
+    test()
+  );
 
   return (
     <div className={classes.newsContainer}>
