@@ -1,0 +1,36 @@
+.chartPageConatiner {
+    background-color: var(--container-color);
+    min-height: calc(100vh - 62px);
+}
+
+.ChartsTitleContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chartsContainer {
+    display: flex;
+    flex-direction: column;
+    margin: 2em 0;
+}
+
+.chartDiv {
+    margin: 0 auto;
+    padding: 2em 0;
+}
+
+.chartDiv h2 {
+    text-align: left;
+    margin-bottom: 0.5em;
+}
+
+.chart {
+    background-color: #fff;
+    padding: 1em; 
+    
+}
+
+.chartStyle {
+    width: 80vw;
+}
