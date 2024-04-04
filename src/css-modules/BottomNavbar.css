@@ -12,11 +12,10 @@
   justify-content: center;
   align-items: center;
 
-  z-index: 2;
+  z-index: 200;
   height: 80px;
 
   box-shadow: 4px 0px 4px 0px #00000040;
-
 }
 
 .bottomNav-navLink {

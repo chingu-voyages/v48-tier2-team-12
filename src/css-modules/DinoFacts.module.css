@@ -1,10 +1,5 @@
-.homeTitleFlexbox {
-  margin-left: -16px;
+.dinoFactsContainer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-.homeTitle {
-  margin: 0;
 }

@@ -50,6 +50,7 @@ export function NewsCardGrid() {
     if (isTimeToFetchNews) {
 
       fetchNews().then((response) => {
+
         const news = response.articles
         const storeNews = (news: Article[]) => {
           localStorage.setItem("dinopediaNews", JSON.stringify(news));
@@ -74,10 +75,12 @@ export function NewsCardGrid() {
 
   //picking only 4 out of 10 news randomly now (i < 4)
   const pickOnlyFewNews = (articlesArray: Article[]) => {
-    const randomFewNews = []
+    const randomFewNews = [];
     
     for (let i = 0; i < 4; i++) {
-      randomFewNews.push(articlesArray[Math.floor(Math.random() * articlesArray.length)])
+      randomFewNews.push(
+        articlesArray[Math.floor(Math.random() * articlesArray.length)]
+      );
     }
     return randomFewNews
   }
