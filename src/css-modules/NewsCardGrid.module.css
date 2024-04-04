@@ -1,31 +1,16 @@
 .newsContainer {
-  padding: 30px 0 0;
+  margin-top: 35px;
 }
+
 .newsCardGrid {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-
-  width: Fixed (398px) px;
-  height: Hug (288px) px;
-  left: 16px;
-  top: 10px ;
-  padding: 10px 0px;
-  gap: 12px;
-  border-radius: 12px;
-  opacity: 0px;
-
+  border-radius: 10px;
   background: #ffffff;
+  box-shadow: -5px 5px 10px 0px #4A765C40;
+  padding: 16px;
 }
 
 .newsCardGridLabel {
-  width: 58px;
-  height: 24px;
-  top: 684px;
-  left: 16px;
-  opacity: 0px;
   font-size: 20px;
   font-weight: 700;
-  line-height: 24.38px;
   margin-bottom: 10px;
 }

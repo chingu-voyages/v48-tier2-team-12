@@ -1,19 +1,28 @@
 .newsCard {
-  padding:0px 10px;
+  margin-bottom: 12px;
+}
+
+.newsCard:last-of-type {
+  margin-bottom: 0;
 }
 
 .newsCardHeadline {
-  width: 378px;
-
   font-size: 16px;
   font-weight: 700;
   line-height: 19.5px;
-  padding-top: 12px;
+  color: #5A3725;
 }
 
 .newsCardSummary {
-  width: 378px;
+  margin-top: 4px;
   font-size: 14px;
-  line-height: 17.07px;
-  padding-top: 4px;
+  line-height: 17px;
+}
+
+.newsCardLink {
+  cursor: pointer;
+  margin-left: 5px;
+  color: var(--orange);
+  font-weight: 700;
+  font-size: 12px;
 }

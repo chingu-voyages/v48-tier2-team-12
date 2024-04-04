@@ -4,10 +4,15 @@ import { Article } from "../interfaces/article.interface";
 export function NewsCard(article: Article) {
   return (
     <div className={classes.newsCard}>
-      <div className={classes.newsCardHeadline}>{article.title}</div>
+      <div className={classes.newsCardHeadline}>
+        {article.title}
+      </div>
       <div className={classes.newsCardSummary}>
         {article.description}
-        <a href={article.url} target="_blank">Read More</a>
+        <a 
+        href={article.url} 
+        className={classes.newsCardLink}
+        target="_blank">Read More</a>
       </div>
     </div>
   );

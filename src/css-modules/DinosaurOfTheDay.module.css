@@ -11,6 +11,7 @@
 .dino-of-the-day__card {
     display: flex;
     flex-direction: column;
+    box-shadow: -5px 5px 10px 0px #4A765C40;
 }
 
 .dino-of-the-day__image {
