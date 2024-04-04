@@ -18,15 +18,15 @@ const router = createBrowserRouter([
         path: '/searchresults',
         element: <SearchResults />,
       },
+      {
+        path: '/dino/:id',
+        element: <DinoPage />,
+      },
       // {
       //   path: '/charts',
       //   element: <Charts />,
       // },
     ],
-  },
-  {
-    path: '/dino/:id',
-    element: <DinoPage />,
   },
 ]);
 

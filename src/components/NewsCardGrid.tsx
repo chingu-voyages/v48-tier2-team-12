@@ -12,6 +12,7 @@ export function NewsCardGrid() {
   // nextTimeToFetchNews is equal to 'the timestamp sent to LS' + 24 hours
   const nextTimeToFetchNews = Number(timestamp) + 1 * 24 * 60 * 60 * 1000;
 
+
   useEffect(() => {  
     const retrieveNews = ():  Article[] | null => {
       const newsData = localStorage.getItem('dinopediaNews');
@@ -22,10 +23,12 @@ export function NewsCardGrid() {
     retrievedNewsFromLocalStorage && setArticles(retrievedNewsFromLocalStorage);
   } , []); 
 
+
   const timeComparison = () => {
     if (!timestamp || now >= nextTimeToFetchNews) {
       setisTimeToFetchNews(true);
-      console.log('fetching', nextTimeToFetchNews.toLocaleString())
+      
+      console.log('fetching', nextTimeToFetchNews.toLocaleString());
     }
   };
 
@@ -33,6 +36,7 @@ export function NewsCardGrid() {
     if (isTimeToFetchNews) {
 
       fetchNews().then((response) => {
+
         const news = response.articles
         const storeNews = (news: Article[]) => {
           localStorage.setItem("dinopediaNews", JSON.stringify(news));
@@ -47,10 +51,12 @@ export function NewsCardGrid() {
   }, []);
 
   const pickOnlyFewNews = (articlesArray: Article[]) => {
-    const randomFewNews = []
+    const randomFewNews = [];
     //picking only 4 out of 10 news randomly now (i < 4)
     for (let i = 0; i < 4; i++) {
-      randomFewNews.push(articlesArray[Math.floor(Math.random() * articlesArray.length)])
+      randomFewNews.push(
+        articlesArray[Math.floor(Math.random() * articlesArray.length)]
+      );
     }
     return randomFewNews
   }
