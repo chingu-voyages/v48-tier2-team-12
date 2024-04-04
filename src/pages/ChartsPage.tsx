@@ -4,17 +4,19 @@ import NavBar from '../components/NavBar.tsx';
 import BottomNavBar from '../components/BottomNavBar.tsx';
 import { fetchDinos } from '../utils/api.ts';
 import { Dino } from '../interfaces/dino.interface.ts';
-import { Chart as ChartJS, ArcElement, Legend} from "chart.js";
+import { Chart as ChartJS, ArcElement, Legend, Tooltip} from "chart.js";
 import { Pie, Doughnut } from "react-chartjs-2";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 import styles from '../css-modules/Charts.module.css';
 import tRexSkull from '../assets/t-rex-skull.svg'
 
-ChartJS.register(ArcElement, ChartDataLabels, Legend);
+ChartJS.register(ArcElement, ChartDataLabels, Legend, Tooltip);
 
 export default function ChartsPage() {
   const [dinos, setDinos] = useState<Dino[]>([]);
   const [originalDinos, setOriginalDinos] = useState<Dino[]>([]);
+  const [dietData, setDietData] = useState<(string | undefined)[]>([]);
+  const [typeData, setTypeData] = useState<(string | undefined)[]>([]);
 
   const filterDinos = (filterFunction: (dino: Dino) => boolean) => {
     setDinos(originalDinos.filter((dino) => filterFunction(dino)));
@@ -31,10 +33,11 @@ export default function ChartsPage() {
       });
   }, []);
 
-  /* Displaying only the first 3 on the chart */
-  const dietData = dinos.map((item: Dino) => item?.diet).slice(0, 3);
-  const typeData = dinos.map((item: Dino) => item?.typeOfDinosaur).slice(0, 3);
-
+ useEffect(() => {
+    setDietData(dinos.map((item: Dino) => item?.diet));
+    setTypeData(dinos.map((item: Dino) => item?.typeOfDinosaur));
+  }, [dinos]);
+  
  /* removing duplicates for the chart labels */ 
   const removeDuplicates = (Data: (string | undefined)[]): (string | undefined)[] => {
     const uniqueData: (string | undefined)[] = [];
