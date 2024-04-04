@@ -12,6 +12,11 @@
   height: calc(100dvh - 97px);
 }
 
+.content img {
+  width: 100%;
+  max-width: 398px;
+}
+
 .text {
   padding: 0 65px;
 
