@@ -3,7 +3,7 @@ import { createContext, useState } from 'react';
 export const FilterContext = createContext<any>(undefined);
 
 export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
-  const [dinoName, setDinoName] = useState<undefined | string>(undefined);
+  const [dinoName, setDinoName] = useState<string>('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [minLength, setMinLength] = useState<number | undefined>(undefined);
   const [maxLength, setMaxLength] = useState<number | undefined>(undefined);
@@ -64,7 +64,7 @@ export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   const clearFilters = () => {
-    setDinoName(undefined);
+    setDinoName('');
     setMinLength(undefined);
     setMaxLength(undefined);
     setMinWeight(undefined);
@@ -78,13 +78,10 @@ export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
   let dinoSearchParams: any = {};
   if (typeOfDinosaur !== undefined)
     dinoSearchParams.typeOfDinosaur = typeOfDinosaur;
-  //
   if (minLength !== undefined) dinoSearchParams.minLength = minLength;
   if (maxLength !== undefined) dinoSearchParams.maxLength = maxLength;
-  //
   if (minWeight !== undefined) dinoSearchParams.minWeight = minWeight;
   if (maxWeight !== undefined) dinoSearchParams.maxWeight = maxWeight;
-  //
   if (diet !== undefined) dinoSearchParams.diet = diet;
   if (whenLived !== undefined) dinoSearchParams.whenLived = whenLived;
   if (country !== undefined) dinoSearchParams.country = country;

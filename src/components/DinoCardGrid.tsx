@@ -22,6 +22,8 @@ export function DinoCardGrid({
             name={dino.name}
             description=""
             foundIn=""
+            length={dino.length}
+            weight={dino.weight}
           />
         ))}
       </div>
