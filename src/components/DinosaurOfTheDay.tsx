@@ -19,6 +19,7 @@ export default function DinosaurOfTheDay() {
 
         // Checking for dinos with image and description
         if (
+          !allDinos[randomIndex].imageSrc?.includes("https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction")&&
           allDinos[randomIndex].imageSrc !== 'N/A' &&
           allDinos[randomIndex].description !== 'N/A'
         ) {
