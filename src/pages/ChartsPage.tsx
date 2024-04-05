@@ -1,42 +1,62 @@
 import { useEffect, useState } from 'react';
-import CategoryTiles from '../components/CategoryTiles.tsx';
-import NavBar from '../components/NavBar.tsx';
-import BottomNavBar from '../components/BottomNavBar.tsx';
 import { fetchDinos } from '../utils/api.ts';
 import { Dino } from '../interfaces/dino.interface.ts';
 import { Chart as ChartJS, ArcElement, Legend, Tooltip } from 'chart.js';
 import { Pie, Doughnut } from 'react-chartjs-2';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import styles from '../css-modules/Charts.module.css';
-import tRexSkull from '../assets/t-rex-skull.svg';
+import { filterDinoCountry, filterDinoEra } from '../utils/categories.tsx';
 
 ChartJS.register(ArcElement, ChartDataLabels, Legend, Tooltip);
 
 export default function ChartsPage() {
-  const [dinos, setDinos] = useState<Dino[]>([]);
-  const [originalDinos, setOriginalDinos] = useState<Dino[]>([]);
   const [dietData, setDietData] = useState<(string | undefined)[]>([]);
   const [typeData, setTypeData] = useState<(string | undefined)[]>([]);
+  const [dinos, setDinos] = useState<Dino[]>([]);
 
-  const filterDinos = (filterFunction: (dino: Dino) => boolean) => {
-    setDinos(originalDinos.filter((dino) => filterFunction(dino)));
+  // Filtering states
+  const [era, setEra] = useState<string | null>(null);
+  const [country, setCountry] = useState<string | null>(null);
+
+  const handleWhenLived = (cardData: string) => {
+    setEra((prev) => {
+      if (prev === cardData) return null;
+      return cardData;
+    });
+  };
+  const handleCountry = (cardData: string) => {
+    setCountry((prev) => {
+      if (prev === cardData) return null;
+      return cardData;
+    });
   };
 
   useEffect(() => {
-    fetchDinos()
-      .then((data) => {
-        setOriginalDinos(data);
-        setDinos(data);
-      })
-      .catch((error) => {
-        console.error('Error fetching data:', error);
-      });
-  }, []);
-
-  useEffect(() => {
-    setDietData(dinos.map((item: Dino) => item?.diet));
-    setTypeData(dinos.map((item: Dino) => item?.typeOfDinosaur));
+    const setChartData = () => {
+      setDietData(dinos.map((item: Dino) => item?.diet));
+      setTypeData(dinos.map((item: Dino) => item?.typeOfDinosaur));
+    };
+    setChartData();
   }, [dinos]);
+  useEffect(() => {
+    const fetchDinosSearch = async () => {
+      try {
+        const dinosData = await fetchDinos();
+        const searchResults = dinosData.filter((dino: Dino) => {
+          return (
+            // Era
+            (!era || dino.whenLived?.includes(era)) &&
+            // Country
+            (!country || dino.foundIn?.includes(country))
+          );
+        });
+        setDinos(searchResults);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchDinosSearch();
+  }, [era, country]);
 
   /* removing duplicates for the chart labels */
   const removeDuplicates = (
@@ -51,14 +71,14 @@ export default function ChartsPage() {
     }
     return uniqueData;
   };
-
   /* processing the data for the chart */
-
   const processData = (data: (string | undefined)[]) => {
     const filteredData = removeDuplicates(data);
     const totalCount = data.length;
+
     return {
-      labels: filteredData /* displaying the filtered Data as chart labels */,
+      labels: filteredData,
+      /* displaying the filtered Data as chart labels */
       datasets: [
         {
           /* calculates the percentage of occurrence of each unique item in the dataset */
@@ -67,17 +87,12 @@ export default function ChartsPage() {
             const percentage = (count * 100) / totalCount;
             return percentage;
           }),
-          backgroundColor: [
-            'rgba(160, 174, 144, 1)',
-            'rgba(229, 107, 107, 1)',
-            'rgba(137, 170, 220, 1)',
-          ],
+          backgroundColor: ['#4A765C', '#F17710', '#5A3725'],
           hoverOffset: 4,
         },
       ],
     };
   };
-
   /* the options for the chart */
   const getChartOptions = () => ({
     plugins: {
@@ -111,20 +126,54 @@ export default function ChartsPage() {
 
   return (
     <div className={styles.chartPageConatiner}>
-      <NavBar />
-      <div className={styles.ChartsTitleContainer}>
-        <img src={tRexSkull} className="home-title--image" />
-        <h2 className="home-title">
-          Did you know that Stegosaurus had a brain the size of a walnut?
-        </h2>
-      </div>
-      <CategoryTiles filterDinos={filterDinos} />
-
       <div className={styles.chartsContainer}>
+        <div className={styles.filter}>
+          <h2>Charts</h2>
+
+          <div className={`${styles['filter-content']} ${styles['cards']}`}>
+            <span className={styles['filter-small-title']}>Era</span>
+            <div className={styles['chips-container']}>
+              {filterDinoEra.map((title) => {
+                const isActive = era === title;
+                return (
+                  <div
+                    key={title}
+                    className={`${styles['single-chip']} ${
+                      isActive ? styles['single-chip-active'] : ''
+                    }`}
+                    onClick={() => handleWhenLived(title)}
+                  >
+                    <span className={styles['bold-text']}>{title}</span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className={`${styles['filter-content']} ${styles['cards']}`}>
+            <span className={styles['filter-small-title']}>Country</span>
+            <div className={styles['chips-container']}>
+              {filterDinoCountry.map((title) => {
+                const isActive = country === title;
+                return (
+                  <div
+                    key={title}
+                    className={`${styles['single-chip']} ${
+                      isActive ? styles['single-chip-active'] : ''
+                    }`}
+                    onClick={() => handleCountry(title)}
+                  >
+                    <span className={styles['bold-text']}>{title}</span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
         <div className={styles.chartDiv}>
           <h2>Diet</h2>
           <div className={styles.chart}>
-            <div></div>
             <Pie
               data={processData(dietData)}
               options={getChartOptions()}
@@ -144,7 +193,6 @@ export default function ChartsPage() {
           </div>
         </div>
       </div>
-      <BottomNavBar />
     </div>
   );
 }

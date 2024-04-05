@@ -24,20 +24,16 @@ const router = createBrowserRouter([
         path: '/dino/:id',
         element: <DinoPage />,
       },
-      // {
-      //   path: '/charts',
-      //   element: <Charts />,
-      // },
+      {
+        path: '/charts',
+        element: <ChartsPage />,
+      },
     ],
   },
   {
     path: '*',
     element: <NotFound />,
   },
-  {
-    path: '/charts',
-    element: <ChartsPage />,
-  }
 ]);
 
 const App = () => {
