@@ -11,7 +11,7 @@ const FilterDinoWeight = () => {
   const { minWeight, maxWeight, handleWeight } = useContext(FilterContext);
 
   return (
-    <div className={`${styles['filter-content']}`}>
+    <div className={`${styles['filter-content']}  ${styles.sliders}`}>
       <span className={styles['filter-small-title']}>Weight</span>
       <ReactSlider
         className={sliderStyles['horizontal-slider']}
