@@ -11,6 +11,28 @@ import { altPics } from '../utils/pretty-pics.tsx';
 export default function Home() {
   const [dinos, setDinos] = useState<Dino[]>([]);
   const [originalDinos, setOriginalDinos] = useState<Dino[]>([]);
+  const [displayDinos, setDisplayDinos] = useState<Dino[]>([]);
+  const [loadIndex, setLoadIndex] = useState(20);
+  const [isLoading, setIsLoading] = useState(false);
+  const handleScroll = () => {
+    const bottom = Math.ceil(window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight;
+    if (bottom) {
+      setIsLoading(true)
+      setTimeout(() => {
+        setLoadIndex(prevIndex => prevIndex + 20);
+        setIsLoading(false)
+      }, 500)
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, []);
+
+  useEffect(() => {
+    setDisplayDinos(originalDinos.slice(0, loadIndex));
+  }, [loadIndex, dinos]);
 
   const filterDinos = (filterFunction: (dino: Dino) => boolean) => {
     setDinos(originalDinos.filter((dino) => filterFunction(dino)));
@@ -28,6 +50,7 @@ export default function Home() {
       });
       setOriginalDinos(data);
       setDinos(data);
+      setDisplayDinos(originalDinos.slice(0, 20));
     });
   }, []);
 
@@ -38,7 +61,8 @@ export default function Home() {
         <CategoryTiles filterDinos={filterDinos} />
         {originalDinos === dinos && <DinosaurOfTheDay />}
         {originalDinos === dinos && <NewsCardGrid />}
-        <DinoCardGrid dinos={dinos} title="Discover" />
+        <DinoCardGrid dinos={displayDinos} title="Discover" />
+      {(isLoading && displayDinos.length < originalDinos.length) && <p className="loading-text">Loading...</p>}
       </main>
     </>
   );

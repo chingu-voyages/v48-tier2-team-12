@@ -63,3 +63,8 @@ a {
   display: flex;
   margin-left: auto;
 } */
+
+.loading-text {
+  text-align: center;
+  margin-top: 12px;
+}
