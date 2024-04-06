@@ -6,49 +6,37 @@ import classes from '../css-modules/NewsCardGrid.module.css';
 
 export function NewsCardGrid() {
   const [articles, setArticles] = useState<Article[]>([]);
-  const [isTimeToFetchNews, setisTimeToFetchNews] = useState<Boolean>(false);
   const now = new Date().getTime();
-  const timestamp = localStorage.getItem('dinopedia-news-timestamp');
-  // nextTimeToFetchNews is equal to 'the timestamp sent to LS' + 24 hours
-  const nextTimeToFetchNews = Number(timestamp) + 1 * 24 * 60 * 60 * 1000;
-
-
-  useEffect(() => {  
-    const retrieveNews = ():  Article[] | null => {
-      const newsData = localStorage.getItem('dinopediaNews');
-      return newsData ? JSON.parse(newsData) as Article[] : null;
-    };
-    const retrievedNewsFromLocalStorage = retrieveNews()
-
-    retrievedNewsFromLocalStorage && setArticles(retrievedNewsFromLocalStorage);
-  } , []); 
-
-
-  const timeComparison = () => {
-    if (!timestamp || now >= nextTimeToFetchNews) {
-      setisTimeToFetchNews(true);
-      
-      console.log('fetching', nextTimeToFetchNews.toLocaleString());
-    }
-  };
 
   useEffect(() => {
-    if (isTimeToFetchNews) {
+    // Define an async function inside the effect for fetching news
+    const fetchAndStoreNews = async () => {
+      if (timeComparison()) { // If it's time to fetch
+        const response = await fetchNews(); // Assuming fetchNews is an async function
+        const news = response.articles;
+        localStorage.setItem("dinopediaNews", JSON.stringify(news));
+        localStorage.setItem('dinopedia-news-timestamp', now.toString());
+        setArticles(news);
+      }
+    };
 
-      fetchNews().then((response) => {
+    // Call the async function
+    fetchAndStoreNews();
 
-        const news = response.articles
-        const storeNews = (news: Article[]) => {
-          localStorage.setItem("dinopediaNews", JSON.stringify(news));
-        };
-      storeNews(news)
-      });
-
-      setisTimeToFetchNews(false);
-      localStorage.setItem('dinopedia-news-timestamp', now.toString());
+    // Retrieve and set articles from localStorage if available
+    const storedNews = localStorage.getItem('dinopediaNews');
+    if (storedNews) {
+      setArticles(JSON.parse(storedNews));
     }
-    timeComparison();
   }, []);
+
+  const timeComparison = () => {
+    const timestamp = localStorage.getItem('dinopedia-news-timestamp');
+    const nextTimeToFetchNews = timestamp ? (Number(timestamp) + 1 * 24 * 60 * 60 * 1000) : now;
+    console.log('nextTimeToFetchNews', nextTimeToFetchNews)
+
+    return !timestamp || now >= nextTimeToFetchNews
+  };
 
   const pickOnlyFewNews = (articlesArray: Article[]) => {
     const randomFewNews = [];
@@ -61,7 +49,7 @@ export function NewsCardGrid() {
     return randomFewNews
   }
 
-  const test = () => isTimeToFetchNews ? ' Fetching...' : '  More news tomorrow'
+  const test = () => timeComparison() ? ' Fetching...' : '  More news tomorrow'
   console.log("Should show 'Fetching...' only on the first time rendering or after 24h of last time the browser fetched news", test())
 
   return (
