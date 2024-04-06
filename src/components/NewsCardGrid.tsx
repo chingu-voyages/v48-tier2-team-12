@@ -7,22 +7,41 @@ import classes from '../css-modules/NewsCardGrid.module.css';
 export function NewsCardGrid() {
   const [articles, setArticles] = useState<Article[]>([]);
   const [isTimeToFetchNews, setisTimeToFetchNews] = useState<Boolean>(false);
-  const now = new Date().getTime();
+  const now = new Date().getTime() + 1 * 24 * 60 * 60 * 1000;
   const timestamp = localStorage.getItem('dinopedia-news-timestamp');
   // nextTimeToFetchNews is equal to 'the timestamp sent to LS' + 24 hours
-  const nextTimeToFetchNews = Number(timestamp) + 1 * 24 * 60 * 60 * 1000;
+  
+  const nextTimeToFetchNews = timestamp ? Number(timestamp) + 1 * 24 * 60 * 60 * 1000 : now;
+  console.log(nextTimeToFetchNews)
+  console.log(now)
 
-
+  //news from LS
   useEffect(() => {  
     const retrieveNews = ():  Article[] | null => {
       const newsData = localStorage.getItem('dinopediaNews');
       return newsData ? JSON.parse(newsData) as Article[] : null;
     };
     const retrievedNewsFromLocalStorage = retrieveNews()
+    if (retrievedNewsFromLocalStorage) {
+    setArticles(retrievedNewsFromLocalStorage)
+    } else {
+      //calling API
+      let news : Article[] = []
+      fetchNews().then((response) => {
 
-    retrievedNewsFromLocalStorage && setArticles(retrievedNewsFromLocalStorage);
+        news = response.articles
+        const storeNews = (news: Article[]) => {
+          localStorage.setItem("dinopediaNews", JSON.stringify(news));
+        };
+      storeNews(news)
+      setArticles(news)
+      });
+
+      setisTimeToFetchNews(false);
+      localStorage.setItem('dinopedia-news-timestamp', now.toString());
+      
+    }
   } , []); 
-
 
   const timeComparison = () => {
     if (!timestamp || now >= nextTimeToFetchNews) {
@@ -33,6 +52,8 @@ export function NewsCardGrid() {
   };
 
   useEffect(() => {
+    
+    timeComparison();
     if (isTimeToFetchNews) {
 
       fetchNews().then((response) => {
@@ -47,7 +68,6 @@ export function NewsCardGrid() {
       setisTimeToFetchNews(false);
       localStorage.setItem('dinopedia-news-timestamp', now.toString());
     }
-    timeComparison();
   }, []);
 
   const pickOnlyFewNews = (articlesArray: Article[]) => {
