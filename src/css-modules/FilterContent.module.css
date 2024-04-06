@@ -4,6 +4,8 @@
 
   padding: 1rem;
   gap: 1rem;
+
+  border-bottom: 1px solid #eaeaea;
 }
 
 .cards {
@@ -113,4 +115,8 @@
   background-color: var(--dino-green);
   box-shadow: -5px 5px 10px 0px #4a765c33;
   color: #ffffff;
+}
+
+.sliders {
+  padding-bottom: 1.5rem;
 }

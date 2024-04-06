@@ -11,7 +11,7 @@ const FilterDinoLength = () => {
   const { minLength, maxLength, handleLength } = useContext(FilterContext);
 
   return (
-    <div className={`${styles['filter-content']}`}>
+    <div className={`${styles['filter-content']}  ${styles.sliders} `}>
       <span className={styles['filter-small-title']}>Length</span>
       <ReactSlider
         className={sliderStyles['horizontal-slider']}

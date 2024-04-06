@@ -36,13 +36,12 @@ a {
 }
 
 .main-container {
-  margin: 0 auto 80px;
+  margin: 0 auto 78px;
 }
 
 .main-container,
 .container {
   background-color: var(--container-color);
-  /* max-width: 430px; */
 }
 
 .container {
