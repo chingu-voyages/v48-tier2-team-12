@@ -1,30 +1,14 @@
 .nav-container {
-  /* margin: 0 auto; */
   background-image: url('../assets/nav-bg.svg');
-  background-position: center;
-  max-width: 430px;
-}
-
-.nav {
-  /* background: #ffffff; */
-  display: flex;
-  align-items: top;
-  justify-content: center;
-  /* width: 100vw; */
+  background-repeat: repeat;
+  width: 100%;
   height: 97px;
-  /* max-width: 430px; */
-  margin: 0 auto;
-  padding: 0 19px;
-  z-index: 1;
+
+  display: flex;
+  justify-content: center;
 }
 
 .nav-logo {
   height: 47px;
   margin-top: 7px;
-  position: absolute;
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 29px;
-  letter-spacing: 0em;
-  text-align: left;
 }
