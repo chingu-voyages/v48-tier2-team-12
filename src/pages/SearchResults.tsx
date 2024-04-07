@@ -5,17 +5,6 @@ import { fetchDinos } from '../utils/api';
 import type { Dino } from '../interfaces/dino.interface.ts';
 import { useSearchParams } from 'react-router-dom';
 
-// type SearchParams = {
-//     name: string;
-//     typeOfDinosaur: string;
-//     length: number;
-//     length: number;
-//     weight: number;
-//     weight: number;
-//     diet: string;
-//     whenLived: string;
-//   };
-
 const SearchResults = () => {
   const [searchParams, _] = useSearchParams();
   const [dinos, setDinos] = useState<Dino[]>([]);
@@ -31,7 +20,6 @@ const SearchResults = () => {
       setIsLoading(true);
       try {
         const dinosData = await fetchDinos();
-
         const searchResults = dinosData.filter((dino: Dino) => {
           return (
             // Name
@@ -39,12 +27,16 @@ const SearchResults = () => {
               dino.name
                 ?.toLowerCase()
                 .includes(params.dinoName.toLowerCase())) &&
-            // Length          |Solving type error|
-            (!params.minLength || dino.length && dino.length >= params.minLength ) &&
-            (!params.maxLength || dino.length && dino.length <= params.maxLength) &&
+            // Length
+            (!params.minLength ||
+              (dino.length && dino.length >= params.minLength)) &&
+            (!params.maxLength ||
+              (dino.length && dino.length <= params.maxLength)) &&
             // Weight
-            (!params.minWeight || dino.weight && dino.weight >= params.minWeight) &&
-            (!params.maxWeight || dino.weight && dino.weight <= params.maxWeight) &&
+            (!params.minWeight ||
+              (dino.weight && dino.weight >= params.minWeight)) &&
+            (!params.maxWeight ||
+              (dino.weight && dino.weight <= params.maxWeight)) &&
             // Type
             (!params.typeOfDinosaur ||
               dino.typeOfDinosaur === params.typeOfDinosaur) &&
@@ -56,9 +48,7 @@ const SearchResults = () => {
             (!params.country || dino.foundIn?.includes(params.country))
           );
         });
-
         setIsLoading(false);
-
         setDinos(searchResults);
       } catch (error) {
         setIsLoading(false);

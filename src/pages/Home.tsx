@@ -12,22 +12,26 @@ export default function Home() {
   const [dinos, setDinos] = useState<Dino[]>([]);
   const [originalDinos, setOriginalDinos] = useState<Dino[]>([]);
   const [displayDinos, setDisplayDinos] = useState<Dino[]>([]);
+
   const [loadIndex, setLoadIndex] = useState(20);
   const [isLoading, setIsLoading] = useState(false);
+
   const handleScroll = () => {
-    const bottom = Math.ceil(window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight;
+    const bottom =
+      Math.ceil(window.innerHeight + window.scrollY) >=
+      document.documentElement.scrollHeight;
     if (bottom) {
-      setIsLoading(true)
+      setIsLoading(true);
       setTimeout(() => {
-        setLoadIndex(prevIndex => prevIndex + 20);
-        setIsLoading(false)
-      }, 500)
+        setLoadIndex((prevIndex) => prevIndex + 20);
+        setIsLoading(false);
+      }, 500);
     }
   };
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   useEffect(() => {
@@ -62,7 +66,9 @@ export default function Home() {
         {originalDinos === dinos && <DinosaurOfTheDay />}
         {originalDinos === dinos && <NewsCardGrid />}
         <DinoCardGrid dinos={displayDinos} title="Discover" />
-      {(isLoading && displayDinos.length < originalDinos.length) && <p className="loading-text">Loading...</p>}
+        {isLoading && displayDinos.length < originalDinos.length && (
+          <p className="loading-text">Loading...</p>
+        )}
       </main>
     </>
   );

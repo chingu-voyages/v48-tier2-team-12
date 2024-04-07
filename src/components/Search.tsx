@@ -4,10 +4,17 @@ import magnifyingGlass from '../assets/magnifying-glass.svg';
 import filter from '../assets/filter.svg';
 import { FilterContext } from './Filter/FilterContext';
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Search = () => {
-  const { isModalOpen, handleModal, dinoName, handleSearch } =
-    useContext(FilterContext);
+  const navigate = useNavigate();
+  const {
+    isModalOpen,
+    handleModal,
+    dinoName,
+    handleSearch,
+    handleSearchNavigation,
+  } = useContext(FilterContext);
 
   return (
     <>
@@ -18,6 +25,9 @@ const Search = () => {
             name="name"
             value={dinoName}
             onChange={(e) => handleSearch(e)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') handleSearchNavigation(navigate);
+            }}
           />
           <img src={magnifyingGlass} alt="Search" />
         </div>

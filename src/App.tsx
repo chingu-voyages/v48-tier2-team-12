@@ -1,7 +1,7 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Layout from './pages/Layout';
 import Home from './pages/Home';
-import DinoPage from './pages/DinoPage';
+import DinoPage, { loader as dinoPageLoader } from './pages/DinoPage';
 import Discover from './pages/Discover';
 import ChartsPage from './pages/ChartsPage';
 import SearchResults from './pages/SearchResults';
@@ -24,6 +24,7 @@ const router = createBrowserRouter([
       {
         path: '/dino/:id',
         element: <DinoPage />,
+        loader: dinoPageLoader,
       },
       {
         path: '/discover',
