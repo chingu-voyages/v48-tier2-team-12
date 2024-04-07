@@ -1,58 +1,76 @@
 # Dinopedia
+## Overview
 
-An app about dinosaurs with data from London's National History Museum.
+This application was developed as a learning project for Chingu Voyage 48. It retrieves information about dinosaurs through the [Chingu Dinosaurs API](https://chinguapi.onrender.com/dinosaurs), utilizing data sourced from [London's Natural History Museum](https://www.nhm.ac.uk/discover/dinosaurs.html).
 
-# First few links of Sprint #1 documents
+## Features
 
-* [App Feature Planning](https://docs.google.com/document/d/16Uy-yfyojOXvyJAMm5w6eamrOAlZto7c-ODee086IJA/edit)
-* [Kickoff meeting slides](https://docs.google.com/presentation/d/1yhfkyGfMT0STWgfWvay058aGqRYTQDkwuISlpTkXaWQ/edit?usp=sharing)
-* [Backlog](https://github.com/orgs/chingu-voyages/projects/211/views/1)
+1. Dinosaur Display:
+* Displays dinosaurs' name, weight, length, country, diet, and corresponding images sourced from the provided API data.
+* Each dinosaur card is clickable to view full details.
 
-## Live site
+2. Dinosaur Search:
+* Search, filter, and sort feature allows users to search for dinosaurs by name, weight, length, country, and diet.
+* Search functionality should be case-insensitive and allow partial matching of dinosaur names.
 
+3. Charts:
+* The Charts page displays two charts showing the distribution of dinosaur diet and type data. Users can filter the data using provided categories.
+
+4. Responsiveness: The application is responsive across various devices and screen sizes.
+
+5. Display news about recent dinosaur discovery:
+* The app uses the [GNews API](https://gnews.io/) to feature recent discoveries in paleontology.
+
+6. Interactive map with dinosaurs location:
+* On each dinosaur details page the app incorporates an interactive map feature highlighting locations where dinosaur fossils have been discovered.
+
+7. Dinosaur of the day section:
+* Includes a section in home page highlighting a specific dinosaur each day.
+* Fun and interesting facts are displayed as users navigate through pages other than the home page.
+
+## Running the project 
+### Live site
 [Dinopedia](https://v48-dinopedia.netlify.app)
 
+### From the repo:
+1. Clone this project locally
+2. Run `npm install` in your bash/command line
+3. Run `npm run dev` in your bash/command line
+
+## Dependencies:
+@babel/runtime (^7.24.1)
+chart.js (^4.4.2)
+chartjs-plugin-datalabels (^2.2.0)
+react (^18.2.0)
+react-chartjs-2 (^5.2.0)
+react-dom (^18.2.0)
+react-loader-spinner (^6.1.6)
+react-router-dom (^6.22.3)
+react-slider (^2.0.6)
+
+## DevDependencies:
+@types/react (^18.2.64)
+@types/react-dom (^18.2.21)
+@types/react-slider (^1.3.6)
+@typescript-eslint/eslint-plugin (^7.1.1)
+@typescript-eslint/parser (^7.1.1)
+@vitejs/plugin-react (^4.2.1)
+eslint (^8.57.0)
+eslint-plugin-react-hooks (^4.6.0)
+eslint-plugin-react-refresh (^0.4.5)
+typescript (^5.2.2)
+vite (^5.1.6)
+
 ## Team Decision Log and consultable useful resources
-[Team Decision Log and consultable useful resources](https://docs.google.com/document/d/1Qnf9Mo8NQ3MMUM1FSeZui6EVUXTToI0EJEflwzLXNG8/edit?usp=sharing)
+[Log of Team Decisions and Accessible and valuable resources](https://docs.google.com/document/d/1Qnf9Mo8NQ3MMUM1FSeZui6EVUXTToI0EJEflwzLXNG8/edit?usp=sharing)
 
-# voyage-tasks
-
-Your project's `readme` is as important to success as your code. For 
-this reason you should put as much care into its creation and maintenance
-as you would any other component of the application.
-
-If you are unsure of what should go into the `readme` let this article,
-written by an experienced Chingu, be your starting point - 
-[Keys to a well written README](https://tinyurl.com/yk3wubft).
-
-And before we go there's "one more thing"! Once you decide what to include
-in your `readme` feel free to replace the text we've provided here.
-
-> Own it & Make it your Own!
-
-## Team Documents
-
-You may find these helpful as you work together to organize your project.
-
-- [Team Project Ideas](./docs/team_project_ideas.md)
-- [Team Decision Log](./docs/team_decision_log.md)
-
-Meeting Agenda templates (located in the `/docs` directory in this repo):
-
-- Meeting - Voyage Kickoff --> ./docs/meeting-voyage_kickoff.docx
-- Meeting - App Vision & Feature Planning --> ./docs/meeting-vision_and_feature_planning.docx
-- Meeting - Sprint Retrospective, Review, and Planning --> ./docs/meeting-sprint_retrospective_review_and_planning.docx
-- Meeting - Sprint Open Topic Session --> ./docs/meeting-sprint_open_topic_session.docx
-
-## Our Team
-
-Everyone on your team should add their name along with a link to their GitHub
-& optionally their LinkedIn profiles below. Do this in Sprint #1 to validate
-your repo access and to practice PR'ing with your team *before* you start
-coding!
-
-- Huda Mabkhoot: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
-- Teammate name #2: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
-
-   ...
-- Teammate name #n: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
+## Contributors
+UI/UX Designers: 
+* Amina Hargitai
+* Karl Gosas
+Web Developers: 
+* [Carlos Morais](https://github.com/Morais-C)
+* [Cristiano Valente](https://github.com/cris-valente)
+* [Dawood Dilawar](https://github.com/dawooddilawar)
+* [Huda Mabkhoot](https://github.com/Hudamabkhoot) 
+* [Ulaş Coşkun](https://github.com/bulascoskun)
