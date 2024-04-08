@@ -1,23 +1,28 @@
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 import type { Dino } from '../interfaces/dino.interface.ts';
 import { fetchSingleDino } from '../utils/api.ts';
 import Map from '../components/Map';
 import styles from '../css-modules/DinoPage.module.css';
 import emptyStateImg from '../assets/no-image.svg';
 
+export const loader = async ({ params }: any) => {
+  try {
+    const singleDino = await fetchSingleDino(params.id);
+    return singleDino;
+  } catch (error) {
+    return { error: error, msg: 'There was an error.' };
+  }
+};
+
 export default function DinoPage() {
-  const { id } = useParams();
-  const [dino, setDino] = useState<Dino>(Object);
+  const dino = useLoaderData() as Dino;
 
-  useEffect(() => {
-    const fetchDinoPage = async () => {
-      const singleDino = await fetchSingleDino(id);
-
-      setDino(singleDino);
-    };
-    fetchDinoPage();
-  }, [id]);
+  if (dino.error)
+    return (
+      <main className={styles.errorContainer}>
+        <div className={styles.error}>{dino.error}</div>
+      </main>
+    );
 
   return (
     <main className={styles.dinoContainer}>

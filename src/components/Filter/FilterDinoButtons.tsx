@@ -5,19 +5,14 @@ import { FilterContext } from './FilterContext';
 
 const FilterDinoButtons = () => {
   const navigate = useNavigate();
-  const { dinoSearchParams, handleModal, clearFilters } =
-    useContext(FilterContext);
-
-  const handleSearch = () => {
-    const urlParams = new URLSearchParams(dinoSearchParams);
-    navigate(`/searchresults?${urlParams}`);
-    handleModal();
-  };
+  const { clearFilters, handleSearchNavigation } = useContext(FilterContext);
 
   return (
     <div className={`${styles['filter-buttons']}`}>
       <button onClick={clearFilters}>Clear</button>
-      <button onClick={handleSearch}>Show Results</button>
+      <button onClick={() => handleSearchNavigation(navigate)}>
+        Show Results
+      </button>
     </div>
   );
 };

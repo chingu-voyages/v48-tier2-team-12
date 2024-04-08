@@ -12,4 +12,5 @@ export interface Dino {
   namedBy?: string;
   typeSpecies?: string;
   description: string;
+  error?: string;
 }

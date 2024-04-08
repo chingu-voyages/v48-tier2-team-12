@@ -37,8 +37,7 @@ export default function ChartsPage() {
       setTypeData(dinos.map((item: Dino) => item?.typeOfDinosaur));
     };
     setChartData();
-  }, [dinos]);
-  useEffect(() => {
+
     const fetchDinosSearch = async () => {
       try {
         const dinosData = await fetchDinos();
@@ -56,7 +55,7 @@ export default function ChartsPage() {
       }
     };
     fetchDinosSearch();
-  }, [era, country]);
+  }, [dinos, era, country]);
 
   /* removing duplicates for the chart labels */
   const removeDuplicates = (

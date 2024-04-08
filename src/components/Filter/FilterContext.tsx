@@ -1,4 +1,5 @@
 import { createContext, useState } from 'react';
+import { NavigateFunction } from 'react-router-dom';
 
 export const FilterContext = createContext<any>(undefined);
 
@@ -63,6 +64,12 @@ export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
     });
   };
 
+  const handleSearchNavigation = (navigate: NavigateFunction) => {
+    const urlParams = new URLSearchParams(dinoSearchParams);
+    navigate(`/searchresults?${urlParams}`);
+    setIsModalOpen(false);
+  };
+
   const clearFilters = () => {
     setDinoName('');
     setMinLength(undefined);
@@ -111,6 +118,7 @@ export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
         dinoSearchParams,
         clearFilters,
         dinoName,
+        handleSearchNavigation,
       }}
     >
       {children}

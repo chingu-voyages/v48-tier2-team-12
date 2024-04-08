@@ -37,6 +37,10 @@
   box-shadow: -5px 5px 10px 0px #4a765c33;
 }
 
+.search-input-container input:focus {
+  outline: none;
+}
+
 .container span {
   border-radius: 10px;
 
