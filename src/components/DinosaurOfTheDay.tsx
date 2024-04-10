@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 
 export default function DinosaurOfTheDay() {
   const [dinoOfTheDay, setDinoOfTheDay] = useState<Dino>(Object);
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [isLearnMoreVisible, setIsLearnMoreVisible] = useState(false);
+  // const [isExpanded, setIsExpanded] = useState(false);
+  // const [isLearnMoreVisible, setIsLearnMoreVisible] = useState(false);
 
   useEffect(() => {
     const fetchDinoOfTheDay = async () => {
@@ -27,13 +27,13 @@ export default function DinosaurOfTheDay() {
         }
       }
       setDinoOfTheDay(dinoOfTheDay);
-      setIsLearnMoreVisible(dinoOfTheDay.description.length > 95);
+      // setIsLearnMoreVisible(dinoOfTheDay.description.length > 95);
     };
 
     fetchDinoOfTheDay();
   }, []);
 
-  const toggleExpand = () => setIsExpanded((prevExpanded) => !prevExpanded);
+  // const toggleExpand = () => setIsExpanded((prevExpanded) => !prevExpanded);
 
   return (
     <div className={styles['dino-of-the-day']}>
@@ -59,21 +59,22 @@ export default function DinosaurOfTheDay() {
           </h2>
           <p
             className={`
-                            ${styles['dino-of-the-day__description']} 
-                            ${
-                              isExpanded
-                                ? styles['expanded']
-                                : styles['collapsed']
-                            }`}
+                            ${styles['dino-of-the-day__description']} `
+                            // ${
+                            //   isExpanded
+                            //     ? styles['expanded']
+                            //     : styles['collapsed']
+                            // }
+                            }
           >
-            {dinoOfTheDay.description}
+            {dinoOfTheDay.description?.slice(0,95)}
           </p>
-          {isLearnMoreVisible && (
+          { (
             <button
               className={styles['learn-more__btn']}
-              onClick={toggleExpand}
+              
             >
-              {isExpanded ? 'Show Less' : 'Learn More'}
+              Learn More
             </button>
           )}
         </div>
