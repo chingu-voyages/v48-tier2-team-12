@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Article } from '../interfaces/article.interface';
-import { fetchNews, isTimeToFetchNews, pickOnlyFewNews, now } from '../utils/news-api';
+import { fetchNews, isTimeToFetch, pickOnlyFewNews, now } from '../utils/news-api';
 import { NewsCard, NewsErrorHandling } from './NewsCard';
 import styles from '../css-modules/NewsCardGrid.module.css';
 
@@ -10,11 +10,11 @@ export function NewsCardGrid() {
   useEffect(() => {
     // Define an async function inside the effect for fetching and storing news
     const fetchAndStoreNews = async () => {
-      if (isTimeToFetchNews()) { // If it's time to fetch
+      if (isTimeToFetch('dinopediaNewsTimestamp')) { // If it's time to fetch
         const response = await fetchNews();
         const news = response.articles;
         localStorage.setItem("dinopediaNews", JSON.stringify(news));
-        localStorage.setItem('dinopedia-news-timestamp', now.toString());
+        localStorage.setItem('dinopediaNewsTimestamp', now.toString());
         setArticles(news);
       }
     };
