@@ -56,6 +56,9 @@ p {
 .mapImg {
   margin-top: 10px;
   max-width: 100%;
+  border-radius: 10px;
+  box-shadow: -5px 5px 10px 0px #4A765C33;
+
 }
 
 .errorContainer {
@@ -64,4 +67,25 @@ p {
   align-items: center;
 
   height: calc(100dvh - 300px);
+}
+
+@media screen and (min-width: 550px) {
+  .DinoMainImg {
+    width: fit-content;
+    /* width: moz-fit-content; // ToDo: Verify on Firefox */
+    max-height: 516px;
+  }
+
+  .DinoPageTitle {
+    font-size: 24px;
+  }
+
+  p{
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+  .mapImg{
+    max-height: 430px;
+    margin-top: 36px;
+  }
 }
