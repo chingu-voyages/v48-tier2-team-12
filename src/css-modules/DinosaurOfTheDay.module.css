@@ -34,7 +34,7 @@
 }
 
 .dino-of-the-day__description {
-  margin: 0;
+  margin: 8px 0 0;
   font-size: 16px;
 }
 
@@ -85,7 +85,9 @@
   }
 
   .dino-of-the-day__description {
-    margin-bottom: auto;
+    margin: 0 0 auto;
+    font-size: 15px;
+    line-height: 18px;
   }
   .learn-more__btn {
     font-size: 13px;
