@@ -22,12 +22,14 @@ export async function fetchNews(): Promise<GNewsResponse> {
 
 export const now = new Date().getTime();
 
-//Compares timestamp from local storage with now and decides if it's time to fetch news
-export const isTimeToFetchNews = () => {
-  const timestamp = localStorage.getItem('dinopedia-news-timestamp');
-  const nextTimeToFetchNews = timestamp ? (Number(timestamp) + 1 * 24 * 60 * 60 * 1000) : now;
+//Compares timestamp from local storage with now 
+//and decides if it's time to fetch data again
+export const isTimeToFetch = (timestampName: string) => {
+  const timestamp = localStorage.getItem(timestampName);
+  const nextTimeToFetch = 
+  timestamp ? (Number(timestamp) + 1 * 24 * 60 * 60 * 1000) : now;
 
-  return !timestamp || now >= nextTimeToFetchNews
+  return !timestamp || now >= nextTimeToFetch
 };
 
 export const pickOnlyFewNews = (articlesArray: Article[]) => {

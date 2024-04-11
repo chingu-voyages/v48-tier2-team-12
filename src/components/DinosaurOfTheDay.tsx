@@ -1,39 +1,96 @@
 import { useEffect, useState } from 'react';
 import { fetchDinos } from '../utils/api.ts';
+import { now, isTimeToFetch } from '../utils/news-api.ts';
 import { Dino } from '../interfaces/dino.interface.ts';
 import styles from '../css-modules/DinosaurOfTheDay.module.css';
 import { Link } from 'react-router-dom';
 
 export default function DinosaurOfTheDay() {
+  //Should figure out what's wrong with dinoOfTheDay initial state (Object)
   const [dinoOfTheDay, setDinoOfTheDay] = useState<Dino>(Object);
-  // const [isExpanded, setIsExpanded] = useState(false);
-  // const [isLearnMoreVisible, setIsLearnMoreVisible] = useState(false);
+  const [isEllipsisVisible, setEllipsisVisible] = useState(false);
+  const [descCharNumber, setDescCharNumber] = useState(Number)
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+
+  const adaptDescCharNumber = (): void => {
+    if (windowWidth < 550) {
+      setDescCharNumber(90);
+    }
+    else if (windowWidth <= 1024) {
+      setDescCharNumber(890);
+    }
+    else if (windowWidth > 1024){
+      setDescCharNumber(99999);
+    }
+  };
+  
+  const isDescTruncated = (descLength: number) => {
+    return descLength > descCharNumber &&
+    windowWidth < 1024
+  }
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+      adaptDescCharNumber();
+      setEllipsisVisible(
+        isDescTruncated(dinoOfTheDay.description?.length)
+      );
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [windowWidth]);
 
   useEffect(() => {
     const fetchDinoOfTheDay = async () => {
-      const allDinos = await fetchDinos();
+      if (isTimeToFetch('dinopediaTodaysDinoTimestamp')) { // If it's time to fetch
+        const allDinos = await fetchDinos();
 
-      let dinoOfTheDay: Dino | null = null;
-      while (!dinoOfTheDay) {
-        const randomIndex = Math.floor(Math.random() * allDinos.length);
+        let dinoOfTheDay: Dino | null = null;
+        let attempts = 0;
 
-        // Checking for dinos with image and description
-        if (
-          !allDinos[randomIndex].imageSrc?.includes("https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction")&&
-          allDinos[randomIndex].imageSrc !== 'N/A' &&
-          allDinos[randomIndex].description !== 'N/A'
-        ) {
-          dinoOfTheDay = allDinos[randomIndex];
+        while (!dinoOfTheDay && attempts < allDinos.length) {
+          const randomIndex = Math.floor(Math.random() * allDinos.length);
+
+          // Checking for dinos with image and description
+          if (
+            !allDinos[randomIndex].imageSrc?.includes(
+              "https://www.nhm.ac.uk/resources/nature-online/life/dinosaurs/dinosaur-directory/images/reconstruction"
+            )&&
+            allDinos[randomIndex].imageSrc !== 'N/A' &&
+            allDinos[randomIndex].description !== 'N/A'
+          ) {
+            dinoOfTheDay = allDinos[randomIndex]
+          }
+          attempts++
         }
-      }
-      setDinoOfTheDay(dinoOfTheDay);
-      // setIsLearnMoreVisible(dinoOfTheDay.description.length > 95);
-    };
 
+        if(dinoOfTheDay){
+          localStorage.setItem("dinoOfTheDay", JSON.stringify(dinoOfTheDay));
+          localStorage.setItem('dinopediaTodaysDinoTimestamp', now.toString());
+          setDinoOfTheDay(dinoOfTheDay);
+          adaptDescCharNumber()
+          setEllipsisVisible(
+            isDescTruncated(dinoOfTheDay.description?.length)
+          );
+        }
+      };
+    }
     fetchDinoOfTheDay();
-  }, []);
 
-  // const toggleExpand = () => setIsExpanded((prevExpanded) => !prevExpanded);
+    const storedDino = localStorage.getItem('dinoOfTheDay');
+    if (storedDino) {
+      setDinoOfTheDay(JSON.parse(storedDino));
+      adaptDescCharNumber()
+      setEllipsisVisible(
+        isDescTruncated(dinoOfTheDay.description?.length)
+      );
+    }
+  }, []);
 
   return (
     <div className={styles['dino-of-the-day']}>
@@ -57,17 +114,12 @@ export default function DinosaurOfTheDay() {
           <h2 className={styles['dino-of-the-day__title']}>
             {dinoOfTheDay.name}
           </h2>
-          <p
-            className={`
-                            ${styles['dino-of-the-day__description']} `
-                            // ${
-                            //   isExpanded
-                            //     ? styles['expanded']
-                            //     : styles['collapsed']
-                            // }
-                            }
-          >
-            {dinoOfTheDay.description?.slice(0,95)}
+          <p className={styles['dino-of-the-day__description']}>
+            {dinoOfTheDay.description
+            ?.split('.')
+            .join('. ')
+            .slice(0, descCharNumber)} 
+            {isEllipsisVisible ? '...' : ''}
           </p>
           { (
             <button
