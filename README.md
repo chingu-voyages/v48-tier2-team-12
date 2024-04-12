@@ -1,9 +1,12 @@
-# Dinopedia
-## Overview
+# ![Dinopedia](src/assets/logo.svg)
+## ![Logo](public/favicon-32x32.png) Overview
 
 This application was developed as a learning project for Chingu Voyage 48. It retrieves information about dinosaurs through the [Chingu Dinosaurs API](https://chinguapi.onrender.com/dinosaurs), utilizing data sourced from [London's Natural History Museum](https://www.nhm.ac.uk/discover/dinosaurs.html).
 
-## Features
+### Preview
+![Preview](src/assets/dinopedia-readme.png)
+
+## ![Logo](public/favicon-32x32.png) Features
 
 1. **Dinosaur Display**:
 * Displays dinosaurs' name, weight, length, country, diet, and corresponding images sourced from the provided API data.
@@ -28,7 +31,7 @@ This application was developed as a learning project for Chingu Voyage 48. It re
 * Includes a section in home page highlighting a specific dinosaur each day.
 * Fun and interesting facts are displayed as users navigate through pages other than the home page.
 
-## Running the project 
+## ![Logo](public/favicon-32x32.png) Running the project 
 ### Live site
 [Dinopedia](https://v48-dinopedia.netlify.app)
 
@@ -37,7 +40,7 @@ This application was developed as a learning project for Chingu Voyage 48. It re
 2. Run `npm install` in your bash/command line
 3. Run `npm run dev` in your bash/command line
 
-## Dependencies:
+## ![Logo](public/favicon-32x32.png) Dependencies:
 * @babel/runtime (^7.24.1)
 * chart.js (^4.4.2)
 * chartjs-plugin-datalabels (^2.2.0)
@@ -48,18 +51,18 @@ This application was developed as a learning project for Chingu Voyage 48. It re
 * react-router-dom (^6.22.3)
 * react-slider (^2.0.6)
 
-## DevDependencies:
+## ![Logo](public/favicon-32x32.png) DevDependencies:
 * react (^18.2.64)
 * react-dom (^18.2.21)
 * react-slider (^1.3.6)
 * typescript (^5.2.2)
 * vite (^5.1.6)
 
-## Team Decision Log and consultable useful resources
+## ![Logo](public/favicon-32x32.png) Team Decision Log and consultable useful resources
 A list of helpful documents, tutorials and links that made the structure of this code rich and well organized:  
 [Log of Team Decisions and Accessible and valuable resources](https://docs.google.com/document/d/1Qnf9Mo8NQ3MMUM1FSeZui6EVUXTToI0EJEflwzLXNG8/edit?usp=sharing)
 
-## Contributors
+## ![Logo](public/favicon-32x32.png) Contributors
 ### UI/UX Designers: 
 * Amina Hargitai
 * Karl Gosas
