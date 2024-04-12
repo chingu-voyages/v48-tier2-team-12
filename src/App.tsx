@@ -1,5 +1,5 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Layout from './pages/Layout';
+import Layout, { loader as layoutLoader } from './pages/Layout';
 import Home from './pages/Home';
 import DinoPage, { loader as dinoPageLoader } from './pages/DinoPage';
 import Discover from './pages/Discover';
@@ -29,6 +29,7 @@ const router = createBrowserRouter([
       {
         path: '/discover',
         element: <Discover />,
+        loader: layoutLoader,
       },
       {
         path: '/charts',
