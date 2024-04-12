@@ -92,7 +92,7 @@
 .filter-buttons {
   display: flex;
   justify-content: space-between;
-  padding: 1.5rem 2rem;
+  padding: 1rem;
   gap: 1rem;
 }
 
@@ -119,4 +119,38 @@
 
 .sliders {
   padding-bottom: 1.5rem;
+}
+
+.filterImage {
+  display: flex;
+  align-items: center;
+
+  padding: 1rem;
+  gap: 2rem;
+}
+
+.filterImage label {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+input[type='checkbox'] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  border: 1px solid var(--orange);
+
+  width: 24px;
+  height: 24px;
+  border-radius: 5px;
+
+  box-shadow: 2px 2px 2px 0px #00000026;
+  box-shadow: inset 0 0 0 1px white;
+
+  transition: all 0.05s;
+}
+
+input[type='checkbox']:checked {
+  background-color: var(--orange);
 }
