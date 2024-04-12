@@ -4,6 +4,9 @@ import { NavigateFunction } from 'react-router-dom';
 export const FilterContext = createContext<any>(undefined);
 
 export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
+
+  const [imageOnly, setImageOnly] = useState(false);
+  const [dinoName, setDinoName] = useState<string>('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [dinoName, setDinoName] = useState<string>('');
   const [minLength, setMinLength] = useState<number | undefined>(undefined);
@@ -93,6 +96,7 @@ export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   let dinoSearchParams: any = {};
+  if (imageOnly) dinoSearchParams.imageOnly = imageOnly;
   if (typeOfDinosaur !== undefined)
     dinoSearchParams.typeOfDinosaur = typeOfDinosaur;
   if (minLength !== undefined) dinoSearchParams.minLength = minLength;
@@ -110,6 +114,8 @@ export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
       value={{
         resetLength,
         resetWeight,
+        imageOnly,
+        setImageOnly,
         isModalOpen,
         handleModal,
         typeOfDinosaur,

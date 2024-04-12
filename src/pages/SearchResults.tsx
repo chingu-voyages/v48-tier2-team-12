@@ -45,7 +45,9 @@ const SearchResults = () => {
             // Era
             (!params.whenLived || dino.whenLived?.includes(params.whenLived)) &&
             // Country
-            (!params.country || dino.foundIn?.includes(params.country))
+            (!params.country || dino.foundIn?.includes(params.country)) &&
+            // Image Only
+            (!params.imageOnly || dino.imageSrc !== 'N/A')
           );
         });
         setIsLoading(false);

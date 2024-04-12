@@ -7,6 +7,7 @@ import FilterClose from './FilterClose';
 import FilterDinoEra from './FilterDinoEra';
 import FilterDinoButtons from './FilterDinoButtons';
 import FilterDinoCountry from './FilterDinoCountry';
+import FilterImage from './FilterImage';
 
 const FilterModal = () => {
   return (
@@ -18,6 +19,7 @@ const FilterModal = () => {
       <FilterDinoDiet />
       <FilterDinoEra />
       <FilterDinoCountry />
+      <FilterImage />
       <FilterDinoButtons />
     </div>
   );
