@@ -3,6 +3,9 @@
 
 This application was developed as a learning project for Chingu Voyage 48. It retrieves information about dinosaurs through the [Chingu Dinosaurs API](https://chinguapi.onrender.com/dinosaurs), utilizing data sourced from [London's Natural History Museum](https://www.nhm.ac.uk/discover/dinosaurs.html).
 
+### Preview
+![Preview](src/assets/dinopedia-readme.png)
+
 ## ![Logo](public/favicon-32x32.png) Features
 
 1. **Dinosaur Display**:
