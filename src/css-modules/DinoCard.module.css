@@ -1,14 +1,6 @@
 .smallCard {
-  /* width: 100%;
-  height: 228px; */
-
-  width: 191px;
+  width: 100%;
   height: 181px;
-  /* top: 356px;
-left: 16px;
-gap: 16px;
-border-radius: 10px 10px 0px 0px;
-opacity: 0px; */
 
   background-color: #ffffff;
   border-radius: 10px 10px 0 0;
@@ -16,22 +8,22 @@ opacity: 0px; */
 }
 
 .smallCardImage {
-  width: 100%;
+  display: flex;
+  min-width: 75%;
+  max-width: 100%;
   height: 129px;
-  border-radius: 10px 10px 0 0;
+  margin: 0 auto;
+  border-radius: 10px 10px 0 0;   
 }
 
 .smallCardTitle {
   font-size: 14px;
   font-weight: 500;
-  line-height: 17px;
-  letter-spacing: 0em;
-  text-align: left;
   margin: 16px 8px;
 }
 
 .noImageDesc {
-  margin: -18px auto 0;
+  margin: 0 auto;
   font-size: 10px;
   font-weight: 700;
   text-align: center;

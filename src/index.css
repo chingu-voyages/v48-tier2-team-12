@@ -67,3 +67,12 @@ a {
   text-align: center;
   margin-top: 12px;
 }
+@media screen and (min-width: 550px) {
+  .lineBreak {
+    display: block;
+    margin-bottom: 15px;
+  }
+  .lineBreak:last-of-type {
+    display: inline;
+  }
+}

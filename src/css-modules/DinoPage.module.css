@@ -23,7 +23,7 @@
   margin: -40px 0 22px;
 }
 
-p {
+.info p {
   font-size: 14px;
   margin-bottom: 4px;
 }
@@ -80,12 +80,12 @@ p {
     font-size: 24px;
   }
 
-  p{
+  .info p{
     font-size: 16px;
     margin-bottom: 16px;
   }
   .mapImg{
-    max-height: 430px;
     margin-top: 36px;
+    width: 100%;
   }
 }
