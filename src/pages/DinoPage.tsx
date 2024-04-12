@@ -45,7 +45,7 @@ export default function DinoPage() {
         {/* INFO */}
         <div className={styles.info}>
           <p>
-            <span className={styles.boldCatTitle}>Type of Dinosaur:</span>
+            <span className={styles.boldCatTitle}>Type of Dinosaur: </span>
             <span className={styles.capitalize}>{dino.typeOfDinosaur}</span>
           </p>
           <p>
@@ -87,7 +87,15 @@ export default function DinoPage() {
 
           <div className={styles.descriptionBox}>
             <p className={styles.boldCatTitle}>Description:</p>
-            <p className={styles.description}>{dino.description}</p>
+            <p 
+              className={styles.description}   
+              dangerouslySetInnerHTML={{
+                __html: dino.description
+                  ?.replace(/\. /g, ". <p class='lineBreak'></p>")
+                  .split('.')
+                  .join('. ')
+              }}>
+            </p>
           </div>
         </div>
 

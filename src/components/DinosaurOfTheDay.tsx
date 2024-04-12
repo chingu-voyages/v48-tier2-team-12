@@ -17,7 +17,7 @@ export default function DinosaurOfTheDay() {
       setDescCharNumber(90);
     }
     else if (windowWidth <= 1024) {
-      setDescCharNumber(890);
+      setDescCharNumber(650);
     }
     else if (windowWidth > 1024){
       setDescCharNumber(99999);
@@ -91,7 +91,6 @@ export default function DinosaurOfTheDay() {
       );
     }
   }, []);
-
   return (
     <div className={styles['dino-of-the-day']}>
       <h1 className={styles['dino-of-the-day__heading']}>
@@ -114,21 +113,22 @@ export default function DinosaurOfTheDay() {
           <h2 className={styles['dino-of-the-day__title']}>
             {dinoOfTheDay.name}
           </h2>
-          <p className={styles['dino-of-the-day__description']}>
-            {dinoOfTheDay.description
-            ?.split('.')
-            .join('. ')
-            .slice(0, descCharNumber)} 
-            {isEllipsisVisible ? '...' : ''}
-          </p>
-          { (
-            <button
-              className={styles['learn-more__btn']}
-              
-            >
-              Learn More
-            </button>
-          )}
+          <div className={styles['dino-of-the-day__description-container']} >
+            <p className={styles['dino-of-the-day__description']}
+              dangerouslySetInnerHTML={{
+                __html: dinoOfTheDay.description
+                  ?.replace(/\. /g, ". <span class='lineBreak'></span>")
+                  .split('.')
+                  .join('. ')
+                  .slice(0, descCharNumber)
+              }} />
+              <span >{isEllipsisVisible ? '...' : ''}</span>
+          </div>
+          <button
+            className={styles['learn-more__btn']}
+          >
+            Learn More
+          </button>
         </div>
       </Link>
     </div>
