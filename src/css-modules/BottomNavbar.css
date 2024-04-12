@@ -59,3 +59,9 @@
 .bottomNav-navLink.active .bottomNav-topBorder {
   background-color: var(--dino-green);
 }
+
+@media screen and (min-width: 900px) {
+  .bottomNav {
+    display: none;
+  }
+}
