@@ -4,9 +4,11 @@ import { NavigateFunction } from 'react-router-dom';
 export const FilterContext = createContext<any>(undefined);
 
 export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
+
   const [imageOnly, setImageOnly] = useState(false);
   const [dinoName, setDinoName] = useState<string>('');
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [dinoName, setDinoName] = useState<string>('');
   const [minLength, setMinLength] = useState<number | undefined>(undefined);
   const [maxLength, setMaxLength] = useState<number | undefined>(undefined);
   const [minWeight, setMinWeight] = useState<number | undefined>(undefined);
@@ -32,9 +34,19 @@ export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
     setMaxLength(value[1]);
   };
 
+  const resetLength = () => {
+    setMinLength(undefined);
+    setMaxLength(undefined);
+  };
+
   const handleWeight = (value: number[]) => {
     setMinWeight(value[0]);
     setMaxWeight(value[1]);
+  };
+
+  const resetWeight = () => {
+    setMinWeight(undefined);
+    setMaxWeight(undefined);
   };
 
   const handleCountry = (cardData: string) => {
@@ -100,6 +112,8 @@ export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <FilterContext.Provider
       value={{
+        resetLength,
+        resetWeight,
         imageOnly,
         setImageOnly,
         isModalOpen,
