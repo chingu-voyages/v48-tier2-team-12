@@ -28,6 +28,12 @@ import spinosaurus from '../assets/haghani/spinosaurus.jpg';
 import stegosaurus from '../assets/haghani/stegosaurus.jpg';
 import triceratops from '../assets/haghani/triceratops.jpg';
 import utahraptor from '../assets/haghani/utahraptor.jpg';
+import achillobator from '../assets/haghani/achillobator.jpg';
+import alvarezsaurus from '../assets/haghani/alvarezsaurus.jpg';
+import barosaurus from '../assets/haghani/barosaurus.jpg';
+import achillobatorSmall from '../assets/haghani/achillobator-small.jpg';
+import amargasaurusSmall from '../assets/haghani/amargasaurus-small.jpg';
+import alamosaurus from '../assets/haghani/alamosaurus.jpg';
 
 type Pretty = {
     title: string;
@@ -87,6 +93,7 @@ export const altPics :Pretty[] = [
         title: 'amargasaurus',
         id: 16,
         img: amargasaurus,
+        smallImg: amargasaurusSmall,
     },
     {
         title: 'apatosaurus',
@@ -183,4 +190,27 @@ export const altPics :Pretty[] = [
         id: 302,
         img: utahraptor,
     },
+    {
+        title: 'achillobator',
+        id: 4,
+        img: achillobator,
+        smallImg: achillobatorSmall,
+    },
+    {
+        title: 'alvarezsaurus',
+        id: 15,
+        img: alvarezsaurus,
+    },
+    {
+        title: 'barosaurus',
+        id: 42,
+        img: barosaurus,
+    },
+    {
+        title: 'alamosaurus',
+        id: 9,
+        img: alamosaurus,
+    },
+    
+    
 ]
