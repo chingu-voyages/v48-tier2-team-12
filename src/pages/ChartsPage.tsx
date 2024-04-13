@@ -58,7 +58,7 @@ export default function ChartsPage() {
   }, [dinos, era, country]);
 
   /* processing the data for the chart */
-  const processData = (data: (string | undefined)[]) => {
+  const processData = (data: (string | undefined)[], chartType: 'diet' | 'type') => {
     const totalCount = data.length;
 
     const uniqueItems: Record<string, number> = {};
@@ -76,7 +76,8 @@ export default function ChartsPage() {
       const count = uniqueItems[item];
       const percentage = (count * 100) / totalCount;
       if (percentage > 10) {
-        labels.push(item);
+        let capitalizedItem = item.charAt(0).toUpperCase() + item.slice(1)
+        labels.push(capitalizedItem);
         percentages.push(percentage);
       } else {
         othersPercentage += percentage;
@@ -88,28 +89,41 @@ export default function ChartsPage() {
       percentages.push(othersPercentage);
     }
 
+
+  const backgroundColors: string[] =
+    chartType === 'diet' ? labels.map((label) => {
+          switch (label) {
+            case 'Herbivorous':
+              return '#4A765C';
+            case 'Carnivorous':
+              return '#F17710';
+            case 'Omnivorous':
+              return '#5A3725';
+            default:
+              return '#094074';
+          }
+        }) : 
+          ['#4A765C', '#F17710', '#5A3725',
+          '#094074', '#BFAB25', '#706993',
+          '#F95D6A','#A05195EE', '#0BB4FF'];
+    
     return {
       labels: labels,
       datasets: [
         {
           data: percentages,
-          backgroundColor: [
-            '#4A765C',
-            '#F17710',
-            '#5A3725',
-            '#094074',
-            '#BFAB25',
-            '#706993',
-            '#F95D6A',
-            '#A05195EE',
-            '#0BB4FF',
-          ],
+
+          backgroundColor: backgroundColors,
           hoverOffset: 4,
         },
       ],
     };
   };
 
+
+  const processDataDiet = (data: (string | undefined)[]) => processData(data, 'diet');
+  const processDataType = (data: (string | undefined)[]) => processData(data, 'type');
+  
   /* the options for the chart */
   const getChartOptions = () => ({
     plugins: {
@@ -194,7 +208,7 @@ export default function ChartsPage() {
           <h2>Diet</h2>
           <div className={styles.chart}>
             <Pie
-              data={processData(dietData)}
+              data={processDataDiet(dietData)}
               options={getChartOptions()}
               className={styles.chartStyle}
             />
@@ -205,7 +219,7 @@ export default function ChartsPage() {
           <h2>Type of Dinosaur</h2>
           <div className={styles.chart}>
             <Doughnut
-              data={processData(typeData)}
+              data={processDataType(typeData)}
               options={getChartOptions()}
               className={styles.chartStyle}
             />
