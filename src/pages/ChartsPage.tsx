@@ -124,52 +124,54 @@ export default function ChartsPage() {
   });
 
   return (
-    <div className={styles.chartPageConatiner}>
-      <div className={styles.chartsContainer}>
-        <div className={styles.filter}>
-          <h2>Charts</h2>
+    <div className={`${styles.chartsPage} container`}>
+      {/* FILTER CHIPS */}
+      <div className={styles.filter}>
+        <h2>Charts</h2>
 
-          <div className={`${styles['filter-content']} ${styles['cards']}`}>
-            <span className={styles['filter-small-title']}>Era</span>
-            <div className={styles['chips-container']}>
-              {filterDinoEra.map((title) => {
-                const isActive = era === title;
-                return (
-                  <div
-                    key={title}
-                    className={`${styles['single-chip']} ${
-                      isActive ? styles['single-chip-active'] : ''
-                    }`}
-                    onClick={() => handleWhenLived(title)}
-                  >
-                    <span className={styles['bold-text']}>{title}</span>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          <div className={`${styles['filter-content']} ${styles['cards']}`}>
-            <span className={styles['filter-small-title']}>Country</span>
-            <div className={styles['chips-container']}>
-              {filterDinoCountry.map((title) => {
-                const isActive = country === title;
-                return (
-                  <div
-                    key={title}
-                    className={`${styles['single-chip']} ${
-                      isActive ? styles['single-chip-active'] : ''
-                    }`}
-                    onClick={() => handleCountry(title)}
-                  >
-                    <span className={styles['bold-text']}>{title}</span>
-                  </div>
-                );
-              })}
-            </div>
+        <div className={`${styles['filter-content']} ${styles['cards']}`}>
+          <span className={styles['filter-small-title']}>Era</span>
+          <div className={styles['chips-container']}>
+            {filterDinoEra.map((title) => {
+              const isActive = era === title;
+              return (
+                <div
+                  key={title}
+                  className={`${styles['single-chip']} ${
+                    isActive ? styles['single-chip-active'] : ''
+                  }`}
+                  onClick={() => handleWhenLived(title)}
+                >
+                  <span className={styles['bold-text']}>{title}</span>
+                </div>
+              );
+            })}
           </div>
         </div>
 
+        <div className={`${styles['filter-content']} ${styles['cards']}`}>
+          <span className={styles['filter-small-title']}>Country</span>
+          <div className={styles['chips-container']}>
+            {filterDinoCountry.map((title) => {
+              const isActive = country === title;
+              return (
+                <div
+                  key={title}
+                  className={`${styles['single-chip']} ${
+                    isActive ? styles['single-chip-active'] : ''
+                  }`}
+                  onClick={() => handleCountry(title)}
+                >
+                  <span className={styles['bold-text']}>{title}</span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* CHARTS */}
+      <div className={styles.chartsContainer}>
         <div className={styles.chartDiv}>
           <h2>Diet</h2>
           <div className={styles.chart}>

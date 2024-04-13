@@ -20,12 +20,14 @@ const DinoFacts = () => {
   const { pathname } = useLocation();
 
   return (
-    <div className={styles.dinoFactsContainer}>
+    <div className={`${styles.dinoFactsContainer} container`}>
       <img src={tRexSkull} />
       {pathname === '/' ? (
         <h2 className={styles.title}>Which dino do you want to learn about?</h2>
       ) : (
-        <h2 className={styles.fact}>{dinoFacts[Math.floor(Math.random() * dinoFacts.length)]}</h2>
+        <h2 className={styles.fact}>
+          {dinoFacts[Math.floor(Math.random() * dinoFacts.length)]}
+        </h2>
       )}
     </div>
   );
