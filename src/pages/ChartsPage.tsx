@@ -57,41 +57,50 @@ export default function ChartsPage() {
     fetchDinosSearch();
   }, [dinos, era, country]);
 
-  /* removing duplicates for the chart labels */
-  const removeDuplicates = (
-    Data: (string | undefined)[]
-  ): (string | undefined)[] => {
-    const uniqueData: (string | undefined)[] = [];
-
-    for (const item of Data) {
-      if (!uniqueData.includes(item)) {
-        uniqueData.push(item);
-      }
-    }
-    return uniqueData;
-  };
   /* processing the data for the chart */
   const processData = (data: (string | undefined)[]) => {
-    const filteredData = removeDuplicates(data);
     const totalCount = data.length;
-
+  
+  const uniqueItems: Record<string, number> = {};
+    data.forEach((item) => {
+      if (item !== undefined) {
+        uniqueItems[item] = (uniqueItems[item] || 0) + 1;
+      }
+    });
+  
+    const labels: string[] = [];
+    const percentages: number[] = [];
+    let othersPercentage = 0;
+  
+    for (const item in uniqueItems) {
+      const count = uniqueItems[item];
+      const percentage = (count * 100) / totalCount;
+      if (percentage > 10) {
+        labels.push(item);
+        percentages.push(percentage);
+      } else {
+        othersPercentage += percentage;
+      }
+    }
+  
+    if (othersPercentage > 0) {
+      labels.push('Others');
+      percentages.push(othersPercentage);
+    }
+  
     return {
-      labels: filteredData,
-      /* displaying the filtered Data as chart labels */
+      labels: labels,
       datasets: [
         {
-          /* calculates the percentage of occurrence of each unique item in the dataset */
-          data: filteredData.map((item) => {
-            const count = data.filter((entry) => entry === item).length;
-            const percentage = (count * 100) / totalCount;
-            return percentage;
-          }),
-          backgroundColor: ['#4A765C', '#F17710', '#5A3725'],
+          data: percentages,
+          backgroundColor: ['#4A765C', '#F17710', '#5A3725','#094074',
+          '#BFAB25', '#706993', '#F95D6A', '#A05195EE', '#0BB4FF'],
           hoverOffset: 4,
         },
       ],
     };
   };
+  
   /* the options for the chart */
   const getChartOptions = () => ({
     plugins: {
