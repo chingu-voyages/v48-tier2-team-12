@@ -60,18 +60,18 @@ export default function ChartsPage() {
   /* processing the data for the chart */
   const processData = (data: (string | undefined)[]) => {
     const totalCount = data.length;
-  
-  const uniqueItems: Record<string, number> = {};
+
+    const uniqueItems: Record<string, number> = {};
     data.forEach((item) => {
       if (item !== undefined) {
         uniqueItems[item] = (uniqueItems[item] || 0) + 1;
       }
     });
-  
+
     const labels: string[] = [];
     const percentages: number[] = [];
     let othersPercentage = 0;
-  
+
     for (const item in uniqueItems) {
       const count = uniqueItems[item];
       const percentage = (count * 100) / totalCount;
@@ -82,25 +82,34 @@ export default function ChartsPage() {
         othersPercentage += percentage;
       }
     }
-  
+
     if (othersPercentage > 0) {
       labels.push('Others');
       percentages.push(othersPercentage);
     }
-  
+
     return {
       labels: labels,
       datasets: [
         {
           data: percentages,
-          backgroundColor: ['#4A765C', '#F17710', '#5A3725','#094074',
-          '#BFAB25', '#706993', '#F95D6A', '#A05195EE', '#0BB4FF'],
+          backgroundColor: [
+            '#4A765C',
+            '#F17710',
+            '#5A3725',
+            '#094074',
+            '#BFAB25',
+            '#706993',
+            '#F95D6A',
+            '#A05195EE',
+            '#0BB4FF',
+          ],
           hoverOffset: 4,
         },
       ],
     };
   };
-  
+
   /* the options for the chart */
   const getChartOptions = () => ({
     plugins: {
