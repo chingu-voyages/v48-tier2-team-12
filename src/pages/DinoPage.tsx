@@ -4,6 +4,8 @@ import { fetchSingleDino } from '../utils/api.ts';
 import Map from '../components/Map';
 import styles from '../css-modules/DinoPage.module.css';
 import emptyStateImg from '../assets/no-image.svg';
+import DinoPageInfo from '../components/DinoPageInfo.tsx';
+import defaultDescription from '../utils/defaultDescription.ts';
 
 export const loader = async ({ params }: any) => {
   try {
@@ -15,96 +17,82 @@ export const loader = async ({ params }: any) => {
 };
 
 export default function DinoPage() {
-  const dino = useLoaderData() as Dino;
+  const {
+    name,
+    imageSrc,
+    typeOfDinosaur,
+    length,
+    weight,
+    diet,
+    whenLived,
+    foundIn,
+    taxonomy,
+    namedBy,
+    typeSpecies,
+    description,
+    error,
+  } = useLoaderData() as Dino;
 
-  if (dino.error)
+  if (error)
     return (
       <main className={styles.errorContainer}>
-        <div className={styles.error}>{dino.error}</div>
+        <div className={styles.error}>{error}</div>
       </main>
     );
 
   return (
-    <main className={styles.dinoContainer}>
-      <div className="container">
-        {/* TITLE */}
-        <h2 className={styles.DinoPageTitle}>{dino.name}</h2>
+    <main className="container">
+      {/* TITLE */}
+      <h2 className={styles.pageTitle}>{name}</h2>
+      <div className={styles.upperDinoPage}>
         {/* IMAGE */}
         <img
-          src={dino.imageSrc === 'N/A' ? emptyStateImg : dino.imageSrc}
+          src={imageSrc === 'N/A' ? emptyStateImg : imageSrc}
           alt={
-            dino.imageSrc === 'N/A'
-              ? 'No Image Discovered Yet'
-              : `image of ${dino.name}`
+            imageSrc === 'N/A' ? 'No Image Discovered Yet' : `image of ${name}`
           }
-          className={styles.DinoMainImg}
+          className={styles.dinoImage}
         />
-        {dino.imageSrc === 'N/A' && (
-          <p className={styles.noImageDesc}>No Image Discovered Yet</p>
-        )}
+
         {/* INFO */}
-        <div className={styles.info}>
-          <p>
-            <span className={styles.boldCatTitle}>Type of Dinosaur: </span>
-            <span className={styles.capitalize}>{dino.typeOfDinosaur}</span>
-          </p>
-          <p>
-            <span className={styles.boldCatTitle}>Length: </span>
-            {dino.length}
-            {dino.length !== 'N/A' && ' Meters'}
-          </p>
-          <p>
-            <span className={styles.boldCatTitle}>Weight: </span>
-            {dino.weight}
-            {dino.weight !== 'N/A' && '  Kilograms'}
-          </p>
-          <p>
-            <span className={styles.boldCatTitle}>Diet: </span>
-            <span className={styles.capitalize}>{dino.diet}</span>
-          </p>
-          <p>
-            <span className={styles.boldCatTitle}>Era: </span>
-            {dino.whenLived}
-          </p>
-          <p>
-            <span className={styles.boldCatTitle}>Location: </span>
-            {dino.foundIn}
-          </p>
-
-          <div className={styles.taxonomyBox}>
-            <p className={styles.boldCatTitle}>Taxonomy:</p>
-            <p className={styles.description}>{dino.taxonomy}</p>
-          </div>
-
-          <p>
-            <span className={styles.boldCatTitle}>Named By: </span>
-            {dino.namedBy}
-          </p>
-          <p>
-            <span className={styles.boldCatTitle}>Type of Species: </span>
-            <span className={styles.capitalize}>{dino.typeSpecies}</span>
-          </p>
+        <div className={styles.infoContainer}>
+          <DinoPageInfo
+            title="Type of Dinosaur"
+            value={typeOfDinosaur}
+            capitalize
+          />
+          <DinoPageInfo
+            title="Length"
+            value={`${length} ${length !== 'N/A' ? ' Meters' : ''}`}
+          />
+          <DinoPageInfo
+            title="Weight"
+            value={`${weight} ${weight !== 'N/A' ? ' Kilograms' : ''}`}
+          />
+          <DinoPageInfo title="Diet" value={`${diet}`} capitalize />
+          <DinoPageInfo title="Era" value={`${whenLived}`} />
+          <DinoPageInfo title="Location" value={`${foundIn}`} />
+          <DinoPageInfo title="Taxonomy" value={`${taxonomy}`} />
+          <DinoPageInfo title="Named By" value={`${namedBy}`} />
+          <DinoPageInfo
+            title="Type of Species"
+            value={`${typeSpecies}`}
+            capitalize
+          />
         </div>
-          <div className={styles.descriptionBox}>
-            <p className={styles.boldCatTitle}>Description:</p>
-            <p 
-              className={styles.description}   
-              dangerouslySetInnerHTML={{
-                __html: dino.description
-                  ?.replace(/\. /g, ". <p class='lineBreak'></p>")
-                  .split('.')
-                  .join('. ')
-              }}>
-            </p>
-          </div>
-        
+      </div>
 
-        {/* MAP: Now sending both countries */}
-        <Map
-          firstCountry={dino.foundIn?.split(', ')[0]}
-          secondCountry={dino.foundIn?.split(', ')[1]}
+      <div className={styles.description}>
+        <DinoPageInfo
+          title="Description"
+          value={`${description === 'N/A' ? defaultDescription : description}`}
         />
       </div>
+
+      <Map
+        firstCountry={foundIn?.split(', ')[0]}
+        secondCountry={foundIn?.split(', ')[1]}
+      />
     </main>
   );
 }
