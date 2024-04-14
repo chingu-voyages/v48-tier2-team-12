@@ -4,16 +4,20 @@ import { Link, NavLink } from 'react-router-dom';
 
 export default function Navbar() {
   return (
-    <div className="navbar-container">
-      <Link to="/" className="nav-logo">
-        <img src={logo} alt="logo" />
-      </Link>
+    <div className="navbar-main">
+      <div className="navbar-container">
+        <Link to="/" className="nav-logo">
+          <img src={logo} alt="logo" />
+        </Link>
 
-      <div className="navbar-navLinks">
-        <NavLink to="/discover">Discover</NavLink>
-        <NavLink to="/charts">Charts</NavLink>
-        <NavLink to="/">Home</NavLink>
+        <div className="navbar-navLinks">
+          <NavLink to="/discover">Discover</NavLink>
+          <NavLink to="/charts">Charts</NavLink>
+          <NavLink to="/">Home</NavLink>
+        </div>
       </div>
+
+      <div className="navbar-background"></div>
     </div>
   );
 }
