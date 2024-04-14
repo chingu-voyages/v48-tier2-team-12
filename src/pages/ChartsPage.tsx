@@ -220,7 +220,7 @@ export default function ChartsPage() {
             {dinos.length === 0 ? (
               <div className={styles.dinoNotFound}>
                 <img src={notFoundDiet} alt="Not found" />
-                <p>No dinosaur found</p>
+                <p>No dinos were found</p>
               </div>
             ) : (
               <Pie
