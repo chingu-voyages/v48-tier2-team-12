@@ -1,7 +1,7 @@
 # ![Dinopedia](src/assets/logo.svg)
 ## ![Logo](public/favicon-32x32.png) Overview
 
-Dinopedia is a responsive mobile application and website designed to compile fascinating facts about dinosaurs sourced from the collections of London's Natural History Museum](https://www.nhm.ac.uk/discover/dinosaurs.html). It aims to present this wealth of information in an engaging and interactive manner, in a way that tickles everyone's curiosity and sense of wonder.  
+Dinopedia is a responsive mobile application and website designed to compile fascinating facts about dinosaurs sourced from the collections of [London's Natural History Museum](https://www.nhm.ac.uk/discover/dinosaurs.html). It aims to present this wealth of information in an engaging and interactive manner, in a way that tickles everyone's curiosity and sense of wonder.  
 
 This application was developed as a learning project for Chingu Voyage 48. It retrieves information about dinosaurs through the [Chingu Dinosaurs API](https://chinguapi.onrender.com/dinosaurs).
 
