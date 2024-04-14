@@ -9,7 +9,6 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 1.5rem;
-
   width: 100%;
 }
 
@@ -30,11 +29,6 @@
   width: 100%;
 }
 
-@media only screen and (min-width: 800px) {
-  .chartsContainer {
-    flex-direction: row;
-  }
-}
 
 /* FILTER */
 .filter {
@@ -85,7 +79,9 @@
   align-items: center;
   justify-content: center;
   gap: 2px;
-  min-width: 100px;
+
+  width: 92px;
+  height: 62px;
 
   background: #fff;
   padding: 0.3rem;
@@ -112,3 +108,19 @@
   padding: 1rem;
   text-align: center;
 }
+
+
+@media only screen and (min-width: 800px) {
+  .chartsContainer {
+    flex-direction: row;
+  }
+  .chart{
+    height: 408px;
+    width: 631px;
+  }
+  .chartStyle {
+    height: 100%;
+    width: auto;
+  }
+}
+

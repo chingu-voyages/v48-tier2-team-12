@@ -22,7 +22,7 @@
 .newsCardLink {
   cursor: pointer;
   margin-left: 5px;
-  color: var(--orange);
+  color: var(--links);
   font-weight: 700;
   font-size: 12px;
 }
@@ -31,5 +31,9 @@
   .newsCardLink {
     text-decoration: underline;
   }
+
+@media screen and (min-width: 850px) {
+
+}
   
 }

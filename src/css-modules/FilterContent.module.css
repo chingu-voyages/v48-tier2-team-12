@@ -44,8 +44,6 @@
   gap: 2px;
   /* min-width: 100px; */
   background: #fff;
-  min-width: 107px;
-  height: 72px;
   padding: 0.3rem;
   border-radius: 10px;
   border: 1px solid var(--dino-green);
