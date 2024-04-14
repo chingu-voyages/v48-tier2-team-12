@@ -1,5 +1,5 @@
-import styles from "../../css-modules/SortModal.module.css";
-import { RadioButton } from "./RadioButton";
+import styles from '../../css-modules/SortModal.module.css';
+import { RadioButton } from './RadioButton';
 
 interface ModalProps {
   isOpen: boolean;
@@ -12,11 +12,17 @@ export function SortModal(props: ModalProps) {
   return (
     <>
       {props.isOpen && (
-        <div className={styles["modal-overlay"]} onClick={props.toggleModalVisibility}>
-          <div onClick={(e) => e.stopPropagation()} className={styles["modal-box"]}>
+        <div
+          className={styles['modal-overlay']}
+          onClick={props.toggleModalVisibility}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className={styles['modal-box']}
+          >
             <div className={styles.grayLine}></div>
             <h3 className={styles.sortTitle}>Sort by</h3>
-            <form action="" className={styles["form-controls"]} >
+            <form action="" className={styles['form-controls']}>
               <RadioButton
                 toggleModalVisibility={props.toggleModalVisibility}
                 currentSortCriteria={props.currentSortCriteria}
