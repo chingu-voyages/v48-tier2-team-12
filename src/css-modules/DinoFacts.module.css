@@ -1,0 +1,48 @@
+.dinoFactsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+
+  margin: 24px 0 0 -16px;
+}
+
+.dinoFactsContainer img {
+  width: 100px;
+  height: 100px;
+}
+
+.fact {
+  margin: 0 auto 0 0;
+  font-size: 20px;
+
+  max-width: 700px;
+}
+
+@media screen and (min-width: 550px) {
+
+  .fact {
+    font-size: 30px;
+  }
+
+  .dinoFactsContainer {
+    margin: 32px 0 0 -40px ;
+  }
+
+  .dinoFactsContainer img {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+
+  .dinoFactsContainer {
+    margin-left: -100px ;
+  }
+
+  .dinoFactsContainer img {
+    width: 200px;
+    height: 200px;
+  }
+}

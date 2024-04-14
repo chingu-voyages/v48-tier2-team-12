@@ -1,7 +1,16 @@
 export interface Dino {
-    name: string;
-    type: string;
-    description: string;
-    imageSrc: string;
-    foundIn: string;
-  }
+  id?: number;
+  name?: string;
+  imageSrc?: string;
+  typeOfDinosaur?: string;
+  length?: number | 'N/A';
+  weight?: number | 'N/A';
+  diet?: string;
+  whenLived?: string;
+  foundIn: string;
+  taxonomy?: string;
+  namedBy?: string;
+  typeSpecies?: string;
+  description: string;
+  error?: string;
+}

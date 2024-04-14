@@ -1,0 +1,140 @@
+.chartsPage {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.chartsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.chartDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.chart {
+  background-color: #fff;
+  max-width: 630px;
+  box-shadow: -5px 5px 10px 0px #4a765c33;
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.chartStyle {
+  width: 100%;
+}
+
+.dinoNotFound {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.dinoNotFound p {
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* FILTER */
+.filter {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.filter h2 {
+  margin-bottom: 1rem;
+}
+
+.filter-content {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1rem;
+}
+
+.filter-small-title {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.chips-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+
+  padding-bottom: 1rem;
+
+  overflow: auto;
+}
+
+.chips-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+
+  padding-bottom: 1rem;
+
+  overflow: auto;
+}
+
+.single-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+
+  width: 92px;
+  height: 62px;
+
+  background: #fff;
+  padding: 0.3rem;
+  border-radius: 10px;
+  border: 1px solid var(--dino-green);
+  cursor: pointer;
+  box-shadow: -5px 5px 10px 0px #4a765c40;
+
+  transition: all 250ms;
+}
+
+.single-chip-active {
+  background: var(--dino-green);
+}
+
+.single-chip-active span {
+  color: white;
+}
+
+.bold-text {
+  color: black;
+  font-weight: 700;
+  font-size: 10px;
+  padding: 1rem;
+  text-align: center;
+}
+
+@media only screen and (min-width: 800px) {
+  .chartsContainer {
+    flex-direction: row;
+  }
+  .chart {
+    height: 408px;
+    width: 631px;
+  }
+  .chartStyle {
+    height: 100%;
+    width: auto;
+  }
+}

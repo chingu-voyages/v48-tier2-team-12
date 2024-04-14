@@ -1,21 +1,14 @@
-import ShowDino  from "../components/Alternative-ShowDinos";
+import DinosaurOfTheDay from '../components/DinosaurOfTheDay.tsx';
+import Search from '../components/Search.tsx';
+import { NewsCardGrid } from '../components/NewsCardGrid.tsx';
 
 export default function Home() {
   return (
-      <div className="container">
-        <h2>Which dino do you want to learn about?</h2>
-        <div className="search-bar">
-          <input placeholder="T-Rex" />
-          <button><img src="..\src\assets\filter.png" /></button>
-        </div>
-        <div className="categories">
-          <div className="square"></div>
-          <div className="square"></div>
-          <div className="square"></div>
-          <div className="square"></div>
-          <div className="square"></div>
-        </div>
-        <ShowDino />
-      </div>
-  )
+    <main className="container">
+      <Search />
+      {/* <CategoryTiles filterDinos={filterDinos} /> */}
+      <DinosaurOfTheDay />
+      <NewsCardGrid />
+    </main>
+  );
 }

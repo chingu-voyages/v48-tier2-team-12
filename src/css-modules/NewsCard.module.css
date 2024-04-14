@@ -1,0 +1,34 @@
+.newsCard {
+  margin-bottom: 16px;
+}
+
+.newsCard:last-of-type {
+  margin-bottom: 0;
+}
+
+.newsCardHeadline {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19.5px;
+  color: #5a3725;
+}
+
+.newsCardSummary {
+  margin-top: 4px;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.newsCardLink {
+  cursor: pointer;
+  margin-left: 5px;
+  color: var(--links);
+  font-weight: 700;
+  font-size: 12px;
+}
+
+@media screen and (min-width: 550px) {
+  .newsCardLink {
+    text-decoration: underline;
+  }
+}

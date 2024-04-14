@@ -1,0 +1,165 @@
+.filter-content {
+  display: flex;
+  flex-direction: column;
+
+  padding: 1rem;
+  gap: 1rem;
+
+  border-bottom: 1px solid #eaeaea;
+}
+
+.cards {
+  padding-right: 0;
+}
+
+.filter-close {
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+.filter-close svg {
+  cursor: pointer;
+}
+
+.filter-small-title {
+  font-weight: 700;
+}
+
+.chips-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+
+  padding-bottom: 1rem;
+
+  overflow: auto;
+}
+
+.single-chip, .single-chip-small {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  /* min-width: 100px; */
+  background: #fff;
+  padding: 0.3rem;
+  border-radius: 10px;
+  border: 1px solid var(--dino-green);
+  cursor: pointer;
+  box-shadow: -5px 5px 10px 0px #4a765c40;
+
+  transition: all 250ms;
+}
+
+.single-chip {
+  min-width: 107px;
+  height: 72px;
+}
+
+.single-chip-small {
+  min-width: 92px;
+  height: 62px;
+}
+
+.single-chip-active {
+  background: var(--dino-green);
+}
+
+.single-chip-active span {
+  color: white;
+}
+
+.single-chip-icon {
+  fill: var(--dino-green);
+  width: 44px;
+  height: 44px;
+}
+
+.single-chip-icon-active {
+  fill: white;
+  width: 44px;
+  height: 44px;
+}
+
+.bold-text {
+  color: black;
+  font-weight: 600;
+  font-size: 10px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.type-text {
+  color: black;
+  font-weight: 700;
+  font-size: 10px;
+  text-wrap: nowrap;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.filter-buttons button {
+  font-family: Montserrat;
+  font-size: 16px;
+  text-align: left;
+  font-weight: 700;
+}
+
+.filter-buttons button:nth-child(1) {
+  color: var(--orange);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.filter-buttons button:nth-child(2) {
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  background-color: var(--dino-green);
+  box-shadow: -5px 5px 10px 0px #4a765c33;
+  color: #ffffff;
+}
+
+.sliders {
+  padding-bottom: 1.5rem;
+}
+
+.filterImage {
+  display: flex;
+  align-items: center;
+
+  padding: 1rem;
+  gap: 2rem;
+}
+
+.filterImage label {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+input[type='checkbox'] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  border: 1px solid var(--orange);
+
+  width: 24px;
+  height: 24px;
+  border-radius: 5px;
+
+  box-shadow: 2px 2px 2px 0px #00000026;
+  box-shadow: inset 0 0 0 1px white;
+
+  transition: all 0.05s;
+}
+
+input[type='checkbox']:checked {
+  background-color: var(--orange);
+}

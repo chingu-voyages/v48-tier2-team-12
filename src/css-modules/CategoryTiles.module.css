@@ -1,0 +1,54 @@
+.container {
+  width: 100%;
+  padding: 22px 0;
+
+  display: flex;
+  gap: 16px;
+
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.tile {
+  min-width: 107px;
+  height: 72px;
+
+  background-color: white;
+  box-shadow: -5px 5px 10px 0px #4a765c40;
+  border: 1px solid var(--dino-green);
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  transition: all 150ms ease;
+}
+
+.activeTile {
+  background-color: var(--dino-green);
+  color: white !important;
+}
+
+.activeTile .icon {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(109deg)
+    brightness(102%) contrast(102%);
+}
+
+.icon {
+  margin: 10px;
+  height: 24px;
+  width: 24px;
+  filter: invert(42%) sepia(8%) saturate(1531%) hue-rotate(92deg)
+    brightness(97%) contrast(92%);
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: Montserrat;
+  font-size: 10px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 12.19px;
+}

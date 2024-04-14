@@ -1,0 +1,69 @@
+.container {
+  width: 100%;
+  display: flex;
+  gap: 0.5rem;
+
+  margin: 24px 0 32px;
+
+  display: flex;
+  gap: 20px;
+}
+
+.search-input-container {
+  position: relative;
+  display: flex;
+  width: 70%;
+  max-width: 800px;
+}
+
+.search-input-container ::placeholder {
+  font-family: Montserrat;
+  font-weight: 500;
+  color: #080808;
+}
+
+.search-input-container img {
+  position: absolute;
+  top: 50%;
+  left: 28px;
+  transform: translate(-50%, -50%);
+}
+
+.search-input-container input {
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+
+  padding-left: 56px;
+  padding-right: 1rem;
+
+  font-family: Montserrat;
+  font-size: 16px;
+
+  box-shadow: -5px 5px 10px 0px #4a765c33;
+}
+
+.search-input-container input:focus {
+  outline: none;
+}
+
+.container span {
+  border-radius: 10px;
+
+  display: flex;
+  justify-items: center;
+  align-items: center;
+
+  background-color: white;
+  padding: 8px;
+
+  cursor: pointer;
+  box-shadow: -5px 5px 10px 0px #4a765c33;
+}
+
+.filterImg {
+  /* Hex Color To CSS Filter Converter :
+  https://isotropic.co/tool/hex-color-to-css-filter/ */
+  filter: invert(59%) sepia(98%) saturate(3668%) hue-rotate(1deg)
+    brightness(94%) contrast(103%);
+}
