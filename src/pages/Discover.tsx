@@ -57,7 +57,7 @@ export default function Discover() {
         resetFilterDinos={resetFilterDinos}
       />
       <DinoCardGrid dinos={displayDinos} title="Discover" />
-      {displayDinos.length < dinosData.length && isLoading && (
+      {displayDinos.length < filteredDinos.length && isLoading && (
         <p className="loading-text">Loading...</p>
       )}
     </main>

@@ -13,7 +13,7 @@ const FilterImage = () => {
         id="withImage"
         name="withImage"
         checked={imageOnly}
-        onClick={() => {
+        onChange={() => {
           setImageOnly((prev: boolean) => !prev);
         }}
       />

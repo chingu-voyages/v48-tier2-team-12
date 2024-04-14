@@ -60,18 +60,18 @@ export default function ChartsPage() {
   /* processing the data for the chart */
   const processData = (data: (string | undefined)[], chartType: 'diet' | 'type') => {
     const totalCount = data.length;
-  
-  const uniqueItems: Record<string, number> = {};
+
+    const uniqueItems: Record<string, number> = {};
     data.forEach((item) => {
       if (item !== undefined) {
         uniqueItems[item] = (uniqueItems[item] || 0) + 1;
       }
     });
-  
+
     const labels: string[] = [];
     const percentages: number[] = [];
     let othersPercentage = 0;
-  
+
     for (const item in uniqueItems) {
       const count = uniqueItems[item];
       const percentage = (count * 100) / totalCount;
@@ -83,11 +83,12 @@ export default function ChartsPage() {
         othersPercentage += percentage;
       }
     }
-  
+
     if (othersPercentage > 0) {
       labels.push('Others');
       percentages.push(othersPercentage);
     }
+
 
   const backgroundColors: string[] =
     chartType === 'diet' ? labels.map((label) => {
@@ -111,12 +112,14 @@ export default function ChartsPage() {
       datasets: [
         {
           data: percentages,
+
           backgroundColor: backgroundColors,
           hoverOffset: 4,
         },
       ],
     };
   };
+
 
   const processDataDiet = (data: (string | undefined)[]) => processData(data, 'diet');
   const processDataType = (data: (string | undefined)[]) => processData(data, 'type');
