@@ -15,13 +15,7 @@
 body {
   font-family: Montserrat, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
     'Helvetica Neue', sans-serif;
-  height: auto;
-  background: linear-gradient(
-    130deg,
-    rgba(67, 30, 91, 0.4) 0%,
-    rgba(179, 0, 0, 0.4) 50%,
-    rgba(149, 89, 5, 0.6) 100%
-  );
+  background-color: var(--container-color);
 }
 
 button {
@@ -37,33 +31,56 @@ a {
 
 .main-container {
   margin: 0 auto 78px;
-}
-
-.main-container,
-.container {
   background-color: var(--container-color);
 }
 
-.container {
-  min-height: calc(100vh - 62px);
-  height: auto;
-  padding: 16px 16px 53px;
-  margin: 0 auto;
-}
-
-/* .learn-more-btn {
-  font-family: Montserrat;
-  color: #F16E00;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 15px;
-  background-color: transparent;
-  border: none;
-  display: flex;
-  margin-left: auto;
-} */
-
 .loading-text {
   text-align: center;
-  margin-top: 12px;
+  padding-top: 2.5rem;
+}
+
+@media screen and (min-width: 550px) {
+  .lineBreak {
+    display: block;
+    margin-bottom: 15px;
+  }
+  .lineBreak:last-of-type {
+    display: inline;
+  }
+}
+
+/* CONTAINER */
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+    padding: 0 2rem;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+    padding: 0 4rem;
+  }
+}
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+    padding: 0 5rem;
+  }
+}
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+    padding: 0 6rem;
+  }
 }

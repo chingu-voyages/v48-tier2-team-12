@@ -8,11 +8,17 @@ import { FilterContext } from './FilterContext';
 const FilterDinoWeight = () => {
   const minValue = 0;
   const maxValue = 20000;
-  const { minWeight, maxWeight, handleWeight } = useContext(FilterContext);
+  const { minWeight, maxWeight, handleWeight, resetWeight } =
+    useContext(FilterContext);
 
   return (
     <div className={`${styles['filter-content']}  ${styles.sliders}`}>
-      <span className={styles['filter-small-title']}>Weight</span>
+      <div className={sliderStyles.labels}>
+        <span className={styles['filter-small-title']}>Weight</span>
+        <button className={sliderStyles.resetButton} onClick={resetWeight}>
+          Reset
+        </button>
+      </div>
       <ReactSlider
         className={sliderStyles['horizontal-slider']}
         thumbClassName={sliderStyles['slider-thumb']}

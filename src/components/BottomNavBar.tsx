@@ -5,10 +5,6 @@ import chart from '../assets/nav-icon--chart.svg';
 import '../css-modules/BottomNavbar.css';
 
 export default function BottomNavBar() {
-  // const stateBtn = () => (
-  //     { isActive, isPending }: { isActive:string | undefined, isPending:string | undefined }
-  //     ) => isPending ? "pending" : isActive ? "active" : ""
-
   return (
     <div className="bottomNav">
       <NavLink to="/discover" className="bottomNav-navLink">

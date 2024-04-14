@@ -8,11 +8,17 @@ import { FilterContext } from './FilterContext';
 const FilterDinoLength = () => {
   const minValue = 0;
   const maxValue = 38;
-  const { minLength, maxLength, handleLength } = useContext(FilterContext);
+  const { minLength, maxLength, handleLength, resetLength } =
+    useContext(FilterContext);
 
   return (
     <div className={`${styles['filter-content']}  ${styles.sliders} `}>
-      <span className={styles['filter-small-title']}>Length</span>
+      <div className={sliderStyles.labels}>
+        <span className={styles['filter-small-title']}>Length</span>
+        <button className={sliderStyles.resetButton} onClick={resetLength}>
+          Reset
+        </button>
+      </div>
       <ReactSlider
         className={sliderStyles['horizontal-slider']}
         thumbClassName={sliderStyles['slider-thumb']}

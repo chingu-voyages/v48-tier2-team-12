@@ -57,41 +57,73 @@ export default function ChartsPage() {
     fetchDinosSearch();
   }, [dinos, era, country]);
 
-  /* removing duplicates for the chart labels */
-  const removeDuplicates = (
-    Data: (string | undefined)[]
-  ): (string | undefined)[] => {
-    const uniqueData: (string | undefined)[] = [];
-
-    for (const item of Data) {
-      if (!uniqueData.includes(item)) {
-        uniqueData.push(item);
-      }
-    }
-    return uniqueData;
-  };
   /* processing the data for the chart */
-  const processData = (data: (string | undefined)[]) => {
-    const filteredData = removeDuplicates(data);
+  const processData = (data: (string | undefined)[], chartType: 'diet' | 'type') => {
     const totalCount = data.length;
 
+    const uniqueItems: Record<string, number> = {};
+    data.forEach((item) => {
+      if (item !== undefined) {
+        uniqueItems[item] = (uniqueItems[item] || 0) + 1;
+      }
+    });
+
+    const labels: string[] = [];
+    const percentages: number[] = [];
+    let othersPercentage = 0;
+
+    for (const item in uniqueItems) {
+      const count = uniqueItems[item];
+      const percentage = (count * 100) / totalCount;
+      if (percentage > 10) {
+        let capitalizedItem = item.charAt(0).toUpperCase() + item.slice(1)
+        labels.push(capitalizedItem);
+        percentages.push(percentage);
+      } else {
+        othersPercentage += percentage;
+      }
+    }
+
+    if (othersPercentage > 0) {
+      labels.push('Others');
+      percentages.push(othersPercentage);
+    }
+
+
+  const backgroundColors: string[] =
+    chartType === 'diet' ? labels.map((label) => {
+          switch (label) {
+            case 'Herbivorous':
+              return '#4A765C';
+            case 'Carnivorous':
+              return '#F17710';
+            case 'Omnivorous':
+              return '#5A3725';
+            default:
+              return '#094074';
+          }
+        }) : 
+          ['#4A765C', '#F17710', '#5A3725',
+          '#094074', '#BFAB25', '#706993',
+          '#F95D6A','#A05195EE', '#0BB4FF'];
+    
     return {
-      labels: filteredData,
-      /* displaying the filtered Data as chart labels */
+      labels: labels,
       datasets: [
         {
-          /* calculates the percentage of occurrence of each unique item in the dataset */
-          data: filteredData.map((item) => {
-            const count = data.filter((entry) => entry === item).length;
-            const percentage = (count * 100) / totalCount;
-            return percentage;
-          }),
-          backgroundColor: ['#4A765C', '#F17710', '#5A3725'],
+          data: percentages,
+
+          backgroundColor: backgroundColors,
           hoverOffset: 4,
         },
       ],
     };
   };
+
+
+  const processDataDiet = (data: (string | undefined)[]) => processData(data, 'diet');
+  const processDataType = (data: (string | undefined)[]) => processData(data, 'type');
+  
   /* the options for the chart */
   const getChartOptions = () => ({
     plugins: {
@@ -124,57 +156,59 @@ export default function ChartsPage() {
   });
 
   return (
-    <div className={styles.chartPageConatiner}>
-      <div className={styles.chartsContainer}>
-        <div className={styles.filter}>
-          <h2>Charts</h2>
+    <div className={`${styles.chartsPage} container`}>
+      {/* FILTER CHIPS */}
+      <div className={styles.filter}>
+        <h2>Charts</h2>
 
-          <div className={`${styles['filter-content']} ${styles['cards']}`}>
-            <span className={styles['filter-small-title']}>Era</span>
-            <div className={styles['chips-container']}>
-              {filterDinoEra.map((title) => {
-                const isActive = era === title;
-                return (
-                  <div
-                    key={title}
-                    className={`${styles['single-chip']} ${
-                      isActive ? styles['single-chip-active'] : ''
-                    }`}
-                    onClick={() => handleWhenLived(title)}
-                  >
-                    <span className={styles['bold-text']}>{title}</span>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          <div className={`${styles['filter-content']} ${styles['cards']}`}>
-            <span className={styles['filter-small-title']}>Country</span>
-            <div className={styles['chips-container']}>
-              {filterDinoCountry.map((title) => {
-                const isActive = country === title;
-                return (
-                  <div
-                    key={title}
-                    className={`${styles['single-chip']} ${
-                      isActive ? styles['single-chip-active'] : ''
-                    }`}
-                    onClick={() => handleCountry(title)}
-                  >
-                    <span className={styles['bold-text']}>{title}</span>
-                  </div>
-                );
-              })}
-            </div>
+        <div className={`${styles['filter-content']} ${styles['cards']}`}>
+          <span className={styles['filter-small-title']}>Era</span>
+          <div className={styles['chips-container']}>
+            {filterDinoEra.map((title) => {
+              const isActive = era === title;
+              return (
+                <div
+                  key={title}
+                  className={`${styles['single-chip']} ${
+                    isActive ? styles['single-chip-active'] : ''
+                  }`}
+                  onClick={() => handleWhenLived(title)}
+                >
+                  <span className={styles['bold-text']}>{title}</span>
+                </div>
+              );
+            })}
           </div>
         </div>
 
+        <div className={`${styles['filter-content']} ${styles['cards']}`}>
+          <span className={styles['filter-small-title']}>Country</span>
+          <div className={styles['chips-container']}>
+            {filterDinoCountry.map((title) => {
+              const isActive = country === title;
+              return (
+                <div
+                  key={title}
+                  className={`${styles['single-chip']} ${
+                    isActive ? styles['single-chip-active'] : ''
+                  }`}
+                  onClick={() => handleCountry(title)}
+                >
+                  <span className={styles['bold-text']}>{title}</span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* CHARTS */}
+      <div className={styles.chartsContainer}>
         <div className={styles.chartDiv}>
           <h2>Diet</h2>
           <div className={styles.chart}>
             <Pie
-              data={processData(dietData)}
+              data={processDataDiet(dietData)}
               options={getChartOptions()}
               className={styles.chartStyle}
             />
@@ -185,7 +219,7 @@ export default function ChartsPage() {
           <h2>Type of Dinosaur</h2>
           <div className={styles.chart}>
             <Doughnut
-              data={processData(typeData)}
+              data={processDataType(typeData)}
               options={getChartOptions()}
               className={styles.chartStyle}
             />

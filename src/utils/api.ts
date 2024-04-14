@@ -10,7 +10,7 @@ export async function fetchDinos(): Promise<Dino[]> {
     altPics.forEach((element) => {
       item.id === element.id ? (item.imageSrc = element.img) : '';
     });
-  });
+  })
   return data;
 }
 
