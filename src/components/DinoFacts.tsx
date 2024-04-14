@@ -22,7 +22,7 @@ const DinoFacts = () => {
   return (
     <div className={`container`}>
       <div className={`${styles.dinoFactsContainer}`}>
-        <img src={tRexSkull} />
+        <img src={tRexSkull} alt="Skull of a T-rex"/>
         {pathname === '/' ? (
           <h2 className={styles.fact}>
             Which dino do you want to learn about?
