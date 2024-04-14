@@ -1,16 +1,16 @@
 .newsContainer {
-  margin-top: 35px;
+  margin-top: 3rem;
 }
 
 .newsCardGrid {
   border-radius: 10px;
   background: #ffffff;
-  box-shadow: -5px 5px 10px 0px #4A765C40;
+  box-shadow: -5px 5px 10px 0px #4a765c40;
   padding: 16px;
 }
 
 .newsCardGridLabel {
   font-size: 20px;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 }
