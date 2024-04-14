@@ -10,7 +10,7 @@
   font-size: 16px;
   font-weight: 700;
   line-height: 19.5px;
-  color: #5A3725;
+  color: #5a3725;
 }
 
 .newsCardSummary {
@@ -31,9 +31,4 @@
   .newsCardLink {
     text-decoration: underline;
   }
-
-@media screen and (min-width: 850px) {
-
-}
-  
 }

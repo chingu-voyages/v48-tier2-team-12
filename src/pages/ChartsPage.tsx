@@ -1,18 +1,23 @@
 import { useEffect, useState } from 'react';
-import { fetchDinos } from '../utils/api.ts';
 import { Dino } from '../interfaces/dino.interface.ts';
 import { Chart as ChartJS, ArcElement, Legend, Tooltip } from 'chart.js';
 import { Pie, Doughnut } from 'react-chartjs-2';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import styles from '../css-modules/Charts.module.css';
 import { filterDinoCountry, filterDinoEra } from '../utils/categories.tsx';
+import { useLoaderData } from 'react-router-dom';
+
+import notFoundDiet from '../assets/chart-notfound-diet.svg';
+import notFoundType from '../assets/chart-notfound-type.svg';
 
 ChartJS.register(ArcElement, ChartDataLabels, Legend, Tooltip);
 
 export default function ChartsPage() {
+  const dinoData = useLoaderData() as Dino[];
+
   const [dietData, setDietData] = useState<(string | undefined)[]>([]);
   const [typeData, setTypeData] = useState<(string | undefined)[]>([]);
-  const [dinos, setDinos] = useState<Dino[]>([]);
+  const [dinos, setDinos] = useState<Dino[]>(dinoData || []);
 
   // Filtering states
   const [era, setEra] = useState<string | null>(null);
@@ -32,33 +37,29 @@ export default function ChartsPage() {
   };
 
   useEffect(() => {
+    const searchResults = dinoData.filter((dino: Dino) => {
+      return (
+        // Era
+        (!era || dino.whenLived?.includes(era)) &&
+        // Country
+        (!country || dino.foundIn?.includes(country))
+      );
+    });
+    setDinos(searchResults);
+  }, [era, country]);
+
+  useEffect(() => {
     const setChartData = () => {
       setDietData(dinos.map((item: Dino) => item?.diet));
       setTypeData(dinos.map((item: Dino) => item?.typeOfDinosaur));
     };
     setChartData();
-
-    const fetchDinosSearch = async () => {
-      try {
-        const dinosData = await fetchDinos();
-        const searchResults = dinosData.filter((dino: Dino) => {
-          return (
-            // Era
-            (!era || dino.whenLived?.includes(era)) &&
-            // Country
-            (!country || dino.foundIn?.includes(country))
-          );
-        });
-        setDinos(searchResults);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchDinosSearch();
   }, [dinos, era, country]);
 
-  /* processing the data for the chart */
-  const processData = (data: (string | undefined)[], chartType: 'diet' | 'type') => {
+  const processData = (
+    data: (string | undefined)[],
+    chartType: 'diet' | 'type'
+  ) => {
     const totalCount = data.length;
 
     const uniqueItems: Record<string, number> = {};
@@ -76,7 +77,7 @@ export default function ChartsPage() {
       const count = uniqueItems[item];
       const percentage = (count * 100) / totalCount;
       if (percentage > 10) {
-        let capitalizedItem = item.charAt(0).toUpperCase() + item.slice(1)
+        let capitalizedItem = item.charAt(0).toUpperCase() + item.slice(1);
         labels.push(capitalizedItem);
         percentages.push(percentage);
       } else {
@@ -89,24 +90,32 @@ export default function ChartsPage() {
       percentages.push(othersPercentage);
     }
 
+    const backgroundColors: string[] =
+      chartType === 'diet'
+        ? labels.map((label) => {
+            switch (label) {
+              case 'Herbivorous':
+                return '#4A765C';
+              case 'Carnivorous':
+                return '#F17710';
+              case 'Omnivorous':
+                return '#5A3725';
+              default:
+                return '#094074';
+            }
+          })
+        : [
+            '#4A765C',
+            '#F17710',
+            '#5A3725',
+            '#094074',
+            '#BFAB25',
+            '#706993',
+            '#F95D6A',
+            '#A05195EE',
+            '#0BB4FF',
+          ];
 
-  const backgroundColors: string[] =
-    chartType === 'diet' ? labels.map((label) => {
-          switch (label) {
-            case 'Herbivorous':
-              return '#4A765C';
-            case 'Carnivorous':
-              return '#F17710';
-            case 'Omnivorous':
-              return '#5A3725';
-            default:
-              return '#094074';
-          }
-        }) : 
-          ['#4A765C', '#F17710', '#5A3725',
-          '#094074', '#BFAB25', '#706993',
-          '#F95D6A','#A05195EE', '#0BB4FF'];
-    
     return {
       labels: labels,
       datasets: [
@@ -120,10 +129,11 @@ export default function ChartsPage() {
     };
   };
 
+  const processDataDiet = (data: (string | undefined)[]) =>
+    processData(data, 'diet');
+  const processDataType = (data: (string | undefined)[]) =>
+    processData(data, 'type');
 
-  const processDataDiet = (data: (string | undefined)[]) => processData(data, 'diet');
-  const processDataType = (data: (string | undefined)[]) => processData(data, 'type');
-  
   /* the options for the chart */
   const getChartOptions = () => ({
     plugins: {
@@ -207,22 +217,36 @@ export default function ChartsPage() {
         <div className={styles.chartDiv}>
           <h2>Diet</h2>
           <div className={styles.chart}>
-            <Pie
-              data={processDataDiet(dietData)}
-              options={getChartOptions()}
-              className={styles.chartStyle}
-            />
+            {dinos.length === 0 ? (
+              <div className={styles.dinoNotFound}>
+                <img src={notFoundDiet} alt="Not found" />
+                <p>No dinosaur found</p>
+              </div>
+            ) : (
+              <Pie
+                data={processDataDiet(dietData)}
+                options={getChartOptions()}
+                className={styles.chartStyle}
+              />
+            )}
           </div>
         </div>
 
         <div className={styles.chartDiv}>
           <h2>Type of Dinosaur</h2>
           <div className={styles.chart}>
-            <Doughnut
-              data={processDataType(typeData)}
-              options={getChartOptions()}
-              className={styles.chartStyle}
-            />
+            {dinos.length === 0 ? (
+              <div className={styles.dinoNotFound}>
+                <img src={notFoundType} alt="Not found" />
+                <p>Z...ZZZ...ZZZZ</p>
+              </div>
+            ) : (
+              <Doughnut
+                data={processDataType(typeData)}
+                options={getChartOptions()}
+                className={styles.chartStyle}
+              />
+            )}
           </div>
         </div>
       </div>

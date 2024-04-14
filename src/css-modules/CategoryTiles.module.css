@@ -25,7 +25,7 @@
 
 .activeTile {
   background-color: var(--dino-green);
-  color: white;
+  color: white !important;
 }
 
 .activeTile .icon {

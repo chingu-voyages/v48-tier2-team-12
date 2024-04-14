@@ -34,6 +34,7 @@ const router = createBrowserRouter([
       {
         path: '/charts',
         element: <ChartsPage />,
+        loader: layoutLoader,
       },
     ],
   },

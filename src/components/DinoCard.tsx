@@ -1,7 +1,8 @@
-import { Dino } from "../interfaces/dino.interface";
-import styles from "../css-modules/DinoCard.module.css";
-import { Link } from "react-router-dom";
-import emptyStateImg from "../assets/no-image.svg";
+import { Dino } from '../interfaces/dino.interface';
+import styles from '../css-modules/DinoCard.module.css';
+import { Link } from 'react-router-dom';
+import emptyStateImg from '../assets/no-image.svg';
+
 export function DinoCard(props: Dino) {
   return (
     <Link to={`/dino/${props.id}`} className={styles.smallCard}>
@@ -10,7 +11,7 @@ export function DinoCard(props: Dino) {
         src={props.imageSrc}
         alt={
           props.imageSrc === emptyStateImg
-            ? "No Image Discovered Yet"
+            ? 'No Image Discovered Yet'
             : `image of ${props.name}`
         }
       />

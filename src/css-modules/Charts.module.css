@@ -21,14 +21,29 @@
 .chart {
   background-color: #fff;
   max-width: 630px;
-  box-shadow: -5px 5px 10px 0px #4A765C33;
+  box-shadow: -5px 5px 10px 0px #4a765c33;
   border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .chartStyle {
   width: 100%;
 }
 
+.dinoNotFound {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.dinoNotFound p {
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+}
 
 /* FILTER */
 .filter {
@@ -109,12 +124,11 @@
   text-align: center;
 }
 
-
 @media only screen and (min-width: 800px) {
   .chartsContainer {
     flex-direction: row;
   }
-  .chart{
+  .chart {
     height: 408px;
     width: 631px;
   }
@@ -123,4 +137,3 @@
     width: auto;
   }
 }
-
