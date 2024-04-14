@@ -21,8 +21,8 @@ export function DinoCard(props: Dino) {
         {props.name}
 
         {/* --- FOR TEST ONLY ---- */}
-        <p>Weight: {props.weight}</p>
-        <p>Length: {props.length}</p>
+        {/* <p>Weight: {props.weight}</p>
+        <p>Length: {props.length}</p> */}
         {/* ---------------------- */}
       </div>
     </Link>

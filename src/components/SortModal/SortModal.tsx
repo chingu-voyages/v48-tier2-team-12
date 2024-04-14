@@ -1,4 +1,4 @@
-import "../../css-modules/SortModal.css";
+import styles from "../../css-modules/SortModal.module.css";
 import { RadioButton } from "./RadioButton";
 
 interface ModalProps {
@@ -12,16 +12,17 @@ export function SortModal(props: ModalProps) {
   return (
     <>
       {props.isOpen && (
-        <div className="modal-overlay" onClick={props.toggleModalVisibility}>
-          <div onClick={(e) => e.stopPropagation()} className="modal-box">
-            <h1>Order by</h1>
-            <form action="" className="form-control">
+        <div className={styles["modal-overlay"]} onClick={props.toggleModalVisibility}>
+          <div onClick={(e) => e.stopPropagation()} className={styles["modal-box"]}>
+            <div className={styles.grayLine}></div>
+            <h3 className={styles.sortTitle}>Sort by</h3>
+            <form action="" className={styles["form-controls"]} >
               <RadioButton
                 toggleModalVisibility={props.toggleModalVisibility}
                 currentSortCriteria={props.currentSortCriteria}
                 handleSortChange={props.handleSortChange}
                 label="Weight: Low to High"
-                value="1"
+                value="Weight: Low to High"
               />
 
               <RadioButton
@@ -29,7 +30,7 @@ export function SortModal(props: ModalProps) {
                 currentSortCriteria={props.currentSortCriteria}
                 handleSortChange={props.handleSortChange}
                 label="Weight: High to Low"
-                value="2"
+                value="Weight: High to Low"
               />
 
               <RadioButton
@@ -37,7 +38,7 @@ export function SortModal(props: ModalProps) {
                 currentSortCriteria={props.currentSortCriteria}
                 handleSortChange={props.handleSortChange}
                 label="Length: Low to High"
-                value="3"
+                value="Length: Low to High"
               />
 
               <RadioButton
@@ -45,23 +46,23 @@ export function SortModal(props: ModalProps) {
                 currentSortCriteria={props.currentSortCriteria}
                 handleSortChange={props.handleSortChange}
                 label="Length: High to Low"
-                value="4"
+                value="Length: High to Low"
               />
 
               <RadioButton
                 toggleModalVisibility={props.toggleModalVisibility}
                 currentSortCriteria={props.currentSortCriteria}
                 handleSortChange={props.handleSortChange}
-                label="Name A-Z"
-                value="5"
+                label="Name: A-Z"
+                value="Name: A-Z"
               />
 
               <RadioButton
                 toggleModalVisibility={props.toggleModalVisibility}
                 currentSortCriteria={props.currentSortCriteria}
                 handleSortChange={props.handleSortChange}
-                label="Name Z-A"
-                value="6"
+                label="Name: Z-A"
+                value="Name: Z-A"
               />
             </form>
           </div>

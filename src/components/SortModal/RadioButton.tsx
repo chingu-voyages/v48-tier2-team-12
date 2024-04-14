@@ -1,4 +1,5 @@
 import { ChangeEvent } from "react";
+import styles from "../../css-modules/SortModal.module.css";
 
 interface RadioButtonProps {
   toggleModalVisibility: () => void;
@@ -17,16 +18,16 @@ export function RadioButton(props: RadioButtonProps) {
 
   const handleClick = () => {
     props.toggleModalVisibility();
-    props.handleSortChange("1");
+    // props.handleSortChange("1");
   };
 
   const elementId = "sortOption_" + props.value;
 
   return (
-    <>
-      <label htmlFor={elementId} className="form-control">
+    <div>
+      <label htmlFor={elementId} className={styles.radioContainer}>
         {props.label}
-      </label>
+      
       <input
         type="radio"
         id={elementId}
@@ -38,6 +39,7 @@ export function RadioButton(props: RadioButtonProps) {
           setOptionSelection(e)
         }
       />
-    </>
+      </label>
+    </div>
   );
 }
