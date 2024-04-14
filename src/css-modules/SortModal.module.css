@@ -83,3 +83,47 @@ button:focus {
 button:active {
   color: black;
 }
+
+@media screen and (min-width: 900px) {
+  .modal-overlay {
+    
+    width: 170px;
+    height: 180px;
+    position: absolute;
+    background: white;
+    display: block;
+    top: 60px;
+    right: 0;
+    margin: 0;
+    
+  }
+
+  .modal-box {
+    background: white;
+    padding:  8px 5px; 
+    width: 170px;
+    height: 180px;
+    border: 1px solid var(--orange);
+
+  }
+  .radioContainer {
+    font-size: 12px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #E8E8E8;
+  }
+  .radioContainer > label {
+    text-align: right;
+  }
+
+  .radioContainer:hover, 
+  .radioContainer:active {
+    font-weight: 700;
+  }
+
+  .sortTitle, 
+  .grayLine , 
+  .radioContainer input {
+    display: none;
+  }
+
+}
