@@ -6,8 +6,7 @@ export default function Map(props: {
   firstCountry: string | undefined;
   secondCountry: string | undefined;
 }): JSX.Element {
-  const [firstLoading, setFirstLoading] = useState<boolean>(false);
-  const [secondLoading, setSecondLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   //coordinates
   const [latitude, setLatitude] = useState<number>();
@@ -23,8 +22,8 @@ export default function Map(props: {
 
   //fetching first country coordinate
   useEffect(() => {
-    const getDinoCoordinate = async () => {
-      setFirstLoading(true);
+    const getDinoCoordinates = async () => {
+      setIsLoading(true);
       if (props.firstCountry != undefined) {
         const res = await fetch(
           `https://api.geoapify.com/v1/geocode/search?text=${props.firstCountry}&apiKey=bd4b266f35c6485b9871b1e4d7ce670d`
@@ -39,15 +38,7 @@ export default function Map(props: {
         setBoxThree(boxThree);
         setBoxFour(boxFour);
       }
-      setFirstLoading(false);
-    };
-    getDinoCoordinate();
-  }, [props.firstCountry]);
 
-  //fetching second country coordinate
-  useEffect(() => {
-    const getSecondDinoCoordinate = async () => {
-      setSecondLoading(true);
       if (props.secondCountry != undefined) {
         const res = await fetch(
           `https://api.geoapify.com/v1/geocode/search?text=${props.secondCountry}&apiKey=bd4b266f35c6485b9871b1e4d7ce670d`
@@ -56,10 +47,11 @@ export default function Map(props: {
         setSecondLatitude(data.features[0].properties.lat);
         setSecondLongitude(data.features[0].properties.lon);
       }
-      setSecondLoading(false);
+      setIsLoading(false);
     };
-    getSecondDinoCoordinate();
-  }, [props.secondCountry]);
+
+    getDinoCoordinates();
+  }, [props.firstCountry, props.secondCountry]);
 
   const dinoMap: string = `https://maps.geoapify.com/v1/staticmap?
 style=osm-bright-grey
@@ -74,7 +66,7 @@ ${
 
   return (
     <div className={styles.DinoPageContainer}>
-      {firstLoading || secondLoading ? (
+      {isLoading ? (
         <div className={styles.loading}>
           <RotatingLines
             strokeColor="grey"
@@ -82,11 +74,11 @@ ${
             animationDuration="3"
             width="50"
             visible={true}
-          />{' '}
+          />
         </div>
       ) : (
         <div className={styles.mapFrame}>
-          <img className={styles.mapImage} src={dinoMap} alt="location map" />
+          <img className={styles.mapImage} src={dinoMap} alt="Location" />
         </div>
       )}
     </div>
