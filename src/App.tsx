@@ -20,6 +20,7 @@ const router = createBrowserRouter([
       {
         path: '/searchresults',
         element: <SearchResults />,
+        loader: layoutLoader,
       },
       {
         path: '/dino/:id',
