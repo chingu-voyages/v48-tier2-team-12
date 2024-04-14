@@ -65,12 +65,7 @@ export function DinoCardGrid({
         break;
       }
       default: {
-        // by default order by Name Ascending ( Order Criteria = 5 --> Name: A-Z)
         console.log('error')
-        // if (d1.name && d2.name && d1.name > d2.name) return 1;
-        // if (d1.name && d2.name && d1.name < d2.name) return -1;
-        // return 0;
-        // break;
       }
     } 
     //This function needed a default return statement

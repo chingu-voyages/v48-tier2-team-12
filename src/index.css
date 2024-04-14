@@ -30,7 +30,7 @@ a {
 }
 
 .main-container {
-  margin: 0 auto 78px;
+  margin: 0 auto 90px;
   background-color: var(--container-color);
 }
 
@@ -39,14 +39,9 @@ a {
   padding-top: 2.5rem;
 }
 
-@media screen and (min-width: 550px) {
-  .lineBreak {
-    display: block;
-    margin-bottom: 15px;
-  }
-  .lineBreak:last-of-type {
-    display: inline;
-  }
+.lineBreak {
+  display: block;
+  height: 1em;
 }
 
 /* CONTAINER */

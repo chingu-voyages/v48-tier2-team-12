@@ -71,7 +71,7 @@ export default function DinoPage() {
             {dino.foundIn}
           </p>
 
-          <div className={styles.descriptionBox}>
+          <div className={styles.taxonomyBox}>
             <p className={styles.boldCatTitle}>Taxonomy:</p>
             <p className={styles.description}>{dino.taxonomy}</p>
           </div>
@@ -84,7 +84,7 @@ export default function DinoPage() {
             <span className={styles.boldCatTitle}>Type of Species: </span>
             <span className={styles.capitalize}>{dino.typeSpecies}</span>
           </p>
-
+        </div>
           <div className={styles.descriptionBox}>
             <p className={styles.boldCatTitle}>Description:</p>
             <p 
@@ -97,7 +97,7 @@ export default function DinoPage() {
               }}>
             </p>
           </div>
-        </div>
+        
 
         {/* MAP: Now sending both countries */}
         <Map

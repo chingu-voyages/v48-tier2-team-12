@@ -36,15 +36,16 @@
   overflow: auto;
 }
 
-.single-chip {
+.single-chip, .single-chip-small {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 2px;
-  min-width: 100px;
-
+  /* min-width: 100px; */
   background: #fff;
+  min-width: 107px;
+  height: 72px;
   padding: 0.3rem;
   border-radius: 10px;
   border: 1px solid var(--dino-green);
@@ -52,6 +53,16 @@
   box-shadow: -5px 5px 10px 0px #4a765c40;
 
   transition: all 250ms;
+}
+
+.single-chip {
+  min-width: 107px;
+  height: 72px;
+}
+
+.single-chip-small {
+  min-width: 92px;
+  height: 62px;
 }
 
 .single-chip-active {
@@ -76,7 +87,7 @@
 
 .bold-text {
   color: black;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 10px;
   padding: 1rem;
   text-align: center;
