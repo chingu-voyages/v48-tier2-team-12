@@ -8,7 +8,6 @@
 
   position: fixed;
   top: 0;
-  left: 0;
 
   display: flex;
   justify-content: center;
@@ -119,9 +118,6 @@ margin: -72px -50px;
     font-size: 12px;
     padding-bottom: 5px;
     border-bottom: 1px solid #E8E8E8;
-  }
-  .radioContainer > label {
-    text-align: right;
   }
 
   .radioContainer:hover, 
