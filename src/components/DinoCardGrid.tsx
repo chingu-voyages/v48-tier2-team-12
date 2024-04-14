@@ -104,7 +104,7 @@ export function DinoCardGrid({
           <img src={sort} alt="Sort icon" />
           Sort by: {currentSortCriteria}
         </button>
-      </div>
+      
 
       <SortModal
         isOpen={isOpen}
@@ -112,7 +112,7 @@ export function DinoCardGrid({
         currentSortCriteria={currentSortCriteria}
         handleSortChange={handleSortChange}
       />
-
+      </div>
       <div className={classes.smallCardGrid}>
         {dinos
           .sort(sortFunction)
