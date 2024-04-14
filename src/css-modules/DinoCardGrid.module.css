@@ -1,10 +1,7 @@
 .smallCardGrid {
   display: grid;
-  /* prior: auto fit 2 x 191px or 1fr */
-  /* calc(calc(100vw - 48px)/2) calc(calc(100vw - 48px)/2); */
   grid-template-columns: repeat(auto-fill, minmax(143px, 1fr));
   gap: 16px;
-  /* margin: 0 auto; */
 }
 
 .smallCardGridTitleContainer{
@@ -17,7 +14,6 @@
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
-
   margin: 30px 0 16px;
 }
 
@@ -34,11 +30,14 @@
     font-size: 24px;
     margin: 30px 0 20px;
   }
+
   .smallCardGrid {
     grid-template-columns: repeat(auto-fill, minmax(259px, 1fr));
     gap: 20px;
   }
+}
 
+@media screen and (min-width: 900px) {
   .smallCardGridTitleContainer {
     position: relative;
   }

@@ -8,7 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: end;
-  margin: -79px -16px;
+  margin: -72px -16px;
 }
 
 .modal-box {
@@ -77,9 +77,15 @@ button:active {
   color: black;
 }
 
+
+@media screen and (min-width: 650px) {
+  .modal-overlay {
+margin: -72px -50px;
+  }
+}
+
 @media screen and (min-width: 900px) {
   .modal-overlay {
-    
     width: 170px;
     height: 180px;
     position: absolute;
@@ -88,7 +94,7 @@ button:active {
     top: 60px;
     right: 0;
     margin: 0;
-    
+    border-radius: 0 0 10px 10px;
   }
 
   .modal-box {
@@ -96,7 +102,8 @@ button:active {
     padding:  8px 5px; 
     width: 170px;
     height: 180px;
-    border: 1px solid var(--orange);
+    border: 2px solid var(--orange);
+    border-radius: 0 0 10px 10px;
 
   }
   .radioContainer {
