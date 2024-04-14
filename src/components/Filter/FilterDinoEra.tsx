@@ -15,7 +15,7 @@ const FilterDinoEra = () => {
           return (
             <div
               key={title}
-              className={`${styles['single-chip']} ${
+              className={`${styles['single-chip-small']} ${
                 isActive ? styles['single-chip-active'] : ''
               }`}
               onClick={() => handleWhenLived(title)}
