@@ -1,6 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Article } from '../interfaces/article.interface';
-import { fetchNews, isTimeToFetch, pickOnlyFewNews, now } from '../utils/news-api';
+import {
+  fetchNews,
+  isTimeToFetch,
+  pickOnlyFewNews,
+  now,
+} from '../utils/news-api';
 import { NewsCard, NewsErrorHandling } from './NewsCard';
 import styles from '../css-modules/NewsCardGrid.module.css';
 
@@ -10,10 +15,11 @@ export function NewsCardGrid() {
   useEffect(() => {
     // Define an async function inside the effect for fetching and storing news
     const fetchAndStoreNews = async () => {
-      if (isTimeToFetch('dinopediaNewsTimestamp')) { // If it's time to fetch
+      if (isTimeToFetch('dinopediaNewsTimestamp')) {
+        // If it's time to fetch
         const response = await fetchNews();
         const news = response.articles;
-        localStorage.setItem("dinopediaNews", JSON.stringify(news));
+        localStorage.setItem('dinopediaNews', JSON.stringify(news));
         localStorage.setItem('dinopediaNewsTimestamp', now.toString());
         setArticles(news);
       }
@@ -33,15 +39,13 @@ export function NewsCardGrid() {
     <div className={styles.newsContainer}>
       <div className={styles.newsCardGridLabel}>News</div>
       <div className={styles.newsCardGrid}>
-        <div>
-          {articles ? (
-            pickOnlyFewNews(articles).map((article, index) => (
-              <NewsCard key={index} {...article} />
-            ))
-          ) : (
-            <NewsErrorHandling />
-          )}
-        </div>
+        {articles ? (
+          pickOnlyFewNews(articles).map((article, index) => (
+            <NewsCard key={index} {...article} />
+          ))
+        ) : (
+          <NewsErrorHandling />
+        )}
       </div>
     </div>
   );

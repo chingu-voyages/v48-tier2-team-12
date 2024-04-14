@@ -1,0 +1,4 @@
+const defaultDescription =
+  "Dinosaurs, ancient reptiles that roamed the Earth for millions of years during the Mesozoic Era, varied greatly in size, shape, and behavior, from small, swift predators to massive, herbivorous giants. Adapting to diverse environments across the globe, they played vital roles in shaping prehistoric ecosystems. Modern birds are their only surviving descendants, evolving from a lineage of feathered theropods. The extinction of non-avian dinosaurs, often linked to the Cretaceous-Paleogene extinction event, resulted from a combination of factors including asteroid impacts, volcanic eruptions, and climate change. Paleontology, the study of dinosaurs, continues to uncover new insights into their biology and evolution, shedding light on Earth's dynamic history and the extraordinary diversity of life that has inhabited our planet over millions of years.";
+
+export default defaultDescription;

@@ -1,0 +1,17 @@
+.infoContainer {
+  font-size: 14px;
+
+  display: grid;
+  grid-template-columns: max-content auto;
+  gap: 0.5rem;
+}
+
+.boldCatTitle {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
