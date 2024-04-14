@@ -16,6 +16,7 @@
   min-height: calc(100vh - 62px);
   max-height: 90%;
 
+
   padding: 0.5rem 0;
 
   background: white !important;
@@ -52,4 +53,5 @@
   .filter-modal {
     scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
   }
+
 }

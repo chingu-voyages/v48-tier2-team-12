@@ -19,13 +19,11 @@
   gap: 1rem;
 }
 
-.chartDiv h2 {
-  text-align: left;
-}
-
 .chart {
   background-color: #fff;
   max-width: 630px;
+  box-shadow: -5px 5px 10px 0px #4A765C33;
+  border-radius: 10px;
 }
 
 .chartStyle {

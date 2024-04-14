@@ -56,6 +56,8 @@
 
 @media screen and (min-width: 900px) {
   .navbar-container {
+    /* background-image: url('../assets/nav-bar-desktop.svg');
+    height: 194px; */
     justify-content: space-between;
   }
 

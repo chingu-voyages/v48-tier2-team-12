@@ -2,7 +2,9 @@
   margin: 0;
   background-color: var(--container-color);
 }
-
+.dinoContainer:first-child  {
+  background-color: red;
+}
 .DinoPageTitle {
   font-weight: 700;
   font-size: 20px;
@@ -32,7 +34,7 @@
   text-transform: capitalize;
 }
 
-.descriptionBox {
+.descriptionBox, .descriptionBox {
   display: flex;
   column-gap: 4px;
 }
@@ -54,8 +56,10 @@
 }
 
 .mapImg {
+  display: flex;
+  margin: 10px auto 0;
   margin-top: 10px;
-  max-width: 100%;
+  min-width: 100%;
   border-radius: 10px;
   box-shadow: -5px 5px 10px 0px #4A765C33;
 
@@ -71,8 +75,7 @@
 
 @media screen and (min-width: 550px) {
   .DinoMainImg {
-    width: fit-content;
-    /* width: moz-fit-content; // ToDo: Verify on Firefox */
+    width: 100%;
     max-height: 516px;
   }
 
@@ -82,10 +85,42 @@
 
   .info p{
     font-size: 16px;
-    margin-bottom: 16px;
+    /* margin-bottom: 16px; */
   }
   .mapImg{
-    margin-top: 36px;
-    width: 100%;
+    margin: 36px auto 0;
+    /* width: 100%;
+    height: auto; */
   }
+}
+@media screen and (min-width: 1024px) {
+  .dinoContainer > * {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas: 
+            "title title"
+            "img info"
+            "desc desc"
+            "map map";
+    column-gap: 24px;
+  }
+  .DinoPageTitle {grid-area: title;}
+  .DinoMainImg {grid-area: img;}
+
+  .info p{
+    grid-area: info;
+    margin-bottom: 25px;
+    font-size: 16px;
+  }
+  .descriptionBox {
+    grid-area: desc;
+    font-size: 16px;}
+
+  .boldCatTitle, 
+  .descriptionBox, 
+  .info p {
+    font-size: 16px;
+  }
+  .mapImg {grid-area: map;}
 }

@@ -97,6 +97,11 @@
     margin: 0 0 auto;
     font-size: 15px;
     line-height: 18px;
+    max-height: 260px;
+    display: block;
+    overflow: auto;
+/* white-space: nowrap; */
+    
   }
 
   .learn-more__btn {
