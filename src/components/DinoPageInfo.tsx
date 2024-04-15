@@ -6,13 +6,18 @@ const DinoPageInfo = ({
   capitalize,
 }: {
   title: string;
-  value: string | undefined;
+  value: string;
   capitalize?: boolean;
 }) => {
   return (
     <div className={`${styles.infoContainer}`}>
       <div className={styles.boldCatTitle}>{title}:</div>
-      <div className={capitalize ? styles.capitalize : ''}>{value}</div>
+      <div className={capitalize ? styles.capitalize : ''}
+          dangerouslySetInnerHTML={{
+          __html: value?.replace(/\. /g, ". <p class='lineBreak'></p>")
+            .split('.')
+            .join('. ')
+        }}></div>
     </div>
   );
 };
