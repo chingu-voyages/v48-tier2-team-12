@@ -58,7 +58,7 @@ export default function DinoPage() {
         <div className={styles.infoContainer}>
           <DinoPageInfo
             title="Type of Dinosaur"
-            value={typeOfDinosaur}
+            value={typeOfDinosaur!}
             capitalize
           />
           <DinoPageInfo

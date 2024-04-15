@@ -14,7 +14,7 @@ export default function DinosaurOfTheDay() {
 
   const adaptDescCharNumber = (): void => {
     if (windowWidth < 550) {
-      setDescCharNumber(90);
+      setDescCharNumber(88);
     }
     else if (windowWidth <= 1024) {
       setDescCharNumber(650);
