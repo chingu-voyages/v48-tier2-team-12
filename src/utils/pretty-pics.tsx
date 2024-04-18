@@ -219,32 +219,32 @@ export const altPics :Pretty[] = [
     },
     {
         title: 'bambiraptor',
-        id: 1,
+        id: 40,
         img: bambiraptor,
     },
     {
         title: 'guanlong',
-        id: 2,
+        id: 126,
         img: guanlong,
     },
     {
         title: 'microraptor',
-        id: 3,
+        id: 181,
         img: microraptor,
     },
     {
         title: 'psittacosaurus',
-        id: 4,
+        id: 234,
         img: psittacosaurus,
     },
     {
         title: 'stegoceras',
-        id: 5,
+        id: 271,
         img: stegoceras,
     },
     {
         title: 'scutellosaurus',
-        id: 6,
+        id: 253,
         img: scutellosaurus,
     }
     
