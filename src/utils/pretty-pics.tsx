@@ -34,6 +34,12 @@ import barosaurus from '../assets/haghani/barosaurus.jpg';
 import achillobatorSmall from '../assets/haghani/achillobator-small.jpg';
 import amargasaurusSmall from '../assets/haghani/amargasaurus-small.jpg';
 import alamosaurus from '../assets/haghani/alamosaurus.jpg';
+import bambiraptor from '../assets/haghani/bambiraptor.jpg';
+import guanlong from '../assets/haghani/guanlong.jpg';
+import microraptor from '../assets/haghani/microraptor.jpg';
+import psittacosaurus from '../assets/haghani/psittacosaurus.jpg';
+import stegoceras from '../assets/haghani/stegoceras.jpg';
+import scutellosaurus from '../assets/haghani/scutellosaurus.jpg';
 
 type Pretty = {
     title: string;
@@ -211,6 +217,35 @@ export const altPics :Pretty[] = [
         id: 9,
         img: alamosaurus,
     },
-    
+    {
+        title: 'bambiraptor',
+        id: 1,
+        img: bambiraptor,
+    },
+    {
+        title: 'guanlong',
+        id: 2,
+        img: guanlong,
+    },
+    {
+        title: 'microraptor',
+        id: 3,
+        img: microraptor,
+    },
+    {
+        title: 'psittacosaurus',
+        id: 4,
+        img: psittacosaurus,
+    },
+    {
+        title: 'stegoceras',
+        id: 5,
+        img: stegoceras,
+    },
+    {
+        title: 'scutellosaurus',
+        id: 6,
+        img: scutellosaurus,
+    }
     
 ]
